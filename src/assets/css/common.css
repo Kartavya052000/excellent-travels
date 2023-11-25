@@ -1,0 +1,117 @@
+.innerSecBgHeader {
+    padding: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #3045FD;
+    color: #fff;
+}
+
+.innerSec {
+    padding: 6rem 1rem;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+.innerSec h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+
+/** Slick Arrows CSS **/
+
+.slick-arrow {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+}
+
+.slick-prev {
+    background-color: #3045FD !important;
+}
+
+.slick-next {
+    background-color: #000 !important;
+}
+
+.slick-arrow:before {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.slick-prev:before {
+    content: '\276E';
+}
+
+.slick-next:before {
+    content: '\276F';
+}
+
+.slick-arrow:hover {
+    opacity: 0.8;
+}
+
+
+
+
+/** Responsive CSS starts here **/
+
+@media (max-width: 1199.98px) {
+
+    .innerSecBgHeader h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .innerSecBgHeader h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .innerSec h1 {
+        font-size: 26px;
+    }
+
+    .innerSecBgHeader h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    .innerSec {
+        padding: 4rem 1rem;
+    }
+
+    .innerSec h1 {
+        font-size: 23px;
+    }
+
+    .innerSecBgHeader h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 475.98px) {
+    .innerSec h1 {
+        font-size: 20px;
+    }
+
+    .innerSecBgHeader h2 {
+        font-size: 18px;
+    }
+}

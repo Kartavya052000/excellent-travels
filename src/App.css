@@ -1,38 +1,365 @@
-.App {
-  text-align: center;
+@import url(./assets/css/basic.css);
+@import url(./assets/css/widgets.css);
+@import url(./assets/css/common.css);
+@import url(./components/ui/css/style.css);
+@import url(./assets/css/home.css);
+
+
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html, body {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Mulish';
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: #000 !important;
+  transition: all 0.2s ease-in;
+}
+
+ul, ol  {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a, a:active, a:visited, a:focus {
+  text-decoration: none !important;
+  color: #000;
+}
+
+p {
+  margin: 0;
+}
+
+/** Header CSS **/
+
+header.mainHeader {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.innerHeader {
+  background-color: #3045FD;
+  padding: 10px 0;
+}
+
+.innerHeaderWrap {
   display: flex;
-  flex-direction: column;
+  display: -ms-flexbox;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
+  font-size: 14px;
+  text-transform: capitalize;
 }
 
-.App-link {
-  color: #61dafb;
+.mainHeader .header_wrap {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.mainHeader .logo img {
+  max-width: 130px;
+}
+
+.hamburger {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #3045fd;
+  position: relative;
+  z-index: 2;
+}
+
+.hamburger span.bar {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+}
+
+.hamburger span.bar:before, .hamburger span.bar:after {
+  content: '';
+  height: 2px;
+  width: 20px;
+  position: absolute;
+  background: inherit;
+  transition: all 0.3s ease;
+}
+
+.hamburger span.bar:before {
+    top:-8px;
+}
+
+.hamburger span.bar:after {
+    top: 8px;
+}
+
+.showMenu .hamburger span.bar {
+  transform: rotate(135deg);
+}
+
+.showMenu .hamburger span.bar:before, .showMenu .hamburger span.bar:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+ul.social_wrap {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+ul.social_wrap li {
+  margin: 0 10px;
+}
+
+ul.social_wrap li a {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+ul.social_wrap li a span {
+  display: block;
+  color: #3045FD;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+ul.social_wrap li.login a {
+  background-color: #F3F4FF;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 15px;
+}
+
+ul.social_wrap li.login a:hover {
+  color: #3045FD;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+ul.social_wrap li.login a img {
+  width: 40px;
+  height: 40px;
+}
+
+ul.social_wrap li:not(.login) img {
+  transition: all 0.3s ease;
+}
+
+ul.social_wrap li:not(.login) a:hover img {
+  transform: rotateY(360deg);
+}
+
+.navigationWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.showMenu .navigationWrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navigationWrapper nav {
+  background: #182733d9;
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.5s ease;
+}
+
+.showMenu .navigationWrapper nav {
+  transform: scale(1);
+}
+
+.navigationWrapper ul {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+}
+
+.showMenu .navigationWrapper ul {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.navigationWrapper ul li.menu_item {
+  margin: 10px 0;
+}
+
+.navigationWrapper ul li.menu_item a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/** Header CSS Ends here **/
+
+
+/** Footer CSS starts here **/
+
+.footer-sec {
+  background-color: #3045FD;
+  padding: 3rem 0;
+}
+
+.footer-sec .logoWrap img {
+  margin: 0 auto 30px;
+  display: block;
+  width: 180px;
+}
+
+.footer-sec .footerCol_inner {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer-sec .footerCol_inner p {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+ul.social_info {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 20px;
+}
+
+ul.social_info li a {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #22e4ac;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  display: -ms-flexbox;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in;
+}
+
+ul.social_info li a:hover {
+  box-shadow: 0px 0px 10px 10px rgba(255,255,255,0.5);
+  border-color: transparent;
+}
+
+.copyright {
+  background-color: #3045FD;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+/** Responsive CSS starts here **/
+
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 992px) {
+ 
+}
+
+@media (max-width: 991.98px) {
+  
+  .mainHeader .logo img {
+      max-width: 125px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navigationWrapper .dropdown_menu ul li a {
+    margin: 0;
   }
+}
+
+@media (max-width: 767.98px) {
+
+  .mainHeader .logo img {
+      max-width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+
+}
+
+@media (max-width: 575.98px) {
+
+  .mainHeader .logo img {
+      max-width: 110px;
+  }
+
+}
+
+@media (max-width: 475.98px) {
+
 }
