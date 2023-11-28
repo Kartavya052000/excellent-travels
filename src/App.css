@@ -24,9 +24,10 @@ body {
   position: relative;
   overflow-x: hidden;
   font-family: 'Mulish';
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   font-style: normal;
+  line-height: normal;
   color: #000 !important;
   transition: all 0.2s ease-in;
 }
@@ -84,7 +85,7 @@ header.mainHeader {
   max-width: 130px;
 }
 
-.hamburger {
+button.hamburger {
   display: flex;
   display: -ms-flexbox;
   align-items: center;
@@ -110,6 +111,7 @@ header.mainHeader {
   content: '';
   height: 2px;
   width: 20px;
+  left: 0;
   position: absolute;
   background: inherit;
   transition: all 0.3s ease;
@@ -123,13 +125,8 @@ header.mainHeader {
     top: 8px;
 }
 
-.showMenu .hamburger span.bar {
-  transform: rotate(135deg);
-}
-
-.showMenu .hamburger span.bar:before, .showMenu .hamburger span.bar:after {
-    top: 0;
-    transform: rotate(90deg);
+button.hamburger:hover span.bar {
+    background: #3045fd;
 }
 
 ul.social_wrap {
@@ -187,41 +184,13 @@ ul.social_wrap li:not(.login) a:hover img {
 }
 
 .navigationWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  opacity: 0;
   overflow: hidden;
   display: flex;
   display: -ms-flexbox;
   align-items: center;
   justify-content: center;
   z-index: 1;
-}
-
-.showMenu .navigationWrapper {
-  visibility: visible;
-  opacity: 1;
-}
-
-.navigationWrapper nav {
-  background: #182733d9;
-  border-radius: 50%;
-  width: 200vw;
-  height: 200vw;
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0);
-  transition: all 0.5s ease;
-}
-
-.showMenu .navigationWrapper nav {
-  transform: scale(1);
+  margin-top: 40px;
 }
 
 .navigationWrapper ul {
@@ -230,12 +199,6 @@ ul.social_wrap li:not(.login) a:hover img {
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  opacity: 0;
-}
-
-.showMenu .navigationWrapper ul {
-  opacity: 1;
-  transition: opacity 0.4s ease 0.4s;
 }
 
 .navigationWrapper ul li.menu_item {
@@ -243,72 +206,94 @@ ul.social_wrap li:not(.login) a:hover img {
 }
 
 .navigationWrapper ul li.menu_item a {
-  color: #fff;
-  font-size: 1.5rem;
+  color: #000;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
 /** Header CSS Ends here **/
 
+/** InnerPage Header CSS **/
+
+.innerPg_header {
+  padding: 1rem 0;
+  background-color: #3045FD;
+  color: #fff;
+}
+
+.innerPg_header h2 {
+  margin: 15px 0;
+  text-align: center;
+}
+
 
 /** Footer CSS starts here **/
 
 .footer-sec {
-  background-color: #3045FD;
-  padding: 3rem 0;
+    background-color: #3045FD;
+    padding: 3rem 0;
+}
+
+.footer-sec .logoWrap {
+    text-align: center;
+}
+
+.footer-sec .logoWrap a {
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .footer-sec .logoWrap img {
-  margin: 0 auto 30px;
-  display: block;
-  width: 180px;
+    margin: 0 auto 30px;
+    display: block;
+    width: 180px;
 }
 
 .footer-sec .footerCol_inner {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .footer-sec .footerCol_inner p {
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
 }
 
 ul.social_info {
-  display: flex;
-  display: -ms-flexbox;
-  align-items: center;
-  justify-content: center;
-  margin: 30px 0;
-  gap: 20px;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 20px;
 }
 
 ul.social_info li a {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #22e4ac;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  display: -ms-flexbox;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #22e4ac;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in;
 }
 
 ul.social_info li a:hover {
-  box-shadow: 0px 0px 10px 10px rgba(255,255,255,0.5);
-  border-color: transparent;
+    box-shadow: 0px 0px 10px 10px rgba(255,255,255,0.5);
+    border-color: transparent;
 }
 
 .copyright {
-  background-color: #3045FD;
-  text-align: center;
-  color: #fff;
-  font-size: 13px;
-  padding: 10px 0;
+    background-color: #3045FD;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 0;
 }
 
 
@@ -337,7 +322,7 @@ ul.social_info li a:hover {
   }
 
   .navigationWrapper .dropdown_menu ul li a {
-    margin: 0;
+      margin: 0;
   }
 }
 
@@ -345,6 +330,10 @@ ul.social_info li a:hover {
 
   .mainHeader .logo img {
       max-width: 120px;
+  }
+
+  .innerPg_header h2 {
+      font-size: 1.5rem;
   }
 }
 
@@ -358,8 +347,12 @@ ul.social_info li a:hover {
       max-width: 110px;
   }
 
-}
+  .innerPg_header {
+      padding: 85px 0 30px 0;
+  }
 
-@media (max-width: 475.98px) {
+  .innerPg_header h2 {
+      font-size: 1rem;
+  }
 
 }

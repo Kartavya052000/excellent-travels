@@ -1,0 +1,19 @@
+.aboutus_sec {
+    padding: 4rem 0;
+}
+
+.aboutus_sec .custom_row {
+    align-items: center;
+}
+
+.aboutus_sec .about_cont {
+    font-size: 14px;
+    color: #666;
+}
+
+.aboutus_sec .about_cont::first-letter {
+    color: #3045FD;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
+}

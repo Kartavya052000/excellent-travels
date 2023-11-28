@@ -9,7 +9,9 @@ const Footer = () => {
         <div className='custom-container'>
             <div className='footerCol_inner'>
                 <div className='logoWrap'>
-                    <img src={logoWhite} alt='Xcellent Travels' />
+                    <a href='/' title='Xcellent Travels'>
+                      <img src={logoWhite} alt='Xcellent Travels' />
+                    </a>
                 </div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <ul className='social_info'>

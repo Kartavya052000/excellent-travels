@@ -178,6 +178,15 @@
     margin-right: -15px;
   }
 
+  .custom_col-3, .custom_col-6, .leftCol, .rightCol, .imgCol, .cont_Col {
+    padding: 0 15px;
+  }
+
+  .custom_col-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+
   .imgCol, .cont_Col {
       flex: 0 0 48%;
       max-width: 48%;

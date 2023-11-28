@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Drawer, ButtonToolbar, Button, Placeholder, Nav } from 'rsuite';
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import phone from '../assets/images/phone.svg';
@@ -7,10 +9,10 @@ import user from '../assets/images/user.svg';
 
 const Header = () => {
 
-    const [active, setActive] = useState(false);
+    const [open, setOpen] = React.useState(false);
     return (
         <>
-            <header className={`mainHeader ${active ? 'showMenu' : ''}`}>
+            <header className='mainHeader'>
                 <div className='innerHeader'>
                     <div className='custom-container'>
                         <div className='innerHeaderWrap'>
@@ -51,25 +53,35 @@ const Header = () => {
                                 </a>
                             </li>
                         </ul>
-                        <div className='hamburger' onClick={() => setActive(!active)}>
-                            <span className='bar'></span>
-                        </div>
+                        <ButtonToolbar>
+                            <Button className='hamburger' onClick={() => setOpen(true)}>
+                                <span className='bar'></span>
+                            </Button>
+                        </ButtonToolbar>
+
+                        <Drawer size='xs' placement='right' backdrop='true' open={open} onClose={() => setOpen(false)}>
+                            <Drawer.Body>
+                            <Nav className='navigationWrapper'>
+                            <ul className='nav_menu header_menu'>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/"><span data-hover="Home">Home</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/about"><span data-hover="About">About</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/"><span data-hover="Booking">Booking</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
+                                </li>
+                            </ul>
+                            </Nav>
+                            </Drawer.Body>
+                        </Drawer>
                         <div className='navigationWrapper'>
                             <nav>
-                                <ul className='nav_menu header_menu'>
-                                    <li className='menu_item linkEffect'>
-                                        <Link to="/"><span data-hover="Home">Home</span></Link>
-                                    </li>
-                                    <li className='menu_item linkEffect'>
-                                        <Link to="/"><span data-hover="About">About</span></Link>
-                                    </li>
-                                    <li className='menu_item linkEffect'>
-                                        <Link to="/"><span data-hover="Booking">Booking</span></Link>
-                                    </li>
-                                    <li className='menu_item linkEffect'>
-                                        <Link to="/"><span data-hover="Contact">Contact</span></Link>
-                                    </li>
-                                </ul>
+                                
                             </nav>
                         </div>
                     </div>

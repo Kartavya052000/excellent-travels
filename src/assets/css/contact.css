@@ -1,0 +1,11 @@
+.contact_sec {
+    padding: 4rem 0;
+}
+
+.contact_inner {
+    padding: 2rem;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+}
