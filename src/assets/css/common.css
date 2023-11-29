@@ -93,6 +93,17 @@
 
 @media (max-width: 575.98px) {
 
+    .slick-arrow {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    .slick-arrow:before {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
     .innerSec {
         padding: 4rem 1rem;
     }

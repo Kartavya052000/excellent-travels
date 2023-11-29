@@ -315,30 +315,105 @@ ul.social_info li a:hover {
  
 }
 
-@media (max-width: 991.98px) {
-  
-  .mainHeader .logo img {
-      max-width: 125px;
+@media (max-width: 1199.98px) {
+
+  ul.social_wrap li a {
+      font-size: 12px;
   }
 
-  .navigationWrapper .dropdown_menu ul li a {
-      margin: 0;
+  ul.social_wrap li a span {
+      font-size: 12px;
+  }
+
+  ul.social_wrap li.login a {
+      font-size: 14px;
+  }
+
+  ul.social_wrap li.login a img {
+      width: 35px;
+      height: 35px;
+  }
+
+  .footer-sec {
+      padding: 2rem 0;
+  }
+
+  .footer-sec .logoWrap img {
+      width: 160px;
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .innerHeader {
+      padding: 8px 0;
+  }
+
+  .innerHeaderWrap {
+      font-size: 12px;
+  }
+  
+  .mainHeader .logo img {
+      max-width: 120px;
+  }
+
+  ul.social_info li a {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+  }
+
+  ul.social_wrap li:not(.login) img {
+      width: 28px;
+  }
+
+  ul.social_wrap li.login a {
+      font-size: 0;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: transparent;
+  }
+  
+  ul.social_wrap li.login a img {
+      width: 42px;
+      height: 42px;
   }
 }
 
 @media (max-width: 767.98px) {
 
+  .mainHeader .header_wrap {
+      padding: 8px 0;
+  }
+
+  .navigationWrapper ul li.menu_item a {
+      font-size: 16px;
+  }
+
   .mainHeader .logo img {
       max-width: 120px;
+  }
+
+  ul.social_wrap li:not(.login) {
+    display: none;
   }
 
   .innerPg_header h2 {
       font-size: 1.5rem;
   }
-}
 
-@media (max-width: 600px) {
+  .footer-sec .logoWrap img {
+      width: 140px;
+  }
 
+  .footer-sec .footerCol_inner p {
+      font-size: 13px;
+  }
+
+  ul.social_info {
+      margin: 20px 0 10px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -347,12 +422,22 @@ ul.social_info li a:hover {
       max-width: 110px;
   }
 
+  ul.social_wrap li.login a img {
+      width: 32px;
+      height: 32px;
+  }
+
   .innerPg_header {
       padding: 85px 0 30px 0;
   }
 
   .innerPg_header h2 {
       font-size: 1rem;
+  }
+
+  .footer-sec .logoWrap img {
+      width: 130px;
+      margin: 0 auto 15px;
   }
 
 }

@@ -136,8 +136,7 @@
       border-radius: 40px !important;
       text-transform: capitalize;
       font-size: 14px;
-      padding: 0.6rem;
-      width: 6rem;
+      padding: 0.6rem 1rem;
   }
 
 
@@ -146,7 +145,6 @@
 /** About and Explore Section CSS **/
 
 .about_sec {
-    padding: 0 0 3rem;
     background-image: url(../images/left_triangle.svg);
     background-repeat: no-repeat;
     background-size: 200px;
@@ -211,6 +209,7 @@
 .testimonial_sec {
     background-color: #f8f8f8;
     padding: 3rem 0;
+    overflow: hidden;
 }
 
 .bordSec {
@@ -321,205 +320,208 @@
   /** Responsive CSS starts here **/
 
   @media (max-width: 1399.98px) {
-    .hero_info h2 {
-        font-size: 55px;
-    }
+    
   }
 
   @media (max-width: 1199.98px) {
+
+    .hero_info > span {
+        font-size: 13px;
+    }
+
     .hero_info h2 {
-        font-size: 35px;
+        font-size: 50px;
     }
 
-    .scrollDown a {
-        font-size: 10px;
+    .bordSec {
+        border-left: 35px solid #3045fd;
     }
 
-    .scrollDown a span {
-        margin: 0 0 15px;
-        font-size: 24px;
-        line-height: 35px;
+    .testimonial_sec .custom-container {
+        padding: 0 15px;
+        margin-left: 25px;
     }
 
-    .clients_inner {
-        margin-top: -40px;
+    .about_sec {
+        background-size: 150px;
+        padding: 5rem 0 2rem;
+    }
+
+    .serv_card {
+        padding: 0.9rem;
+    }
+
+    .testiCont p {
+        font-size: 13px;
+    }
+
+    .testiCont img {
+        width: 70px;
+        top: -40px;
     }
   }
 
   @media (max-width: 991.98px) {
+
     .hero_sec {
-        padding: 3rem 0 7rem;
+        padding: 3rem 0 18rem;
     }
-  
+
+    .hero_info {
+        max-width: 55%;
+    }
+
     .hero_info h2 {
-        font-size: 30px;
+        font-size: 40px;
     }
-  
-    .hero_info p {
-        max-width: 80%;
+
+    .tab_form_sec .react-tabs__tab-panel .tabForm {
+        padding: 40px 15px 15px;
     }
-  
-    .clientsLogo img {
-        width: 90px;
+
+    .tab_form_sec .tabs_inner {
+        top: -280px;
+    }
+
+    form.inline_Form {
+        flex-wrap: wrap;
+    }
+
+    form .formGrp {
+        flex: 0 0 30%;
+    }
+
+    .serv_wrap {
+        gap: 10px;
+        margin: 10px 0 0;
+    }
+
+    .serv_card {
+        padding: 0.5rem;
+        min-width: 4rem;
+    }
+
+    .serv_card i {
+        font-size: 15px;
+    }
+
+    .serv_card span {
+        font-size: 13px;
+    }
+
+    .bordSec {
+        border-left: 15px solid #3045fd;
+        padding-left: 30px;
+    }
+
+    .testimonial_sec .custom-container {
+        margin-left: 20px;
+        max-width: 100%;
+    }
+
+    .faq_sec:before {
+        width: 130px;
+        height: 130px;
     }
   }
 
   @media (max-width: 767.98px) {
-    .hero_info h2 {
-        font-size: 26px;
-    }
-  
-    .hero_info > span {
-        font-size: 12px;
-    }
-  
-    .hero_info p {
-        max-width: 100%;
-        margin: 15px 0 20px;
-    }
-  
-    .clients_inner {
-        padding: 1rem 0;
+
+    .hero_info {
+        max-width: 80%;
     }
 
-    .story_sec {
+    .hero_info h2 {
+        font-size: 30px;
+    }
+
+    .hero_info p {
+        font-size: 13px;
+        margin: 15px 0 20px;
+    }
+
+    .tab_form_sec ul.react-tabs__tab-list li {
+        padding: 5px 10px 10px;
+        font-size: 13px;
+    }
+
+    .explore_sec {
         padding: 2rem 0;
     }
 
-    .story_sec .cont {
-        font-weight: 500;
+    .explore_sec .custom_row {
+        flex-direction: column-reverse;
     }
 
-    .connect_us_sec .formCol {
-        padding: 20px;
+    .testimonial_sec {
+        padding: 2rem 0;
     }
 
-    .connect_us_sec .custom_row {
-        position: relative;
+    .faq_sec {
+        padding: 2rem 0;
     }
 
-    .connect_us_sec .imgCol {
-        flex: 0 0 100%;
-        position: absolute;
-        z-index: -1;
-        padding: 20px;
-        width: 100%;
-        height: 100%;
+    .faq_sec:before {
+        width: 115px;
+        height: 115px;
     }
-
-    .connect_us_sec .formCol {
-        flex: 0 0 80%;
-        margin: 0 auto;
-    }
-
-    .subscribe_sec {
-        padding: 5rem 0 2rem;
-    }
-
-    .subscribe_sec .imgCol {
-        flex: 0 0 40%;
-        max-width: 40%;
-    }
-
-    .subscribe_sec .imgCol img {
-        width: 90%;
-    }
-
-    .subscribe_sec .subsForm {
-        flex: 0 0 60%;
-        max-width: 60%;
-    }
-
-    .subs_inner {
-        padding: 0.5rem 1rem;
-    }
-
-    .subs_inner:after {
-        width: 40px;
-    }
-
-    .story_sec .rightCol {
-        flex: 1 1 58%;
-        max-width: 58%;
-    }
+    
   }
 
-  @media (max-width: 650px) {
-    .scrollDown {
-      display: none;
-    }
-  }
-  
   @media (max-width: 575.98px) {
 
-    .clientsLogo img {
-      width: 85px;
-    }
-
-    .subs_inner:after {
-        content: none;
-    }
-
-    .subscribe_sec .custom_row {
-        flex-direction: column;
-    }
-
-    .subscribe_sec .imgCol {
-        flex: 0 0 60%;
-        max-width: 60%;
-    }
-
-    .subscribe_sec .subsForm {
-        flex: 0 0 100%;
+    .hero_info {
         max-width: 100%;
     }
 
-    .story_sec {
-        padding: 1rem 0;
+    .tab_form_sec ul.react-tabs__tab-list {
+        padding: 10px 10px 0;
+        gap: 20px;
+        margin-left: 25px;
     }
 
-    .story_sec .custom_row {
-        flex-direction: column;
-    }
-
-    .story_sec .leftCol, .story_sec .rightCol {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    .clientsLogo {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .clientsLogo img {
-        margin: 0;
-    }
-
-    .connect_us_sec .imgCol {
-        padding: 0;
-    }
-
-    .connect_us_sec .formCol {
-        flex: 0 0 90%;
+    .explore_sec {
+        background-size: 140px;
     }
   }
 
   @media (max-width: 475.98px) {
-    .hero_info {
-        max-width: 98%;
+
+    .hero_sec {
+        padding: 3rem 0 6rem;
     }
 
-    .hero_info h2 {
-        font-size: 22px;
+    .tab_form_sec {
+        height: unset;
     }
 
-    .hero_info p {
-        margin: 10px 0 15px;
+    .tab_form_sec .tabs_inner {
+        top: -50px;
     }
 
-    .subscribe_sec .imgCol {
+    .tab_form_sec ul.react-tabs__tab-list {
+        gap: 10px;
+        margin-left: 0;
+        padding: 10px 0 0;
+    }
+
+    .tab_form_sec ul.react-tabs__tab-list li i {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    form .formGrp {
         flex: 0 0 90%;
-        max-width: 90%;
+    }
+
+    .about_sec {
+        background-size: 80px;
+        padding: 3rem 0 2rem;
+    }
+
+    .faq_sec:before {
+        width: 60px;
+        height: 60px;
     }
   }

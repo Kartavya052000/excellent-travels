@@ -142,9 +142,17 @@
         align-items: flex-start;
         height: auto !important;
     }
+
+    .accordion_body p {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 575.98px) {
+
+    .accordion_main {
+        padding: 1rem 0;
+    }
 
     .accordion_header {
         padding: 12px 35px 12px 10px;

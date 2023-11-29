@@ -12,6 +12,7 @@ import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
 import { DatePicker, Input, InputPicker, SelectPicker } from "rsuite";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const Home = () => {
 
@@ -21,7 +22,21 @@ const Home = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 575,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
     };
 
     const faqs = [
@@ -96,8 +111,18 @@ const Home = () => {
         item => ({ label: item, value: item })
     );
 
+    const { scrollYProgress } = useScroll();
+
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 200,
+        damping: 30,
+        restDelta: 0.001
+    });
+
     return (
         <>
+            <motion.div className='progressBar' style={{ scaleX }} />
+
             <section className='hero_sec' style={{backgroundImage: `url(${heroBanner})`}}>
                 <div className='hero_overlay'></div>
                 <div className='custom-container'>

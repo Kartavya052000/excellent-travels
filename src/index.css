@@ -24,3 +24,14 @@
 .rs-picker-search-input {
   border: none !important;
 }
+
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #000;
+  transform-origin: 0%;
+  z-index: 999;
+}

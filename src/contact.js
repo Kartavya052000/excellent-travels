@@ -4,6 +4,9 @@ import 'aos/dist/aos.css';
 import './assets/css/contact.css';
 import InnerHeader from "./components/innerHeader/innerHeader";
 import { Form, Input } from "rsuite";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+// import { useFollowPointer } from "./use-follow-pointer";
 
 const Contact = () => {
 
@@ -11,9 +14,29 @@ const Contact = () => {
         AOS.init({once: true});
     }, [])
 
+    // const ref = useRef(null);
+    // const { x, y } = useFollowPointer(ref);
+
     return (
         <>
             <InnerHeader value='Contact' />
+
+            {/* <motion.div
+                ref={ref}
+                className="box"
+                animate={{ x, y }}
+                transition={{
+                    type: "spring",
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001
+                }}
+            /> */}
+
+<motion.div
+  animate={{ x: 100 }}
+  transition={{ type: "spring", bounce: 0.25 }}
+/>
 
             <section className='contact_sec'>
                 <div className='custom-container'>
