@@ -501,7 +501,7 @@
 
     .tab_form_sec ul.react-tabs__tab-list {
         gap: 10px;
-        margin-left: 0;
+        margin-left: 15px;
         padding: 10px 0 0;
     }
 

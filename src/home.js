@@ -206,8 +206,8 @@ const Home = () => {
                                             <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' />
                                         </div>
                                         <div className='formGrp hoverCenter'>
-                                            <label htmlFor='traveller'>Travellers</label>
-                                            <InputPicker id='traveller' data={rooms} appearance='subtle' />
+                                            <label htmlFor='travellers'>Travellers</label>
+                                            <Input id='travellers' placeholder="Travellers" />
                                         </div>
                                         <div className='formBtn'>
                                             <button type='submit' className='butn butn_success'>Submit</button>
@@ -224,7 +224,7 @@ const Home = () => {
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='departure'>Departure</label>
-                                            <InputPicker id='departure' data={departure} appearance='subtle' />
+                                            <Input id='departure' placeholder='Departure Month' />
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='cruiseLine'>Cruise Line</label>
@@ -232,7 +232,7 @@ const Home = () => {
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='duration'>Duration</label>
-                                            <InputPicker id='duration' data={duration} appearance='subtle' />
+                                            <Input id='duration' placeholder='Duration' />
                                         </div>
                                         <div className='formBtn'>
                                             <button type='submit' className='butn butn_success'>Search</button>
