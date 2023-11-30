@@ -13,7 +13,7 @@ const Footer = () => {
                       <img src={logoWhite} alt='Xcellent Travels' />
                     </a>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p>Discover excellence with Xcellent Travels – your one-stop destination for seamless travel experiences. Elevate your journey with our expert services, including hassle-free flight and hotel bookings, luxurious cruise control.</p>
                 <ul className='social_info'>
                     <li>
                         <a href='#'><i className='fa fa-twitter'></i></a>

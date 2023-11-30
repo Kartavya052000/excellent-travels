@@ -44,35 +44,35 @@ const Home = () => {
             id: 1,
             icon: `${quesIc}`,
             header: "What are the advantages of online hotel booking?",
-            text: "We have multiple trucks available, each with 7-9 separate ad spaces available.",
+            text: "You can easily book a hotel by visiting our website or contacting our dedicated travel advisors. Enter your details and proceed to secure your booking.",
             image_src: `${heroBanner}`
         },
         {
             id: 2,
             icon: `${quesIc}`,
-            header: "What are the advantages of online hotel booking?",
-            text: "We have multiple trucks available, each with 7-9 separate ad spaces available. The Tri-Vision panels on the truck rotate on a timer allowing up to 3 separate billboards, on each side of the truck. Availabiltiy will vary depending on the contracts in place, feel free to check in with us for current availabilities.",
+            header: "What types of accommodations do you offer?",
+            text: "Xcellent Travels provides a wide range of accommodation options, from budget-friendly to luxury hotels. Explore our platform to find the perfect stay that suits your preferences and budget.",
             image_src: `${heroBanner}`
         },
         {
             id: 3,
             icon: `${quesIc}`,
-            header: "What are the advantages of online hotel booking?",
-            text: " Availabiltiy will vary depending on the contracts in place, feel free to check in with us for current availabilities.",
+            header: "Are there any hidden fees when booking a hotel through Xcellent Travels?",
+            text: "No hidden fees. The price you see is the price you pay. Our transparent booking process ensures clarity, and we strive to provide the best value for your stay.",
             image_src: `${heroBanner}`
         },
         {
             id: 4,
             icon: `${quesIc}`,
-            header: "What are the advantages of online hotel booking?",
-            text: " Availabiltiy will vary depending on the contracts in place, feel free to check in with us for current availabilities.",
+            header: "Can Xcellent Travels help plan both personal and corporate events?",
+            text: "Absolutely! Xcellent Travels specializes in both personal and corporate event planning. Whether it's a wedding, anniversary, conference, or team-building event, we have you covered.",
             image_src: `${heroBanner}`
         },
         {
             id: 5,
             icon: `${quesIc}`,
-            header: "What are the advantages of online hotel booking?",
-            text: " Availabiltiy will vary depending on the contracts in place, feel free to check in with us for current availabilities.",
+            header: "How do I get started with planning an event with Xcellent Travels?",
+            text: "Begin by contacting our events team. We'll discuss your vision, requirements, and preferences to create a customized plan. Our goal is to make your event stress-free and memorable.",
             image_src: `${heroBanner}`
         }
     ]
@@ -128,14 +128,13 @@ const Home = () => {
                 <div className='custom-container'>
                     <div className='hero_inner'>
                         <div className='hero_info'>
-                            <span>Book With Us</span>
-                            <h2>Find  Next place to visit</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the</p>
+                            <span data-aos='fade-up' data-aos-duration='1500'>Book With Us</span>
+                            <h2 data-aos='fade-up' data-aos-duration='1500'>Find  Next place to visit</h2>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className='tab_form_sec' data-aos='fade-up' data-aos-duration='1500'>
+            <section className='tab_form_sec'>
                 <div className='custom-container'>
                     <div className='tabs_inner'>
                         <Tabs>
@@ -255,15 +254,14 @@ const Home = () => {
                             <div className='sec_ttl'>
                                 <h6><span></span> About Us</h6>
                                 <h2>Who We Are</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Aliquam felis magna, tincidunt at sodales ac, rutrum non neque. 
-                                    Ut eu pulvinar purus. Integer ut elit vestibulum, lacinia arcu vel, 
-                                    mollis diam. Maecenas finibus porttitor dui, eu viverra augue tincidunt quis. 
-                                    Morbi eget tellus nec eros posuere ultricies id vel velit. 
-                                    Suspendisse ut blandit urna, sed porttitor velit. Donec pellentesque scelerisque justo, 
-                                    eget placerat sapien aliquet vitae. Pellentesque quis nulla accumsan velit fringilla 
-                                    iaculis et sed sem. Quisque ultrices enim nulla, ut vulputate erat ullamcorper non. 
-                                    Duis volutpat porttitor risus, eu viverra nisl laoreet ac.
+                                <p>At Xcellent Travels, we redefine your journey with seamless travel experiences. 
+                                    As your premier travel partner, we specialize in offering a range of services 
+                                    to elevate your travel adventure. From hassle-free flight bookings to luxurious 
+                                    hotel accommodations, invigorating cruise control packages, and convenient car 
+                                    hires, we provide comprehensive solutions tailored to your unique preferences. 
+                                    Discover the world with confidence, knowing that Xcellent Travels is dedicated 
+                                    to turning your travel dreams into reality. Your journey begins with us – 
+                                    where excellence meets exploration.
                                 </p>
                             </div>
                         </div>
@@ -279,10 +277,10 @@ const Home = () => {
                                 <h6><span></span> Explore</h6>
                                 <h2>Explore all corners of the world with us</h2>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Aliquam felis magna, tincidunt at sodales ac, rutrum 
-                                non neque. Ut eu pulvinar purus. Integer ut elit 
-                                vestibulum, lacinia arcu vel, mollis diam.
+                            <p>Welcome to Xcellent Travels, your gateway to extraordinary adventures. 
+                                Elevate your travel experience with seamless flight, hotel, and car 
+                                bookings tailored to your preferences. But our journey doesn't end there
+                                 – we're also your go-to for crafting unforgettable events.
                             </p>
                             <div className='serv_wrap'>
                                 <div className='serv_card'>
@@ -321,30 +319,30 @@ const Home = () => {
                             <Slider {...sliderSetts}>
                                 <div>
                                     <div className='testiCont'>
-                                        <img src={client1} alt='Client 1' />
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <h3>Flights</h3>
+                                        <img src={client1} alt='Sarah M.' />
+                                        <p>Xcellent Travels transformed my travel experiences! From seamless flight bookings to exquisite hotel stays, they curated my dream itinerary.</p>
+                                        <h3>Sarah M.</h3>
                                     </div>
                                 </div>
                                 <div>
                                     <div className='testiCont'>
-                                        <img src={client2} alt='Client 2' />
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <h3>Flights</h3>
+                                        <img src={client2} alt='Emily P.' />
+                                        <p>Xcellent Travels made my event unforgettable! The team's creativity and precision turned my vision into reality. They truly know how to make every moment special.</p>
+                                        <h3>Emily P.</h3>
                                     </div>
                                 </div>
                                 <div>
                                     <div className='testiCont'>
-                                        <img src={client3} alt='Client 3' />
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <h3>Flights</h3>
+                                        <img src={client3} alt='Mike H.' />
+                                        <p>Xcellent Travels made our road trip epic! The car booking process was a breeze. They truly understand the art of crafting unforgettable experiences.</p>
+                                        <h3>Mike H.</h3>
                                     </div>
                                 </div>
                                 <div>
                                     <div className='testiCont'>
-                                        <img src={client1} alt='Client 1' />
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <h3>Flights</h3>
+                                        <img src={client2} alt='Emily P.' />
+                                        <p>Xcellent Travels made my event unforgettable! The team's creativity and precision turned my vision into reality. They truly know how to make every moment special.</p>
+                                        <h3>Emily P.</h3>
                                     </div>
                                 </div>
                             </Slider>

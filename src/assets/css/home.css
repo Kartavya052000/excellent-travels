@@ -20,7 +20,7 @@
   }
   
   .hero_info {
-    max-width: 40%;
+    max-width: 55%;
   }
   
   .hero_info > span {
@@ -368,7 +368,7 @@
     }
 
     .hero_info {
-        max-width: 55%;
+        max-width: 60%;
     }
 
     .hero_info h2 {

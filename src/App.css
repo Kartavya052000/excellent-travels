@@ -99,6 +99,14 @@ button.hamburger {
   z-index: 2;
 }
 
+button.hamburger:focus {
+  background: #3045fd;
+}
+
+button.hamburger:focus span.bar {
+  background-color: #fff;
+}
+
 .hamburger span.bar {
     position: relative;
     display: block;
