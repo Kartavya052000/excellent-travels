@@ -169,3 +169,42 @@ button.ghost {
 .container.right-panel-active .overlay-right {
 	transform: translateY(20%);
 }
+
+
+
+
+
+
+
+
+
+/** Responsive CSS starts here **/
+
+@media (max-width: 991.98px) {
+    .overlay-panel {
+        padding: 0 30px;
+    }
+
+    .form-container form {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .overlay-panel {
+        padding: 0 20px;
+    }
+
+    .form-container form {
+        padding: 0 30px;
+    }
+
+    .login_sec h1 {
+        font-size: 20px;
+    }
+
+    .login_sec p {
+        font-size: 13px;
+        margin: 10px 0 20px;
+    }
+}
