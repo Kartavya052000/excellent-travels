@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import About from "./about";
 import Contact from "./contact";
 import Login from "./login";
+import FounderProfile from "./founderProfile";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/about' element={<About />} />
+          <Route exact path='/founderprofile' element={<FounderProfile />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
         </Routes>

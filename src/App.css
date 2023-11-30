@@ -210,10 +210,6 @@ ul.social_wrap li:not(.login) a:hover img {
   gap: 10px;
 }
 
-.navigationWrapper ul li.menu_item {
-  margin: 10px 0;
-}
-
 .navigationWrapper ul li.menu_item a {
   color: #000;
   font-size: 1rem;

@@ -9,3 +9,8 @@
     display: -ms-flexbox;
     justify-content: space-between;
 }
+
+.map_sec iframe {
+    border: none;
+    filter: grayscale(1) brightness(0.9);
+}

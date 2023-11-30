@@ -387,7 +387,7 @@
         flex-wrap: wrap;
     }
 
-    form .formGrp {
+    form.inline_Form .formGrp {
         flex: 0 0 30%;
     }
 
@@ -511,7 +511,7 @@
         text-align: center;
     }
 
-    form .formGrp {
+    form.inline_Form .formGrp {
         flex: 0 0 90%;
     }
 

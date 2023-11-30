@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "rsuite";
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
             <section className='login_sec'>
             <div className={isLogSignup ? 'container right-panel-active' : 'container'}>
                 <div className="form-container sign-up-container">
-                    <form>
+                    <Form>
                         <h1>Create Account</h1>
                         <div className="social-container">
                             <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
@@ -21,14 +22,20 @@ const Login = () => {
                             <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </div>
                         <span>or use your email for registration</span>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
+                        <div className='formGrp'>
+                            <Form.Control name='name' placeholder='Name' />
+                        </div>
+                        <div className='formGrp'>
+                            <Form.Control name='email' placeholder='Email' />
+                        </div>
+                        <div className='formGrp'>
+                            <Form.Control name='password' placeholder='Password' />
+                        </div>
                         <button type="button" className='butn butn_success butn_sm'>Sign Up</button>
-                    </form>
+                    </Form>
                 </div>
                 <div className="form-container sign-in-container">
-                    <form>
+                    <Form>
                         <h1>Sign in</h1>
                         <div className="social-container">
                             <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
@@ -36,11 +43,15 @@ const Login = () => {
                             <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
                         </div>
                         <span>or use your account</span>
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
+                        <div className='formGrp'>
+                            <Form.Control name='email' placeholder='Email' />
+                        </div>
+                        <div className='formGrp'>
+                            <Form.Control name='password' placeholder='Password' />
+                        </div>
                         <a href="#">Forgot your password?</a>
                         <button type='submit' className='butn butn_success butn_sm'>Sign In</button>
-                    </form>
+                    </Form>
                 </div>
                 <div className="overlay-container">
                     <div className="overlay">
