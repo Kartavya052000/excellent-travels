@@ -47,10 +47,10 @@ const Header = () => {
                                 </a>
                             </li>
                             <li className='login'>
-                                <a href='#' title='Login/Signup'>
+                                <Link to='/login' title='Login/Signup'>
                                     <img src={user} />
                                     Login/Signup
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         <ButtonToolbar>
@@ -70,7 +70,16 @@ const Header = () => {
                                     <Link to="/about"><span data-hover="About">About</span></Link>
                                 </li>
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/"><span data-hover="Booking">Booking</span></Link>
+                                    <Link to="/founderprofile"><span data-hover="Founder Profile">Founder Profile</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/booking"><span data-hover="Booking">Booking</span></Link>
+                                </li>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                    <Link to="/mybookings"><span data-hover="My Bookings">My Bookings</span></Link>
                                 </li>
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
