@@ -33,10 +33,10 @@ const Contact = () => {
                 }}
             /> */}
 
-<motion.div
-  animate={{ x: 100 }}
-  transition={{ type: "spring", bounce: 0.25 }}
-/>
+            <motion.div
+                animate={{ x: 100 }}
+                transition={{ type: "spring", bounce: 0.25 }}
+            />
 
             <section className='contact_sec'>
                 <div className='custom-container'>

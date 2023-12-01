@@ -35,6 +35,10 @@
     padding: 0.5rem !important;
 }
 
+.butn_rounded {
+    border-radius: 30px !important;
+}
+
 .butn_block {
     width: 100% !important;
 }

@@ -18,14 +18,26 @@
 
 .login_sec span {
     font-size: 12px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .login_sec a {
-	color: #333;
+	color: #fff;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
+}
+
+.login_sec a.fb {
+	background-color: #4267B2;
+}
+
+.login_sec a.google {
+	background-color: #DB4437;
+}
+
+.login_sec a.linkedin {
+	background-color: #0A66C2;
 }
 
 .form-container form {
@@ -276,5 +288,16 @@ button.ghost {
 
 	.right-panel-active .overlay-right {
 		display: none;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.form-container form {
+		width: 90%;
+		padding: 0 20px;
+	}
+
+	.form-container .rs-form-control-wrapper>.rs-input, .form-container .formGrp {
+		width: 100%;
 	}
 }

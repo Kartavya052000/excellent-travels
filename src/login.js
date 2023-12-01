@@ -16,12 +16,6 @@ const Login = () => {
                 <div className="form-container sign-up-container">
                     <Form>
                         <h1>Create Account</h1>
-                        <div className="social-container">
-                            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <span>or use your email for registration</span>
                         <div className='formGrp'>
                             <Form.Control name='name' placeholder='Name' />
                         </div>
@@ -32,17 +26,18 @@ const Login = () => {
                             <Form.Control name='password' placeholder='Password' />
                         </div>
                         <button type="button" className='butn butn_success butn_sm'>Sign Up</button>
+
+                        <span>or use your email for registration</span>
+                        <div className="social-container">
+                            <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a>
+                            <a href="#" className="social google"><i className="fab fa-google-plus-g"></i></a>
+                            <a href="#" className="social linkedin"><i className="fab fa-linkedin-in"></i></a>
+                        </div>
                     </Form>
                 </div>
                 <div className="form-container sign-in-container">
                     <Form>
                         <h1>Sign in</h1>
-                        <div className="social-container">
-                            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <span>or use your account</span>
                         <div className='formGrp'>
                             <Form.Control name='email' placeholder='Email' />
                         </div>
@@ -51,6 +46,13 @@ const Login = () => {
                         </div>
                         <a href="#">Forgot your password?</a>
                         <button type='submit' className='butn butn_success butn_sm'>Sign In</button>
+                        
+                        <span>or use your account</span>
+                        <div className="social-container">
+                            <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a>
+                            <a href="#" className="social google"><i className="fab fa-google-plus-g"></i></a>
+                            <a href="#" className="social linkedin"><i className="fab fa-linkedin-in"></i></a>
+                        </div>
                     </Form>
                 </div>
                 <div className="overlay-container">

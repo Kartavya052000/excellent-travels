@@ -1,0 +1,15 @@
+.myprofile_sec {
+    padding: 3rem 0;
+}
+
+.myprofile_sec form.rs-form {
+    max-width: 70%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    margin: 1rem auto;
+    padding: 2rem;
+}
+
+.myprofile_sec form.rs-form .formGrp, .myprofile_sec form.rs-form .rs-form-control-wrapper>.rs-input {
+    width: 100%;
+}

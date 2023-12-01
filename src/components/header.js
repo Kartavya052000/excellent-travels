@@ -76,10 +76,7 @@ const Header = () => {
                                     <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
                                 </li>
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/booking"><span data-hover="Booking">Booking</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/mybookings"><span data-hover="My Bookings">My Bookings</span></Link>
+                                    <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
                                 </li>
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/contact"><span data-hover="Contact">Contact</span></Link>

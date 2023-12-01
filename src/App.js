@@ -7,6 +7,8 @@ import About from "./about";
 import Contact from "./contact";
 import Login from "./login";
 import FounderProfile from "./founderProfile";
+import MyProfile from "./myprofile";
+import MySubmissions from "./mysubmissions";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/about' element={<About />} />
           <Route exact path='/founderprofile' element={<FounderProfile />} />
+          <Route exact path='/myprofile' element={<MyProfile />} />
+          <Route exact path='/mysubmissions' element={<MySubmissions />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
         </Routes>

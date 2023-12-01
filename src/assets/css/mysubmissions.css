@@ -1,0 +1,67 @@
+.mysubmissions {
+    padding: 3rem 0;
+}
+
+.submissionCard {
+    width: 50%;
+    margin: 20px auto;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.submissionCard p {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.circle-check-svg-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: -80px;
+  width: 500px;
+  height: 500px;
+}
+
+.success-svg {
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  margin: 0 auto 2rem;
+  animation: scale 0.3s ease-in-out 0.8s both;
+}
+
+.success-circle {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  stroke-width: 2;
+  stroke: #177ee6;
+  fill: none;
+  animation: stroke 1.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-checkmark {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 146;
+  stroke-dashoffset: 146;
+  animation: stroke 1s cubic-bezier(0.65, 0, 0.45, 1) 0.9s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 300;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
