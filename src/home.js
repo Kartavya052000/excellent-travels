@@ -13,8 +13,11 @@ import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
 import { DatePicker, Input, InputPicker, SelectPicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
+    const navigate = useNavigate();
 
     var sliderSetts = {
         dots: false,
@@ -118,7 +121,9 @@ const Home = () => {
         damping: 30,
         restDelta: 0.001
     });
-
+const onSearch = () =>{
+    navigate('/mysubmissions')
+}
     return (
         <>
             <motion.div className='progressBar' style={{ scaleX }} />
@@ -172,7 +177,7 @@ const Home = () => {
                                             <InputPicker id='children' data={rooms} appearance="subtle" />
                                         </div>
                                         <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success'>Submit</button>
+                                            <button type='submit' className='butn butn_success' onClick={onSearch} >Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -209,7 +214,7 @@ const Home = () => {
                                             <Input id='travellers' placeholder="Travellers" />
                                         </div>
                                         <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success'>Submit</button>
+                                            <button type='submit' className='butn butn_success' onClick={onSearch}>Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -234,7 +239,7 @@ const Home = () => {
                                             <Input id='duration' placeholder='Duration' />
                                         </div>
                                         <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success'>Search</button>
+                                            <button type='submit' className='butn butn_success' onClick={onSearch} >Search</button>
                                         </div>
                                     </form>
                                 </div>
