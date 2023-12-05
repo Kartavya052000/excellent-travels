@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "rsuite";
 import InnerHeader from "./components/innerHeader/innerHeader";
+import './assets/css/myprofile.css';
 
 const MyProfile = () => {
 

@@ -1,16 +1,31 @@
-import React, { useState } from "react";
-import { Form } from "rsuite";
+import React from "react";
+import './assets/css/mysubmissions.css';
 import InnerHeader from "./components/innerHeader/innerHeader";
 import { Link } from "react-router-dom";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const MySubmissions = () => {
-
     return(
         <>
         <InnerHeader value='My Submissions' />
         
         <section className='mysubmissions'>
             <div className='custom-container'>
+                <Tabs>
+                    <TabList>
+                        <Tab><i className='fas fa-hotel'></i> Hotels</Tab>
+                        <Tab><i className='fa fa-car'></i> Car Hire</Tab>
+                        <Tab><i className='fa fa-plane'></i> Flights</Tab>
+                        <Tab><i className='fa fa-ship'></i> Cruise</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 2</h2>
+                    </TabPanel>
+                </Tabs>
+
                 <div className='submissionCard'>
                     <svg class="success-svg" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
                         <g fill="none" fill-rule="evenodd" stroke="#177EE6">

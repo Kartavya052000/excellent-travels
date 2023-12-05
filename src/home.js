@@ -3,6 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Slider from "react-slick";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './assets/css/home.css';
 import heroBanner from './assets/images/hero_banner.png';
 import aboutUs from './assets/images/aboutus.png';
 import explore from './assets/images/explore.png';

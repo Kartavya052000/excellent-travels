@@ -65,3 +65,45 @@
     transform: scale3d(0.9, 0.9, 1);
   }
 }
+
+
+
+
+
+
+
+
+.mysubmissions ul.react-tabs__tab-list {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.mysubmissions ul.react-tabs__tab-list li {
+    padding: 10px 15px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #d9d9d9;
+    flex: 1 1 1%;
+}
+
+.mysubmissions ul.react-tabs__tab-list li.react-tabs__tab--selected {
+  color: #3045FD;
+  border: 1px solid #d9d9d9;
+  border-bottom-width: 0;
+}
+
+.mysubmissions ul.react-tabs__tab-list li i {
+  transition: all 0.3s ease;
+}
+
+.mysubmissions ul.react-tabs__tab-list li.react-tabs__tab--selected i {
+  transform: rotate(-45deg);
+}

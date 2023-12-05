@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "rsuite";
+import './assets/css/login.css';
 
 const Login = () => {
 
