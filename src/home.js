@@ -12,7 +12,7 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { DatePicker, Input, InputPicker, SelectPicker } from "rsuite";
+import { DatePicker, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -179,8 +179,23 @@ const onSearch = () =>{
                                             <DatePicker id='checkOut' format='MM/dd/yyyy' />
                                         </div>
                                         <div className='formGrp hoverCenter'>
-                                            <label htmlFor='room'>Room</label>
-                                            <InputPicker id='room' data={rooms} appearance="subtle" />
+                                            <label htmlFor='guest_room'>Guests & Rooms</label>
+                                            <Dropdown title="Guests & Room">
+                                                <div className='guest_wrap'>
+                                                    <div className='g_col'>
+                                                        <label>Rooms</label>
+                                                        <InputNumber />
+                                                    </div>
+                                                    <div className='g_col'>
+                                                        <label>Adults</label>
+                                                        <InputNumber />
+                                                    </div>
+                                                    <div className='g_col'>
+                                                        <label>Children</label>
+                                                        <InputNumber />
+                                                    </div>
+                                                </div>
+                                            </Dropdown>
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='adults'>Adults(19+)</label>

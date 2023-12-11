@@ -139,6 +139,26 @@
       padding: 0.6rem 1rem;
   }
 
+  .tabForm .rs-dropdown .rs-dropdown-toggle, .tabForm .rs-dropdown  .rs-btn {
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+  }
+
+  .tabForm .rs-dropdown-open .rs-dropdown-menu {
+    min-width: 450px;
+    min-height: 200px;
+  }
+
+  .tabForm .guest_wrap {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px;
+    gap: 20px;
+  }
+
 
 /** Tab Form Section CSS ends here **/
 
