@@ -19,11 +19,15 @@ import axios from "axios";
 
 const Home = () => {
     const navigate = useNavigate();
+    const [roomcount, setRoomCount] = useState(0);
+    const [adultcount, setAdultCount] = useState(0);
+    const [childcount, setChildCount] = useState(0);
+
     const getUser = async () => {
         try {
             const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
             const { data } = await axios.get(url, { withCredentials: true });
-            console.log(data,"RES")
+            console.log(data, "RES")
             // setUser(data.user._json);
         } catch (err) {
             console.log(err);
@@ -42,18 +46,18 @@ const Home = () => {
         slidesToScroll: 1,
         responsive: [
             {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2
-              }
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
             },
             {
-              breakpoint: 575,
-              settings: {
-                slidesToShow: 1
-              }
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1
+                }
             }
-          ]
+        ]
     };
 
     const faqs = [
@@ -105,7 +109,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        AOS.init({once: true});
+        AOS.init({ once: true });
     }, [])
 
     const rooms = ['1', '2', '3', '4', '5'].map(
@@ -135,14 +139,38 @@ const Home = () => {
         damping: 30,
         restDelta: 0.001
     });
-const onSearch = () =>{
-    navigate('/mysubmissions')
-}
+    const onSearch = () => {
+        navigate('/mysubmissions')
+    }
+
+    const increment = (e,val) => {
+        e.preventDefault();
+        if(val =="room"){
+            setRoomCount(roomcount + 1);
+        }else if (val =="adult"){
+            setAdultCount(adultcount +1)
+        }else{
+            setChildCount(childcount+1)
+        }
+    };
+
+    const decrement = (e,val) => {
+        e.preventDefault();
+        if (roomcount > 0) {
+            if(val =="room"){
+                setRoomCount(roomcount - 1);
+            }else if (val =="adult"){
+                setAdultCount(adultcount -1)
+            }else{
+                setChildCount(childcount-1)
+            }
+        }
+    };
     return (
         <>
             <motion.div className='progressBar' style={{ scaleX }} />
 
-            <section className='hero_sec' style={{backgroundImage: `url(${heroBanner})`}}>
+            <section className='hero_sec' style={{ backgroundImage: `url(${heroBanner})` }}>
                 <div className='hero_overlay'></div>
                 <div className='custom-container'>
                     <div className='hero_inner'>
@@ -184,15 +212,23 @@ const onSearch = () =>{
                                                 <div className='guest_wrap'>
                                                     <div className='g_col'>
                                                         <label>Rooms</label>
-                                                        <InputNumber />
+                                                        {/* <InputNumber /> */}
+                                                        <button onClick={(e) => decrement(e,"room")}>-</button>
+                                                        <span>{roomcount}</span>
+                                                        <button onClick={(e) => increment(e,"room")}>+</button>
+
                                                     </div>
                                                     <div className='g_col'>
                                                         <label>Adults</label>
-                                                        <InputNumber />
+                                                        <button onClick={(e) => decrement(e,"adult")}>-</button>
+                                                        <span>{adultcount}</span>
+                                                        <button onClick={(e) => increment(e,"adult")}>+</button>
                                                     </div>
                                                     <div className='g_col'>
                                                         <label>Children</label>
-                                                        <InputNumber />
+                                                        <button onClick={(e) => decrement(e,"child")}>-</button>
+                                                        <span>{childcount}</span>
+                                                        <button onClick={(e) => increment(e,"child")}>+</button>
                                                     </div>
                                                 </div>
                                             </Dropdown>
@@ -288,13 +324,13 @@ const onSearch = () =>{
                             <div className='sec_ttl'>
                                 <h6><span></span> About Us</h6>
                                 <h2>Who We Are</h2>
-                                <p>At Xcellent Travels, we redefine your journey with seamless travel experiences. 
-                                    As your premier travel partner, we specialize in offering a range of services 
-                                    to elevate your travel adventure. From hassle-free flight bookings to luxurious 
-                                    hotel accommodations, invigorating cruise control packages, and convenient car 
-                                    hires, we provide comprehensive solutions tailored to your unique preferences. 
-                                    Discover the world with confidence, knowing that Xcellent Travels is dedicated 
-                                    to turning your travel dreams into reality. Your journey begins with us – 
+                                <p>At Xcellent Travels, we redefine your journey with seamless travel experiences.
+                                    As your premier travel partner, we specialize in offering a range of services
+                                    to elevate your travel adventure. From hassle-free flight bookings to luxurious
+                                    hotel accommodations, invigorating cruise control packages, and convenient car
+                                    hires, we provide comprehensive solutions tailored to your unique preferences.
+                                    Discover the world with confidence, knowing that Xcellent Travels is dedicated
+                                    to turning your travel dreams into reality. Your journey begins with us –
                                     where excellence meets exploration.
                                 </p>
                             </div>
@@ -311,10 +347,10 @@ const onSearch = () =>{
                                 <h6><span></span> Explore</h6>
                                 <h2>Explore all corners of the world with us</h2>
                             </div>
-                            <p>Welcome to Xcellent Travels, your gateway to extraordinary adventures. 
-                                Elevate your travel experience with seamless flight, hotel, and car 
+                            <p>Welcome to Xcellent Travels, your gateway to extraordinary adventures.
+                                Elevate your travel experience with seamless flight, hotel, and car
                                 bookings tailored to your preferences. But our journey doesn't end there
-                                 – we're also your go-to for crafting unforgettable events.
+                                – we're also your go-to for crafting unforgettable events.
                             </p>
                             <div className='serv_wrap'>
                                 <div className='serv_card'>
@@ -395,8 +431,8 @@ const onSearch = () =>{
                         {faqs.map((item, index) => {
                             return (
                                 <AccordionItem key={index} active={active} handleToggle={handleToggle} faq={item} />
-                                )
-                            })
+                            )
+                        })
                         }
                     </div>
                 </div>
