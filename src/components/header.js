@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Drawer, ButtonToolbar, Button, Placeholder, Nav } from 'rsuite';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import { Link } from 'react-router-dom';
@@ -6,10 +6,54 @@ import logo from '../assets/images/logo.png';
 import phone from '../assets/images/phone.svg';
 import mail from '../assets/images/mail.svg';
 import user from '../assets/images/user.svg';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-
+    const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const token = cookies['token'];
+    const username = cookies['username'];
+    const [firstName, setFirstName] = useState('');
+
+    useEffect(() => {
+        if (username) {
+            // Assuming the username is in the format: "firstname lastname"
+            const firstName = username.split(' ')[0];
+            setFirstName(firstName);
+        }
+    }, [username]);
+    const handleRoute = () =>{
+        if(token){
+            navigate("/myprofile")
+        }else{
+            navigate("/login")
+        }
+    }
+    // Create a function to handle user logout
+    const handleLogout = async () => {
+        try {
+            // Send a request to the logout endpoint
+            const url = `${process.env.REACT_APP_BACKEND_URL}/auth/logout `;
+
+            const response = await axios.post(url);
+
+            if (response.status === 200) {
+                // Clear the token from cookies and any other cleanup
+                removeCookie('token');
+                // Redirect or perform any other action after successful logout
+                // For example, you can redirect the user to the home page
+                navigate("/")
+                setOpen(false)
+            } else {
+                console.error('Logout failed', response);
+            }
+        } catch (error) {
+            console.error('Logout failed', error);
+        }
+    };
     return (
         <>
             <header className='mainHeader'>
@@ -24,7 +68,7 @@ const Header = () => {
                     <div className='header_wrap'>
                         <div className='logo'>
                             <a href='/' title='Xcellent Travels'>
-                            <img src={logo} alt='Xcellent Travels' title='Xcellent Travels' />
+                                <img src={logo} alt='Xcellent Travels' title='Xcellent Travels' />
                             </a>
                         </div>
                         <ul className='social_wrap'>
@@ -46,10 +90,14 @@ const Header = () => {
                                     </div>
                                 </a>
                             </li>
-                            <li className='login'>
-                                <Link to='/login' title='Login/Signup'>
+                            <li className='login' onClick={handleRoute} >
+                                <Link  title='Login/Signup'>
                                     <img src={user} />
-                                    Login/Signup
+                                    {token ? (
+                                        <span>Hi, {firstName}</span>
+                                    ) : (
+                                        <span>Login/Signup</span>
+                                    )}
                                 </Link>
                             </li>
                         </ul>
@@ -61,33 +109,38 @@ const Header = () => {
 
                         <Drawer size='xs' placement='right' backdrop='true' open={open} onClose={() => setOpen(false)}>
                             <Drawer.Body>
-                            <Nav className='navigationWrapper'>
-                            <ul className='nav_menu header_menu'>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/"><span data-hover="Home">Home</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/about"><span data-hover="About">About</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/founderprofile"><span data-hover="Founder Profile">Founder Profile</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                <Nav className='navigationWrapper'>
+                                    <ul className='nav_menu header_menu'>
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/"><span data-hover="Home">Home</span></Link>
+                                        </li>
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/about"><span data-hover="About">About</span></Link>
+                                        </li>
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/founderprofile"><span data-hover="Founder Profile">Founder Profile</span></Link>
+                                        </li>
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
+                                        </li>
+                                        {/* <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
-                                </li>
-                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
-                                </li>
-                            </ul>
-                            </Nav>
+                                </li> */}
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
+                                        </li>
+                                        {token ? (
+                                            <li className='menu_item linkEffect' onClick={handleLogout}>
+                                                <Link><span data-hover="LogOUt">LogOut</span></Link>
+                                            </li>
+                                        ) : null}
+                                    </ul>
+                                </Nav>
                             </Drawer.Body>
                         </Drawer>
                         <div className='navigationWrapper'>
                             <nav>
-                                
+
                             </nav>
                         </div>
                     </div>

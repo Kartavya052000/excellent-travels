@@ -15,11 +15,24 @@ import AccordionItem from "./components/ui/accordion";
 import { DatePicker, Input, InputPicker, SelectPicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 const Home = () => {
     const navigate = useNavigate();
+    const getUser = async () => {
+        try {
+            const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
+            const { data } = await axios.get(url, { withCredentials: true });
+            console.log(data,"RES")
+            // setUser(data.user._json);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
+    useEffect(() => {
+        getUser();
+    }, []);
     var sliderSetts = {
         dots: false,
         arrows: true,
