@@ -137,6 +137,10 @@ button.hamburger:hover span.bar {
     background: #3045fd;
 }
 
+.rs-drawer .rs-drawer-content {
+  background-color: #000;
+}
+
 ul.social_wrap {
   margin-left: auto;
   display: inline-flex;
@@ -191,6 +195,12 @@ ul.social_wrap li:not(.login) a:hover img {
   transform: rotateY(360deg);
 }
 
+ul.social_wrap li.login a span {
+  color: #000;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
 .navigationWrapper {
   overflow: hidden;
   display: flex;
@@ -204,13 +214,12 @@ ul.social_wrap li:not(.login) a:hover img {
 .navigationWrapper ul {
   display: flex;
   display: -ms-flexbox;
-  align-items: center;
   flex-direction: column;
   gap: 10px;
 }
 
 .navigationWrapper ul li.menu_item a {
-  color: #000;
+  color: #fff;
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -384,6 +393,10 @@ ul.social_info li a:hover {
       line-height: 50px;
       background-color: transparent;
   }
+
+  ul.social_wrap li.login a span {
+    font-size: 0;
+  }
   
   ul.social_wrap li.login a img {
       width: 42px;
@@ -435,6 +448,10 @@ ul.social_info li a:hover {
   ul.social_wrap li.login a img {
       width: 32px;
       height: 32px;
+  }
+
+  button.hamburger {
+    transform: scale(0.8);
   }
 
   ul.breadcrumb {

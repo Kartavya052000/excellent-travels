@@ -9,6 +9,14 @@
 	margin: 0;
 }
 
+.login_sec .sign-in-container h1, .login_sec .sign-up-container h1 {
+	margin: 0 0 20px;
+}
+
+.login_sec form input:not([type="submit"]) {
+	border: 1px solid #eee !important;
+}
+
 .login_sec p {
 	font-size: 14px;
 	line-height: 20px;
@@ -28,18 +36,6 @@
 	margin: 15px 0;
 }
 
-.login_sec a.fb {
-	background-color: #4267B2;
-}
-
-.login_sec a.google {
-	background-color: #DB4437;
-}
-
-.login_sec a.linkedin {
-	background-color: #0A66C2;
-}
-
 .form-container form {
 	background: #fff;
 	display: flex;
@@ -56,25 +52,24 @@
 	margin: 20px 0;
 }
 
-.social-container a {
+.social-container button {
 	border: 1px solid #ddd;
-	border-radius: 50%;
+	background-color: transparent;
+	outline: none;
+	border-radius: 4px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	margin: 0 5px;
-	height: 40px;
-	width: 40px;
+	color: #000;
+	font-weight: 500;
+	padding: 8px 18px;
     transition: all 0.3s ease;
 }
 
-.social-container a:hover {
-    border: 1px solid #3045fd;
-    background-color: #3045fd;
-}
-
-.social-container a:hover i {
-    color: #fff;
+.social-container button img {
+	width: 25px;
+	margin-right: 5px;
 }
 
 .form-container input {

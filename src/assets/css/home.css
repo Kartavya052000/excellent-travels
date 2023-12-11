@@ -148,6 +148,7 @@
   .tabForm .rs-dropdown-open .rs-dropdown-menu {
     min-width: 450px;
     min-height: 200px;
+    padding: 15px
   }
 
   .tabForm .guest_wrap {
@@ -155,7 +156,6 @@
     display: -ms-flexbox;
     align-items: center;
     justify-content: space-between;
-    margin: 12px;
     gap: 20px;
   }
 

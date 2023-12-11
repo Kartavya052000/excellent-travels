@@ -1,7 +1,7 @@
     import React, { useEffect, useState } from "react";
     import { Form } from "rsuite";
     import './assets/css/login.css';
-    import axios from "axios";
+    import googleSvg from './assets/images/google.svg';
     import AOS from "aos"; // Import AOS library
 
     const Login = () => {
@@ -37,7 +37,7 @@
                             </div>
                             <button type="button" className='butn butn_success butn_sm'>Sign Up</button>
 
-                            <span>or use your email for registration</span>
+                            {/* <span>or use your email for registration</span> */}
                             {/* <div className="social-container">
                                 <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a>
                                 <a href="#" className="social google"><i className="fab fa-google-plus-g"></i></a>
@@ -48,7 +48,7 @@
                     </div>
                     <div className="form-container sign-in-container">
                         <Form>
-                            <h1>Log in</h1>
+                            <h1>Log In</h1>
                             <div className='formGrp'>
                                 <Form.Control name='email' placeholder='Email' />
                             </div>
@@ -58,10 +58,10 @@
                             <a href="#">Forgot your password?</a>
                             <button type='submit' className='butn butn_success butn_sm'>Sign In</button>
                             
-                            <span>or use your account</span>
+                            <span>OR</span>
                             <div className="social-container">
                                 {/* <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a> */}
-                                <a  className="social google" onClick={googleAuth}><i className="fab fa-google-plus-g"></i></a>
+                                <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /> Sign in with Google</button>
                                 {/* <a href="#" className="social linkedin"><i className="fab fa-linkedin-in"></i></a> */}
                             </div>
                         </Form>

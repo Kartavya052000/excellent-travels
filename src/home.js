@@ -12,7 +12,7 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { DatePicker, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from "rsuite";
+import { Button, DatePicker, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -212,7 +212,6 @@ const Home = () => {
                                                 <div className='guest_wrap'>
                                                     <div className='g_col'>
                                                         <label>Rooms</label>
-                                                        {/* <InputNumber /> */}
                                                         <button onClick={(e) => decrement(e,"room")}>-</button>
                                                         <span>{roomcount}</span>
                                                         <button onClick={(e) => increment(e,"room")}>+</button>
@@ -231,6 +230,7 @@ const Home = () => {
                                                         <button onClick={(e) => increment(e,"child")}>+</button>
                                                     </div>
                                                 </div>
+                                                <Button className='butn butn_success butn_rounded'>Accept</Button>
                                             </Dropdown>
                                         </div>
                                         <div className='formGrp hoverCenter'>

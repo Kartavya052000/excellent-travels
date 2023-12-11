@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { Drawer, ButtonToolbar, Button, Placeholder, Nav } from 'rsuite';
+import { Drawer, ButtonToolbar, Button, Placeholder, Nav, Modal, Form } from 'rsuite';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
@@ -54,6 +54,11 @@ const Header = () => {
             console.error('Logout failed', error);
         }
     };
+
+    const [openModal, setOpenModal] = React.useState(false);
+    const [overflow, setOverflow] = React.useState(true);
+    const handleOpen = () => setOpenModal(true);
+    const handleClose = () => setOpenModal(false);
     return (
         <>
             <header className='mainHeader'>
@@ -100,6 +105,9 @@ const Header = () => {
                                     )}
                                 </Link>
                             </li>
+                            <li>
+                                <Button onClick={handleOpen} className='butn butn_success butn_rounded'>Login</Button>
+                            </li>
                         </ul>
                         <ButtonToolbar>
                             <Button className='hamburger' onClick={() => setOpen(true)}>
@@ -112,7 +120,7 @@ const Header = () => {
                                 <Nav className='navigationWrapper'>
                                     <ul className='nav_menu header_menu'>
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
-                                            <Link to="/"><span data-hover="Home">Home</span></Link>
+                                            <Link to="/"><span data-hover="Home"><i className='fa fa-home'></i> Home</span></Link>
                                         </li>
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/about"><span data-hover="About">About</span></Link>
@@ -131,21 +139,37 @@ const Header = () => {
                                         </li>
                                         {token ? (
                                             <li className='menu_item linkEffect' onClick={handleLogout}>
-                                                <Link><span data-hover="LogOUt">LogOut</span></Link>
+                                                <Link><span data-hover="LogOut"><i className='fa fa-sign-out'></i> LogOut</span></Link>
                                             </li>
                                         ) : null}
                                     </ul>
                                 </Nav>
                             </Drawer.Body>
                         </Drawer>
-                        <div className='navigationWrapper'>
-                            <nav>
-
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </header>
+
+            <Modal backdrop="static" role="alertdialog" overflow={overflow} open={openModal} onClose={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <div className='formGrp'>
+                            <Form.ControlLabel>Email</Form.ControlLabel>
+                            <Form.Control name='email' placeholder='Email' />
+                        </div>
+                        <div className='formGrp'>
+                            <Form.ControlLabel>Password</Form.ControlLabel>
+                            <Form.Control name='password' placeholder='Password' />
+                        </div>
+                        <div className='formBtn'>
+                            <button type='submit' className='butn butn_success'>Login</button>
+                        </div>
+                    </Form>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
