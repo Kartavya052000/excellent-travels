@@ -188,8 +188,37 @@ button.ghost {
 	transform: translateY(20%);
 }
 
+/* ------ login with google button --- */
+/* GoogleLoginButton.css */
 
-
+.google-login-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 8px 16px;
+	cursor: pointer;
+	background-color: #fff;
+	color: #333;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .google-login-btn:hover {
+	background-color: #f0f0f0;
+  }
+  
+  .google-logo {
+	width: 24px;
+	height: 24px;
+	margin-right: 8px;
+  }
+  
+  .btn-text {
+	margin-top: 2px;
+  }
+  
 
 
 

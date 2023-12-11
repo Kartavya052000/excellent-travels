@@ -28,6 +28,8 @@ const App = () => {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/forgot-password' element={<ForgotPassword />} />
           <Route exact path='/reset-password' element={<ResetPassword />} />
+          <Route exact path='/booking-confirmation' element={<bookingConfirmation />} />
+          
         </Routes>
         <Footer />
       </Router>

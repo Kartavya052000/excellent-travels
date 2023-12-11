@@ -140,7 +140,7 @@ const Home = () => {
         restDelta: 0.001
     });
     const onSearch = () => {
-        navigate('/mysubmissions')
+        navigate('/booking-confirmation`')
     }
 
     const increment = (e,val) => {
@@ -234,11 +234,11 @@ const Home = () => {
                                             </Dropdown>
                                         </div>
                                         <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Adults(19+)</label>
+                                            <label htmlFor='adults'>Pricing</label>
                                             <InputPicker id='adults' data={rooms} appearance="subtle" />
                                         </div>
                                         <div className='formGrp hoverCenter'>
-                                            <label htmlFor='children'>Children(0-18)</label>
+                                            <label htmlFor='children'>Stars</label>
                                             <InputPicker id='children' data={rooms} appearance="subtle" />
                                         </div>
                                         <div className='formBtn'>
