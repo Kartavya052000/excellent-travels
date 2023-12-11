@@ -2,85 +2,21 @@
     padding: 3rem 0;
 }
 
-.submissionCard {
-    width: 50%;
-    margin: 20px auto;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-    text-align: center;
+.mysubmissions .react-tabs {
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  background-color: #fff;
+  border-radius: 6px;
 }
-
-.submissionCard p {
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.circle-check-svg-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -80px;
-  margin-top: -80px;
-  width: 500px;
-  height: 500px;
-}
-
-.success-svg {
-  display: block;
-  stroke-width: 2;
-  stroke: #fff;
-  margin: 0 auto 2rem;
-  animation: scale 0.3s ease-in-out 0.8s both;
-}
-
-.success-circle {
-  stroke-dasharray: 800;
-  stroke-dashoffset: 800;
-  stroke-width: 2;
-  stroke: #177ee6;
-  fill: none;
-  animation: stroke 1.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-}
-
-.success-checkmark {
-  transform-origin: 50% 50%;
-  stroke-dasharray: 146;
-  stroke-dashoffset: 146;
-  animation: stroke 1s cubic-bezier(0.65, 0, 0.45, 1) 0.9s forwards;
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 300;
-  }
-}
-
-@keyframes scale {
-  0%,
-  100% {
-    transform: none;
-  }
-  50% {
-    transform: scale3d(0.9, 0.9, 1);
-  }
-}
-
-
-
-
-
-
-
 
 .mysubmissions ul.react-tabs__tab-list {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+  width: 100%;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .mysubmissions ul.react-tabs__tab-list li {
@@ -89,15 +25,13 @@
     cursor: pointer;
     font-weight: 400;
     font-size: 14px;
-    border-radius: 6px 6px 0 0;
-    border-bottom: 1px solid #d9d9d9;
-    flex: 1 1 1%;
+    color: #999;
 }
 
 .mysubmissions ul.react-tabs__tab-list li.react-tabs__tab--selected {
   color: #3045FD;
-  border: 1px solid #d9d9d9;
-  border-bottom-width: 0;
+  background-color: #3045fd1e;
+  border-radius: 10px;
 }
 
 .mysubmissions ul.react-tabs__tab-list li i {
@@ -106,4 +40,145 @@
 
 .mysubmissions ul.react-tabs__tab-list li.react-tabs__tab--selected i {
   transform: rotate(-45deg);
+}
+
+.mysubmissions .react-tabs .react-tabs__tab-panel--selected {
+   padding: 15px;
+}
+
+.bookCard {
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.bookCard .card_head {
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+
+.bookCard .card_head i {
+    position: absolute;
+    top: -10px;
+    left: -30px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 6px;
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    color: #3045FD;
+    box-shadow: -2px 0px 10px rgba(0,0,0,0.3);
+}
+
+.bookCard .card_head .name {
+    font-size: 20px;
+    margin: 10px 10px 20px 20px;
+}
+
+.bookCard .card_body {
+  padding: 30px 10px;
+}
+
+.bookCard .card_body ul {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bookCard .card_body ul li span {
+  display: block;
+  color: #999;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.bookCard .card_body ul li small {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bookCard .card_body ul li.room_dets {
+  color: #3045FD;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.bookCard .card_body ul li.room_dets i {
+  margin-right: 5px;
+}
+
+.bookCard .card_body ul li.room_dets .room {
+  margin: 0 0 10px;
+}
+
+
+
+
+.submissionCard {
+  width: 50%;
+  margin: 20px auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.submissionCard p {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.circle-check-svg-wrap {
+position: absolute;
+top: 50%;
+left: 50%;
+margin-left: -80px;
+margin-top: -80px;
+width: 500px;
+height: 500px;
+}
+
+.success-svg {
+display: block;
+stroke-width: 2;
+stroke: #fff;
+margin: 0 auto 2rem;
+animation: scale 0.3s ease-in-out 0.8s both;
+}
+
+.success-circle {
+stroke-dasharray: 800;
+stroke-dashoffset: 800;
+stroke-width: 2;
+stroke: #177ee6;
+fill: none;
+animation: stroke 1.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-checkmark {
+transform-origin: 50% 50%;
+stroke-dasharray: 146;
+stroke-dashoffset: 146;
+animation: stroke 1s cubic-bezier(0.65, 0, 0.45, 1) 0.9s forwards;
+}
+
+@keyframes stroke {
+100% {
+  stroke-dashoffset: 300;
+}
+}
+
+@keyframes scale {
+0%,
+100% {
+  transform: none;
+}
+50% {
+  transform: scale3d(0.9, 0.9, 1);
+}
 }

@@ -4,13 +4,159 @@
 
 .contact_inner {
     padding: 2rem;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    background-color: #f1f1f1;
     display: flex;
     display: -ms-flexbox;
-    justify-content: space-between;
+    padding-left: 4rem;
+    border-left: 10px solid #3045fd;
+    border-radius: 15px 0 0 15px;
+}
+
+.map_sec, .map_sec iframe {
+    width: 100%;
 }
 
 .map_sec iframe {
     border: none;
-    filter: grayscale(1) brightness(0.9);
+    height: 500px;
+}
+
+.card_col {
+    display: flex;
+    display: -ms-flexbox;
+    gap: 30px;
+    justify-content: center;
+    flex: 0 0 100%;
+    padding: 0 15px;
+    margin: -200px 0 50px;
+}
+
+.form_Col {
+    flex: 0 0 100%;
+    padding: 0 15px;
+}
+
+.contact_inner .rs-form, .contact_inner .rs-form-control-wrapper>.rs-input {
+    width: 100%;
+}
+
+.contact_card {
+    background: linear-gradient(135deg, #3045fd, #3fcaff) no-repeat 0 0 / cover;
+    width: 100%;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 250px;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.contact_card a {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 33.33%;
+    margin: 0 10px;
+}
+
+.contact_card a:not(:last-child) {
+    border-right: 2px solid #3fcaff;
+}
+
+.contact_card a i {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.contact_card a span {
+    font-size: 15px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** Responsive CSS starts here **/
+
+@media (max-width: 991.98px) {
+    
+    .card_col {
+        margin: -150px 0 25px;
+    }
+    
+    .contact_card {
+        padding: 20px;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact_sec {
+        padding: 3rem 0;
+    }
+
+    .contact_inner {
+        padding-left: 2.5rem;
+        border-left: 6px solid #3045fd;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .map_sec iframe {
+        height: 350px;
+    }
+
+    .card_col {
+        margin: -100px 0 25px;
+    }
+    
+    .contact_card {
+        padding: 15px;
+        min-height: 180px;
+        flex-direction: column;
+    }
+
+    .contact_card a {
+        margin: 10px;
+        padding: 20px 0;
+        width: 90%;
+    }
+
+    .contact_card a:not(:last-child) {
+        border-right: none;
+        border-bottom: 2px solid #eee;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact_sec {
+        padding: 2rem 0;
+    }
+
+    .contact_inner {
+        padding: 1rem !important;
+        border-left: 4px solid #3045fd;
+    }
+
+    .map_sec iframe {
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 475.98px) {
+
 }

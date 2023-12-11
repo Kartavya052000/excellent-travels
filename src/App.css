@@ -55,6 +55,7 @@ header.mainHeader {
   background-color: #fff;
   position: relative;
   z-index: 1;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 
 .innerHeader {
@@ -220,13 +221,19 @@ ul.social_wrap li:not(.login) a:hover img {
 
 .innerPg_header {
   padding: 1rem 0;
-  background-color: #3045FD;
+  background: linear-gradient(135deg, #3045fd, #3fcaff) no-repeat 0 0 / cover;
   color: #fff;
 }
 
-.innerPg_header h2 {
-  margin: 15px 0;
-  text-align: center;
+ul.breadcrumb {
+  padding: 0;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+ul.breadcrumb li a {
+  color: #fff;
 }
 
 
@@ -398,12 +405,12 @@ ul.social_info li a:hover {
       max-width: 120px;
   }
 
-  ul.social_wrap li:not(.login) {
-    display: none;
+  ul.breadcrumb {
+      font-size: 1rem;
   }
 
-  .innerPg_header h2 {
-      font-size: 1.5rem;
+  ul.social_wrap li:not(.login) {
+    display: none;
   }
 
   .footer-sec .logoWrap img {
@@ -430,12 +437,9 @@ ul.social_info li a:hover {
       height: 32px;
   }
 
-  .innerPg_header {
-      padding: 85px 0 30px 0;
-  }
-
-  .innerPg_header h2 {
-      font-size: 1rem;
+  ul.breadcrumb {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
   }
 
   .footer-sec .logoWrap img {

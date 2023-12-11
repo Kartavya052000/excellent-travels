@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './App.css';
 import Home from "./home";
@@ -9,8 +10,11 @@ import Login from "./login";
 import FounderProfile from "./founderProfile";
 import MyProfile from "./myprofile";
 import MySubmissions from "./mysubmissions";
+import ForgotPassword from "./forgot-password";
+import ResetPassword from "./reset-password";
+import ErrorPage from "./error404";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
@@ -23,6 +27,9 @@ function App() {
           <Route exact path='/mysubmissions' element={<MySubmissions />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
+          <Route exact path='/forgot-password' element={<ForgotPassword />} />
+          <Route exact path='/reset-password' element={<ResetPassword />} />
+          <Route path='#' element={<ErrorPage />} />
         </Routes>
         <Footer />
       </Router>

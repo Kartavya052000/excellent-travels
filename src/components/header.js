@@ -29,20 +29,20 @@ const Header = () => {
                         </div>
                         <ul className='social_wrap'>
                             <li>
-                                <a href='tel:+10505005050' title='+1-05050-05050'>
+                                <a href='tel:6046796293' title='604 679 6293'>
                                     <img src={phone} />
                                     <div>
                                         <span>Call Us</span>
-                                        +1-05050-05050
+                                        604 679 6293
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a href='mailto:xcellenttravels@gmail.com' title='xcellenttravels@gmail.com'>
+                                <a href='mailto:xcellenttourstravels@gmail.com' title='xcellenttourstravels@gmail.com'>
                                     <img src={mail} />
                                     <div>
                                         <span>Email</span>
-                                        xcellenttravels@gmail.com
+                                        xcellenttourstravels@gmail.com
                                     </div>
                                 </a>
                             </li>
@@ -75,9 +75,9 @@ const Header = () => {
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
                                 </li>
-                                {/* <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
+                                <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
-                                </li> */}
+                                </li>
                                 <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
                                     <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
                                 </li>

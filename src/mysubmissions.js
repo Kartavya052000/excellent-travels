@@ -7,7 +7,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 const MySubmissions = () => {
     return(
         <>
-        <InnerHeader value='My Submissions' />
+        <InnerHeader value='Submissions' />
         
         <section className='mysubmissions'>
             <div className='custom-container'>
@@ -20,9 +20,25 @@ const MySubmissions = () => {
                     </TabList>
 
                     <TabPanel>
+                        <div className='bookCard'>
+                            <div className='card_head'>
+                                <i className='fa fa-building'></i>
+                                <h4 className='name'>Hotel Name</h4>
+                            </div>
+                            <div className='card_body'>
+                                <ul>
+                                    <li><span>Check-In</span> <small>08 Dec 23</small></li>
+                                    <li><span>Check-Out</span> <small>10 Dec 23</small></li>
+                                    <li className='room_dets'>
+                                        <div className='room'><i className='fa fa-door-open'></i> 1 Room(s), 2 Night(s)</div>
+                                        <div className='person'><i className='fa fa-users'></i> PersonName + 1</div>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        
                     </TabPanel>
                 </Tabs>
 
