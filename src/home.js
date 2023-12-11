@@ -12,7 +12,7 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { Button, DatePicker, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from "rsuite";
+import { Button, DatePicker, Dropdown, Input, InputNumber, InputPicker, Radio, SelectPicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -254,34 +254,55 @@ const Home = () => {
                             </TabPanel>
                             <TabPanel>
                                 <div className='tabForm'>
-                                    <form className='inline_Form'>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='fromLoc'>From</label>
-                                            <Input id='fromLoc' placeholder="Enter Location" />
-                                        </div>
-                                        <div className='formGrp'>
-                                            <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='toLoc'>To</label>
-                                            <Input id='toLoc' placeholder="Enter Location" />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='departure'>Departure</label>
-                                            <DatePicker id='departure' format='MM/dd/yyyy' appearance='subtle' />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='return'>Return</label>
-                                            <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='travellers'>Travellers</label>
-                                            <Input id='travellers' placeholder="Travellers" />
-                                        </div>
-                                        <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success' onClick={onSearch}>Submit</button>
-                                        </div>
-                                    </form>
+                                    <Tabs className='radio_tab'>
+                                        <TabList className='radio_tabList'>
+                                            <Tab>
+                                                <Radio defaultChecked='true'>One Way</Radio>
+                                            </Tab>
+                                            <Tab>
+                                                <Radio>Round Trip</Radio>
+                                            </Tab>
+                                            <Tab>
+                                                <Radio>Multi-city</Radio>
+                                            </Tab>
+                                        </TabList>
+                                        <TabPanel>
+                                            <form className='inline_Form'>
+                                                <div className='formGrp hoverCenter'>
+                                                    <label htmlFor='fromLoc'>From</label>
+                                                    <Input id='fromLoc' placeholder="Enter Location" />
+                                                </div>
+                                                <div className='formGrp'>
+                                                    <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
+                                                </div>
+                                                <div className='formGrp hoverCenter'>
+                                                    <label htmlFor='toLoc'>To</label>
+                                                    <Input id='toLoc' placeholder="Enter Location" />
+                                                </div>
+                                                <div className='formGrp hoverCenter'>
+                                                    <label htmlFor='departure'>Departure</label>
+                                                    <DatePicker id='departure' format='MM/dd/yyyy' appearance='subtle' />
+                                                </div>
+                                                <div className='formGrp hoverCenter'>
+                                                    <label htmlFor='return'>Return</label>
+                                                    <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' />
+                                                </div>
+                                                <div className='formGrp hoverCenter'>
+                                                    <label htmlFor='travellers'>Travellers</label>
+                                                    <Input id='travellers' placeholder="Travellers" />
+                                                </div>
+                                                <div className='formBtn'>
+                                                    <button type='submit' className='butn butn_success' onClick={onSearch}>Submit</button>
+                                                </div>
+                                            </form>
+                                        </TabPanel>
+                                        <TabPanel>
+                                            Round Trip
+                                        </TabPanel>
+                                        <TabPanel>
+                                            Multi City
+                                        </TabPanel>
+                                    </Tabs>
                                 </div>
                             </TabPanel>
                             <TabPanel>

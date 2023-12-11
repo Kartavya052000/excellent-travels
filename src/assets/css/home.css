@@ -68,6 +68,14 @@
     margin-top: -20px;
   }
 
+  .tab_form_sec .radio_tabList {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
   form.inline_Form {
     display: flex;
     align-items: flex-end;
