@@ -62,6 +62,8 @@
                             <div className="social-container">
                                 {/* <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a> */}
                                 <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /> Sign in with Google</button>
+                                
+                                <a  className="social google" onClick={googleAuth}><i className="fab fa-google-plus-g"></i></a>
                                 {/* <a href="#" className="social linkedin"><i className="fab fa-linkedin-in"></i></a> */}
                             </div>
                         </Form>

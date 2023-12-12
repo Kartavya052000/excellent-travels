@@ -12,10 +12,11 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { Button, DatePicker, Dropdown, Input, InputNumber, InputPicker, Radio, SelectPicker } from "rsuite";
+import { Button, DatePicker, Dropdown, Input, InputNumber, InputPicker, Radio, SelectPicker,DateRangePicker } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 const Home = () => {
     const navigate = useNavigate();
@@ -200,11 +201,11 @@ const Home = () => {
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='checkIn'>Check In</label>
-                                            <DatePicker id='checkIn' format='MM/dd/yyyy' />
+                                            <DatePicker id='checkIn' format='MM/dd/yyyy' oneTap={true} />
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='checkOut'>Check Out</label>
-                                            <DatePicker id='checkOut' format='MM/dd/yyyy' />
+                                            <DatePicker id='checkOut' format='MM/dd/yyyy' oneTap={true} />
                                         </div>
                                         <div className='formGrp hoverCenter'>
                                             <label htmlFor='guest_room'>Guests & Rooms</label>
