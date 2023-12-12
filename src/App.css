@@ -343,6 +343,7 @@ ul.social_info li a:hover {
 .loginModal .rs-modal-body {
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 3rem;
 }
 
 .loginModal .rs-modal-title {
@@ -354,7 +355,6 @@ ul.social_info li a:hover {
 
 .loginModal .modal_inner {
   margin: 0 auto;
-  width: 60%;
   display: flex;
   display: -ms-flexbox;
   align-items: center;

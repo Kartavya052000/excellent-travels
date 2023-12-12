@@ -56,14 +56,15 @@ const Header = () => {
         }
     };
 
+    const googleAuth = () =>{       
+        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
+    }
+    
     const [openModal, setOpenModal] = React.useState(false);
     const [overflow, setOverflow] = React.useState(true);
     const handleOpen = () => setOpenModal(true);
     const handleClose = () => setOpenModal(false);
 
-    const googleAuth = () =>{       
-        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
-    }
     return (
         <>
             <header className='mainHeader'>
@@ -155,7 +156,7 @@ const Header = () => {
                 </div>
             </header>
 
-            <Modal className='loginModal' backdrop="static" role="alertdialog" overflow={overflow} open={openModal} onClose={handleClose}>
+            <Modal size='xs' className='loginModal' backdrop="static" keyboard={false} overflow={overflow} open={openModal} onClose={handleClose}>
                 <Modal.Header>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
@@ -163,15 +164,13 @@ const Header = () => {
                     <div className='modal_inner'>
                         <Form>
                             <div className='formGrp'>
-                                <Form.ControlLabel>Email</Form.ControlLabel>
                                 <Form.Control name='email' placeholder='Email' />
                             </div>
                             <div className='formGrp'>
-                                <Form.ControlLabel>Password</Form.ControlLabel>
                                 <Form.Control name='password' placeholder='Password' />
                             </div>
                             <div className='formBtn'>
-                                <button type='submit' className='butn butn_success'>Login</button>
+                                <button type='submit' className='butn butn_success butn_block'>Login</button>
                             </div>
                         </Form>
                         <span>---- Or Sign In With ----</span>
