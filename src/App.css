@@ -318,6 +318,66 @@ ul.social_info li a:hover {
 
 
 
+/** Login Modal CSS **/
+
+.loginModal .rs-modal-content {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.loginModal .rs-modal-header {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  background-color: #3045FD;
+}
+
+.loginModal .rs-modal-header .rs-modal-header-close {
+  color: #fff;
+}
+
+.loginModal .rs-modal-header .rs-modal-header-close:hover {
+  color: #000;
+}
+
+.loginModal .rs-modal-body {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.loginModal .rs-modal-title {
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.loginModal .modal_inner {
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginModal .modal_inner .rs-form ~ span {
+  font-size: 12px;
+}
+
+.loginModal .modal_inner button.social {
+  padding: 8px;
+  text-align: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.loginModal .modal_inner button.social img {
+  margin: 0;
+}
+
+
 
 
 

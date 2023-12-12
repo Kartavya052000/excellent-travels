@@ -300,6 +300,13 @@
     border-bottom-color: #ccc;
   }
 
+  .rs-picker-toggle-wrapper {
+    width: 100%;
+  }
+
+  .w-auto {
+    width: auto !important;
+  }
 
 
 /** Form CSS ends here **/

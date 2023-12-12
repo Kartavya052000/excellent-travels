@@ -6,6 +6,7 @@ import logo from '../assets/images/logo.png';
 import phone from '../assets/images/phone.svg';
 import mail from '../assets/images/mail.svg';
 import user from '../assets/images/user.svg';
+import googleSvg from '../assets/images/google.svg';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from "react-router-dom";
@@ -59,6 +60,10 @@ const Header = () => {
     const [overflow, setOverflow] = React.useState(true);
     const handleOpen = () => setOpenModal(true);
     const handleClose = () => setOpenModal(false);
+
+    const googleAuth = () =>{       
+        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
+    }
     return (
         <>
             <header className='mainHeader'>
@@ -150,24 +155,30 @@ const Header = () => {
                 </div>
             </header>
 
-            <Modal backdrop="static" role="alertdialog" overflow={overflow} open={openModal} onClose={handleClose}>
+            <Modal className='loginModal' backdrop="static" role="alertdialog" overflow={overflow} open={openModal} onClose={handleClose}>
                 <Modal.Header>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
-                        <div className='formGrp'>
-                            <Form.ControlLabel>Email</Form.ControlLabel>
-                            <Form.Control name='email' placeholder='Email' />
+                    <div className='modal_inner'>
+                        <Form>
+                            <div className='formGrp'>
+                                <Form.ControlLabel>Email</Form.ControlLabel>
+                                <Form.Control name='email' placeholder='Email' />
+                            </div>
+                            <div className='formGrp'>
+                                <Form.ControlLabel>Password</Form.ControlLabel>
+                                <Form.Control name='password' placeholder='Password' />
+                            </div>
+                            <div className='formBtn'>
+                                <button type='submit' className='butn butn_success'>Login</button>
+                            </div>
+                        </Form>
+                        <span>---- Or Sign In With ----</span>
+                        <div className="social-container">
+                            <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button>
                         </div>
-                        <div className='formGrp'>
-                            <Form.ControlLabel>Password</Form.ControlLabel>
-                            <Form.Control name='password' placeholder='Password' />
-                        </div>
-                        <div className='formBtn'>
-                            <button type='submit' className='butn butn_success'>Login</button>
-                        </div>
-                    </Form>
+                    </div>
                 </Modal.Body>
             </Modal>
         </>

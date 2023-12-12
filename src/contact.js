@@ -60,6 +60,16 @@ const Contact = () => {
                                         <Form.Control name='phone' placeholder='Phone' />
                                     </div>
 
+                                    <div className='formGrp'>
+                                        <Form.ControlLabel>Subject</Form.ControlLabel>
+                                        <Form.Control name='subject' placeholder='Subject' />
+                                    </div>
+
+                                    <div className='formGrp'>
+                                        <Form.ControlLabel>Message</Form.ControlLabel>
+                                        <textarea name='msg' placeholder='Message'></textarea>
+                                    </div>
+
                                     <div className='formBtn'>
                                         <button type='submit' className='butn butn_success'>Get Quotes</button>
                                     </div>

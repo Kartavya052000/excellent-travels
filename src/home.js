@@ -212,25 +212,30 @@ const Home = () => {
                                                 <div className='guest_wrap'>
                                                     <div className='g_col'>
                                                         <label>Rooms</label>
-                                                        <button onClick={(e) => decrement(e,"room")}>-</button>
-                                                        <span>{roomcount}</span>
-                                                        <button onClick={(e) => increment(e,"room")}>+</button>
-
+                                                        <div className='count'>
+                                                            <button onClick={(e) => decrement(e,"room")}>-</button>
+                                                            <span>{roomcount}</span>
+                                                            <button onClick={(e) => increment(e,"room")}>+</button>
+                                                        </div>
                                                     </div>
                                                     <div className='g_col'>
                                                         <label>Adults</label>
-                                                        <button onClick={(e) => decrement(e,"adult")}>-</button>
-                                                        <span>{adultcount}</span>
-                                                        <button onClick={(e) => increment(e,"adult")}>+</button>
+                                                        <div className='count'>
+                                                            <button onClick={(e) => decrement(e,"adult")}>-</button>
+                                                            <span>{adultcount}</span>
+                                                            <button onClick={(e) => increment(e,"adult")}>+</button>
+                                                        </div>
                                                     </div>
                                                     <div className='g_col'>
                                                         <label>Children</label>
-                                                        <button onClick={(e) => decrement(e,"child")}>-</button>
-                                                        <span>{childcount}</span>
-                                                        <button onClick={(e) => increment(e,"child")}>+</button>
+                                                        <div className='count'>
+                                                            <button onClick={(e) => decrement(e,"child")}>-</button>
+                                                            <span>{childcount}</span>
+                                                            <button onClick={(e) => increment(e,"child")}>+</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <Button className='butn butn_success butn_rounded'>Accept</Button>
+                                                <Button className='butn butn_success butn_rounded'>Apply</Button>
                                             </Dropdown>
                                         </div>
                                         <div className='formGrp hoverCenter'>
@@ -272,7 +277,7 @@ const Home = () => {
                                                     <label htmlFor='fromLoc'>From</label>
                                                     <Input id='fromLoc' placeholder="Enter Location" />
                                                 </div>
-                                                <div className='formGrp'>
+                                                <div className='formGrp w-auto'>
                                                     <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                                                 </div>
                                                 <div className='formGrp hoverCenter'>
@@ -289,7 +294,35 @@ const Home = () => {
                                                 </div>
                                                 <div className='formGrp hoverCenter'>
                                                     <label htmlFor='travellers'>Travellers</label>
-                                                    <Input id='travellers' placeholder="Travellers" />
+                                                    <Dropdown title="Travellers">
+                                                        <div className='guest_wrap'>
+                                                            <div className='g_col'>
+                                                                <label>Rooms</label>
+                                                                <div className='count'>
+                                                                    <button onClick={(e) => decrement(e,"room")}>-</button>
+                                                                    <span>{roomcount}</span>
+                                                                    <button onClick={(e) => increment(e,"room")}>+</button>
+                                                                </div>
+                                                            </div>
+                                                            <div className='g_col'>
+                                                                <label>Adults</label>
+                                                                <div className='count'>
+                                                                    <button onClick={(e) => decrement(e,"adult")}>-</button>
+                                                                    <span>{adultcount}</span>
+                                                                    <button onClick={(e) => increment(e,"adult")}>+</button>
+                                                                </div>
+                                                            </div>
+                                                            <div className='g_col'>
+                                                                <label>Children</label>
+                                                                <div className='count'>
+                                                                    <button onClick={(e) => decrement(e,"child")}>-</button>
+                                                                    <span>{childcount}</span>
+                                                                    <button onClick={(e) => increment(e,"child")}>+</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <Button className='butn butn_success butn_rounded'>Accept</Button>
+                                                    </Dropdown>
                                                 </div>
                                                 <div className='formBtn'>
                                                     <button type='submit' className='butn butn_success' onClick={onSearch}>Submit</button>
