@@ -155,7 +155,7 @@
     width: 100%;
   }
 
-  .tabForm .rs-dropdown .rs-dropdown-toggle, .tabForm .rs-dropdown .rs-btn {
+  .tabForm .rs-dropdown .rs-dropdown-toggle, .tabForm .rs-dropdown .rs-btn:not(.butn) {
     background-color: transparent;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
