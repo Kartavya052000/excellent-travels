@@ -22,7 +22,9 @@ const MySubmissions = () => {
                     <TabPanel>
                         <div className='bookCard'>
                             <div className='card_head'>
-                                <i className='fa fa-building'></i>
+                                <div className='icon'>
+                                    <i className='fa fa-building'></i>
+                                </div>
                                 <h4 className='name'>Hotel Name</h4>
                             </div>
                             <div className='card_body'>
