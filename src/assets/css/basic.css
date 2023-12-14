@@ -308,6 +308,10 @@
     width: auto !important;
   }
 
+  .mw-auto {
+    min-width: auto !important;
+  }
+
 
 /** Form CSS ends here **/
 

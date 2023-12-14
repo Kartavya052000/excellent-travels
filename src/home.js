@@ -173,21 +173,21 @@ const Home = () => {
     );
    
 
-    const destination = ['Alaska', 'Antarctica', 'Bermuda', 'Hawaii', 'North America', 'South America', 'South Pacific', 'World Cruise'].map(
-        item => ({ label: item, value: item })
-    );
+    // const destination = ['Alaska', 'Antarctica', 'Bermuda', 'Hawaii', 'North America', 'South America', 'South Pacific', 'World Cruise'].map(
+    //     item => ({ label: item, value: item })
+    // );
 
-    const departure = ['November 2023', 'December 2023', 'January 2024', 'February 2024', 'March 2024', 'April 2024', 'May 2024', 'June 2024'].map(
-        item => ({ label: item, value: item })
-    );
+    // const departure = ['November 2023', 'December 2023', 'January 2024', 'February 2024', 'March 2024', 'April 2024', 'May 2024', 'June 2024'].map(
+    //     item => ({ label: item, value: item })
+    // );
 
     const cruiseLine = ['Azamara', 'Carnival Cruise Line', 'Celebrity Cruises', 'Cunard', 'Disney Cruise Line'].map(
         item => ({ label: item, value: item })
     );
 
-    const duration = ['1-2 Nights', '3-6 Nights', '7-10 Nights', '11-14 Nights', '15 Nights or More'].map(
-        item => ({ label: item, value: item })
-    );
+    // const duration = ['1-2 Nights', '3-6 Nights', '7-10 Nights', '11-14 Nights', '15 Nights or More'].map(
+    //     item => ({ label: item, value: item })
+    // );
 
     const { scrollYProgress } = useScroll();
 
@@ -289,7 +289,7 @@ const Home = () => {
                                             />
 
                                         </div>
-                                        <div className='formGrp w-auto'>
+                                        <div className='formGrp mw-auto w-auto'>
                                             <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                                         </div>
                                         <div className='formGrp hoverCenter'>
@@ -298,7 +298,7 @@ const Home = () => {
                                                 id="api-autocomplete"
                                                 style={{ width: 300 }}
                                                 options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
+                                                defaultValue={"Vancouver"}
                                                 freeSolo
                                                 getOptionLabel={(option) => option}
                                                 onInputChange={(event, newInputValue) => {
@@ -331,8 +331,9 @@ const Home = () => {
                                                         </div>
                                                     </div>
                                                     <div className='g_col'>
-                                                        <label>senior over 70 years</label>
-                                                        <span>old may be required to pay an additional fee</span>
+                                                        <label>senior over 70 years
+                                                            <span>old may be required to pay an additional fee</span>
+                                                        </label>                                                        
                                                         <div className='count'>
                                                             <input type="checkbox" name="old" />
 
@@ -444,7 +445,7 @@ const Home = () => {
                                                     fetchData(newInputValue)
                                                 }}
                                                 renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
+                                                    <TextField {...params} label="Search Airport" variant="outlined" fullWidth />
                                                 )}
                                             />
 
@@ -540,7 +541,7 @@ const Home = () => {
                                             <label htmlFor='destination'>Destination</label>
                                             <SelectPicker id='destination' data={destination} appearance='subtle' />
                                         </div> */}
-                                        <div className='formGrp hoverCenter'>
+                                        <div className='formGrp'>
                                             <label htmlFor='destination'>Destination</label>
                                             <Autocomplete
                                                 id="api-autocomplete"

@@ -68,6 +68,17 @@
     margin-top: -20px;
   }
 
+  .tab_form_sec .react-tabs__tab-panel .tabForm form.inline_Form {
+    position: relative;
+  }
+
+  .tab_form_sec .react-tabs__tab-panel .tabForm form.inline_Form .formBtn {
+    position: absolute;
+    top: 98%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .tab_form_sec .radio_tabList {
     display: flex;
     display: -ms-flexbox;
@@ -83,8 +94,12 @@
     gap: 10px;
   }
 
+  .tabForm form.inline_Form {
+    flex-wrap: wrap;
+  }
+
   .tabForm form .formGrp {
-    width: 100%;
+    min-width: 300px;
   }
 
   .tab_form_sec ul.react-tabs__tab-list {
@@ -177,10 +192,39 @@
   .tabForm .guest_wrap {
     display: flex;
     display: -ms-flexbox;
-    align-items: center;
     justify-content: space-between;
     gap: 20px;
     width: 100%;
+    flex-direction: column;
+  }
+
+  .tabForm .guest_wrap .g_col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tabForm .guest_wrap .g_col label span {
+    display: block;
+    font-weight: 300;
+    font-size: 12px;
+  }
+
+  .tabForm .MuiFormControl-root .MuiOutlinedInput-root {
+    padding: 0;
+  }
+
+  .tabForm .ant-space, .tabForm .ant-space-item, .tabForm .ant-select {
+    width: 100% !important;
+  }
+
+  .tabForm .ant-select-selector {
+    border: none !important;
+    border-radius: 0;
+    border-bottom: 1px solid #ccc !important;
   }
 
 
