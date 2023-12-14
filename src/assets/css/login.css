@@ -220,7 +220,11 @@ button.ghost {
 	margin-top: 2px;
   }
   
+/* ------ to show error----- */
 
+.error {
+	border: 1px solid red !important;
+  }
 
 
 
