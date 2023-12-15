@@ -26,9 +26,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 import Hotel from "./pages/Hotel";
+import CarHire from "./pages/Car";
+import Flight from "./pages/Flight";
+import Cruise from "./pages/cruise";
 
 
-const { RangePicker } = DatePicker;
 
 
 const Home = () => {
@@ -38,37 +40,11 @@ const Home = () => {
     const [childcount, setChildCount] = useState(0);
     const [dropdownOpen, setDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [facdropdownOpen, setFacDropdownOpen] = useState(false); // State to manage dropdown visibility
-    const [drivedropdownOpen, setdrivDropdownOpen] = useState(false); // State to manage dropdown visibility
-    const [options, setOptions] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
-    const [inputValue, setInputValue] = useState('');
     const [tabIndex, setTabIndex] = useState(0); // State to manage the selected tab index
-    const [showReturn, setShowReturn] = useState(false); // State to manage the visibility of return date
     const [wayval, Setwayval] = useState("oneWay")
-    const handleChange = (event) => {
-        // setTabIndex(index);
-        Setwayval(event.target.value);
-        let way = event.target.value
-        // // Based on the selected tab index, set the visibility of return date picker
-        if (way === "oneWay") {
-            setShowReturn(false); // One Way
-        } else if (way === "roundTrip" || way === "multiCity") {
-            setShowReturn(true); // Round Trip or Multi-city
-        }
-    };
-    const fetchData = async (search) => {
-        debouncedSearch(search)
-    };
-
-    const disabledDate = (current) => {
-        // Can not select days before today and today
-        return current && current < dayjs().endOf('day');
-    };
-    const hotelPickerPlaceholder = ['Check In ', 'Check out'];
-    const ticketPickerPlaceholder = ['Departue ', 'Return'];
-    const pickupPickerPlaceholder = ['Pick Up ', 'Drop Off'];
-
+    
+ 
     const getUser = async () => {
         try {
             const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
@@ -158,37 +134,6 @@ const Home = () => {
         AOS.init({ once: true });
     }, [])
 
-
-    const carType = ['5 seater car', 'SUV', 'premium van', 'Standard pick up extended cab', 'mini commercial van or truck'].map(
-        item => ({ label: item, value: item })
-    );
-    const Capacity = ['2-5 passengers', '6 or more passengers'].map(
-        item => ({ label: item, value: item })
-    );
-    const drive = ['all wheel drive', ' Two wheel drive'].map(
-        item => ({ label: item, value: item })
-    );
-    const driverRequired = ['Yes', 'No'].map(
-        item => ({ label: item, value: item })
-    );
-   
-
-    // const destination = ['Alaska', 'Antarctica', 'Bermuda', 'Hawaii', 'North America', 'South America', 'South Pacific', 'World Cruise'].map(
-    //     item => ({ label: item, value: item })
-    // );
-
-    // const departure = ['November 2023', 'December 2023', 'January 2024', 'February 2024', 'March 2024', 'April 2024', 'May 2024', 'June 2024'].map(
-    //     item => ({ label: item, value: item })
-    // );
-
-    const cruiseLine = ['Azamara', 'Carnival Cruise Line', 'Celebrity Cruises', 'Cunard', 'Disney Cruise Line'].map(
-        item => ({ label: item, value: item })
-    );
-
-    // const duration = ['1-2 Nights', '3-6 Nights', '7-10 Nights', '11-14 Nights', '15 Nights or More'].map(
-    //     item => ({ label: item, value: item })
-    // );
-
     const { scrollYProgress } = useScroll();
 
     const scaleX = useSpring(scrollYProgress, {
@@ -196,48 +141,19 @@ const Home = () => {
         damping: 30,
         restDelta: 0.001
     });
-    const onSearch = () => {
-        navigate('/booking-confirmation`')
-    }
+   
 
   
 
     // Function to update the guestsArray when Apply button is clicked
-    const updateGuestsArray = () => {
-
-        setDropdownOpen(!dropdownOpen)
-    };
+   
     const updateFaility = () => {
 
         setFacDropdownOpen(!dropdownOpen)
     };
-    const debouncedSearch = _debounce(async (value) => {
-        // alert("2")
-        setLoading(true);
+   // Debounce time (milliseconds)
 
-        try {
-            // Make an API call to get search results
-            const response = await axios.get(process.env.REACT_APP_BACKEND_URL + "/cities" + `?city=${value}`);
-            const data = response.data; // Assuming response is an array of cities and airports
-            // Format the data for Ant Design's AutoComplete options
-            setOptions(data.cities);
-
-            // setOptions(formattedOptions);
-            setLoading(false);
-
-            console.log(options)
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            setLoading(false);
-
-        }
-    }, 500); // Debounce time (milliseconds)
-
-    const handleInputChange = (value) => {
-        // alert('Search value changed:', value); // This should trigger when the value changes
-        debouncedSearch(value);
-
-    };
+   
     return (
         <>
             <motion.div className='progressBar' style={{ scaleX }} />
@@ -267,316 +183,15 @@ const Home = () => {
                                <Hotel />
                             </TabPanel>
                             <TabPanel>
-                                <div className='tabForm'>
-                                    <form className='inline_Form'>
-
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='fromLoc'>Pick up city/airport/or address</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
-                                                freeSolo
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
-
-                                        </div>
-                                        <div className='formGrp mw-auto w-auto'>
-                                            <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='fromLoc'>Drop Off city/airport/or address</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"}
-                                                freeSolo
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
-
-                                        </div>
-
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='guest_room'>Drivers</label>
-                                            <Dropdown
-                                                title="Drivers"
-                                                open={drivedropdownOpen}
-                                                onToggle={() => setdrivDropdownOpen(!drivedropdownOpen)}
-                                                onOpen={() => setdrivDropdownOpen(true)}
-                                                onClose={() => setdrivDropdownOpen(false)}
-
-                                            >
-                                                <div className='guest_wrap'>
-                                                    <div className='g_col'>
-                                                        <label>young driver under 30</label>
-                                                        <div className='count'>
-                                                            <input type="checkbox" name="young" />
-
-                                                        </div>
-                                                    </div>
-                                                    <div className='g_col'>
-                                                        <label>senior over 70 years
-                                                            <span>old may be required to pay an additional fee</span>
-                                                        </label>                                                        
-                                                        <div className='count'>
-                                                            <input type="checkbox" name="old" />
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                {/* <Button className='butn butn_success butn_rounded' onClick={updateGuestsArray}>Apply</Button> */}
-                                            </Dropdown>
-
-
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='checkOut'>Pick up & Drop Off (Time)</label>
-                                            {/* <Space direction="vertical" size={12}> */}
-                                            <RangePicker
-                                                id='checkOut'
-                                                disabledDate={disabledDate}
-                                                placeholder={pickupPickerPlaceholder}
-                                                showTime
-                                            />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Car Type</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Car Type"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={carType}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Capacity</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Capacity"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={Capacity}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Driver Required ?</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Driver Required"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={driverRequired}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Wheel Drive</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Wheel Drive"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={drive}
-                                                />
-                                            </Space>
-                                        </div>
-                                    </form>
-                                </div>
+                                <CarHire />
 
 
                             </TabPanel>
                             <TabPanel>
-                                <div className='tabForm'>
-                                    <RadioGroup
-                                        name="radioList"
-                                        value={wayval}
-                                        onChange={handleChange}
-                                        row
-                                    >
-                                        <FormControlLabel value="oneWay" control={<Radio />} label="One Way" />
-                                        <FormControlLabel value="roundTrip" control={<Radio />} label="Round Trip" />
-                                        <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
-                                    </RadioGroup>
-                                    <form className='inline_Form'>
-
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='destination'>From</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
-
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search Airport" variant="outlined" fullWidth />
-                                                )}
-                                            />
-
-                                        </div>
-                                        <div className='formGrp w-auto'>
-                                            <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='destination'>To</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
-
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
-
-                                        </div>
-                                        {showReturn == false && (
-                                            <div className='formGrp hoverCenter'>
-                                                <label htmlFor='return'>Departure</label>
-                                                {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
-                                                <DatePicker
-                                                    disabledDate={disabledDate}
-                                                    placeholder="Departure"
-
-                                                />
-                                            </div>
-                                        )}
-                                        {showReturn == true && (
-                                            <div className='formGrp hoverCenter'>
-                                                <label htmlFor='return'>Departure and Return</label>
-                                                {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
-                                                <RangePicker
-                                                    disabledDate={disabledDate}
-                                                    placeholder={ticketPickerPlaceholder}
-
-                                                />
-                                            </div>
-                                        )}
-
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='travellers'>Travellers</label>
-                                            {/* <Dropdown title="Travellers">
-                                                <div className='guest_wrap'>
-                                                    <div className='g_col'>
-                                                        <label>Rooms</label>
-                                                        <div className='count'>
-                                                            <button onClick={(e) => decrement(e, "room")}>-</button>
-                                                            <span>{roomcount}</span>
-                                                            <button onClick={(e) => increment(e, "room")}>+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div className='g_col'>
-                                                        <label>Adults</label>
-                                                        <div className='count'>
-                                                            <button onClick={(e) => decrement(e, "adult")}>-</button>
-                                                            <span>{adultcount}</span>
-                                                            <button onClick={(e) => increment(e, "adult")}>+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div className='g_col'>
-                                                        <label>Children</label>
-                                                        <div className='count'>
-                                                            <button onClick={(e) => decrement(e, "child")}>-</button>
-                                                            <span>{childcount}</span>
-                                                            <button onClick={(e) => increment(e, "child")}>+</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <Button className='butn butn_success butn_rounded'>Accept</Button>
-                                            </Dropdown> */}
-                                        </div>
-                                        <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success' onClick={onSearch}>Submit</button>
-                                        </div>
-                                    </form>
-
-                                </div>
+                            <Flight />
                             </TabPanel>
                             <TabPanel>
-                                <div className='tabForm'>
-                                    <form className='inline_Form'>
-                                        {/* <div className='formGrp hoverCenter'>
-                                            <label htmlFor='destination'>Destination</label>
-                                            <SelectPicker id='destination' data={destination} appearance='subtle' />
-                                        </div> */}
-                                        <div className='formGrp'>
-                                            <label htmlFor='destination'>Destination</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
-
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
-
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='departure'>Departure</label>
-                                            <Input id='departure' placeholder='Departure Month' />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='cruiseLine'>Cruise Line</label>
-                                            <SelectPicker id='cruiseLine' data={cruiseLine} appearance='subtle' />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='duration'>Duration</label>
-                                            <Input id='duration' placeholder='Duration' />
-                                        </div>
-                                        <div className='formBtn'>
-                                            <button type='submit' className='butn butn_success' onClick={onSearch} >Search</button>
-                                        </div>
-                                    </form>
-                                </div>
+                               <Cruise />
                             </TabPanel>
                         </Tabs>
                     </div>
