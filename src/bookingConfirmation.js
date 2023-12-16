@@ -3,10 +3,10 @@ import './assets/css/mysubmissions.css';
 import InnerHeader from "./components/innerHeader/innerHeader";
 import { Link } from "react-router-dom";
 
-const bookingConfirmation = () => {
+const BookingConfirmation = () => {
     return(
         <>
-        <InnerHeader value='Submissions' />
+        <InnerHeader value='Booking-Submission' />
         
         <section className='mysubmissions'>
             <div className='custom-container'>
@@ -28,4 +28,4 @@ const bookingConfirmation = () => {
     )
 }
 
-export default bookingConfirmation;
+export default BookingConfirmation;

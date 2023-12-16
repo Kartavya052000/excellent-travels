@@ -378,6 +378,18 @@ ul.social_info li a:hover {
 }
 
 
+/* header text css */
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #3045FD; /* Replace with your desired color */
+  border-radius: 50%; /* Makes it a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Color of the letter */
+  font-size: 20px; /* Adjust the font size of the letter */
+}
 
 
 

@@ -12,6 +12,7 @@ import MyProfile from "./myprofile";
 import MySubmissions from "./mysubmissions";
 import ForgotPassword from "./forgot-password";
 import ResetPassword from "./reset-password";
+import BookingConfirmation from "./bookingConfirmation";
 
 const App = () => {
   return (
@@ -28,7 +29,7 @@ const App = () => {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/forgot-password' element={<ForgotPassword />} />
           <Route exact path='/reset-password' element={<ResetPassword />} />
-          <Route exact path='/booking-confirmation' element={<bookingConfirmation />} />
+          <Route exact path='/booking-confirmation' element={<BookingConfirmation />} />
           
         </Routes>
         <Footer />

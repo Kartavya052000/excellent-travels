@@ -56,10 +56,7 @@ const Cruise = () =>{
     return(
         <div className='tabForm'>
         <form className='inline_Form'>
-            {/* <div className='formGrp hoverCenter'>
-                <label htmlFor='destination'>Destination</label>
-                <SelectPicker id='destination' data={destination} appearance='subtle' />
-            </div> */}
+           
             <div className='formGrp'>
                 <label htmlFor='destination'>Destination</label>
                 <Autocomplete
@@ -67,7 +64,6 @@ const Cruise = () =>{
                     style={{ width: 300 }}
                     options={options}
                     defaultValue={"Vancouver"} // Set the default value here
-
                     getOptionLabel={(option) => option}
                     onInputChange={(event, newInputValue) => {
                         setInputValue(newInputValue);

@@ -12,39 +12,28 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { Button, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from "rsuite";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { Form,Modal } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { DatePicker, Space, Select } from 'antd';
-import dayjs from 'dayjs';
 import _debounce from 'lodash/debounce';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
-import CircularProgress from '@mui/material/CircularProgress';
 import Hotel from "./pages/Hotel";
 import CarHire from "./pages/Car";
 import Flight from "./pages/Flight";
 import Cruise from "./pages/cruise";
-
-
-
+import googleSvg from './assets/images/google.svg';
+import { useCookies } from 'react-cookie';
+import Swal from 'sweetalert2';
 
 const Home = () => {
     const navigate = useNavigate();
-    const [roomcount, setRoomCount] = useState(0);
-    const [adultcount, setAdultCount] = useState(0);
-    const [childcount, setChildCount] = useState(0);
-    const [dropdownOpen, setDropdownOpen] = useState(false); // State to manage dropdown visibility
-    const [facdropdownOpen, setFacDropdownOpen] = useState(false); // State to manage dropdown visibility
-    const [open, setOpen] = useState(false);
-    const [tabIndex, setTabIndex] = useState(0); // State to manage the selected tab index
-    const [wayval, Setwayval] = useState("oneWay")
-    
- 
+    const [openModal, setOpenModal] = React.useState(false);
+    const [overflow, setOverflow] = React.useState(true);
+    const handleOpen = () => setOpenModal(true);
+    const handleClose = () => setOpenModal(false);
+    const [open, setOpen] = React.useState(false);
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const token = cookies['token'];
     const getUser = async () => {
         try {
             const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
@@ -129,7 +118,9 @@ const Home = () => {
             setActive(index);
         }
     }
-
+    const googleAuth = () =>{       
+        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
+    }
     useEffect(() => {
         AOS.init({ once: true });
     }, [])
@@ -141,19 +132,45 @@ const Home = () => {
         damping: 30,
         restDelta: 0.001
     });
-   
-
-  
-
-    // Function to update the guestsArray when Apply button is clicked
-   
-    const updateFaility = () => {
-
-        setFacDropdownOpen(!dropdownOpen)
+    const handleOpenModal = async (value) => {
+        if(!token){
+            setOpenModal(true);
+        }else{
+            try {
+                const url = `${process.env.REACT_APP_BACKEND_URL}/booking`;
+                const { data } = await axios.post(url,value,{
+                    headers: {
+                        'Authorization': ` ${token}`, // Correct the token format
+                    },
+                });
+                // console.log(data, "RES")
+                // setUser(data.user._json);
+                navigate("/booking-confirmation")
+            } catch (err) {
+                console.log(err);
+            }
+        }
     };
-   // Debounce time (milliseconds)
-
-   
+    // useEffect(() => {
+    //     const showSweetAlert = async () => {
+    //       const { value } = await Swal.fire({
+    //         title: 'Success!',
+    //         html: '<div class="tick-animation"></div><div>Operation successful</div>',
+    //         showConfirmButton: false,
+    //         customClass: {
+    //           container: 'custom-swal-container',
+    //           popup: 'custom-swal-popup',
+    //         },
+    //         timer: 2500, // Adjust the timer as needed
+    //       });
+    
+    //       if (value) {
+    //         // Handle any action after the alert is closed
+    //       }
+    //     };
+    
+    //     showSweetAlert();
+    //   }, []);
     return (
         <>
             <motion.div className='progressBar' style={{ scaleX }} />
@@ -180,16 +197,16 @@ const Home = () => {
                                 <Tab><i className='fa fa-ship'></i> Cruise</Tab>
                             </TabList>
                             <TabPanel>
-                               <Hotel />
+                               <Hotel openLoginModal={handleOpenModal} />
                             </TabPanel>
                             <TabPanel>
-                                <CarHire />
+                                <CarHire openLoginModal={handleOpenModal}/>
                             </TabPanel>
                             <TabPanel>
-                                <Flight />
+                            <Flight openLoginModal={handleOpenModal} />
                             </TabPanel>
                             <TabPanel>
-                               <Cruise />
+                               <Cruise openLoginModal={handleOpenModal} />
                             </TabPanel>
                         </Tabs>
                     </div>
@@ -319,6 +336,33 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <Modal size='xs' className='loginModal' backdrop="static" keyboard={false} overflow={overflow} open={openModal} onClose={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='modal_inner'>
+                        <Form>
+                            {/* <h1>Login to Continue</h1> */}
+                            <div className='formGrp'>
+                                <Form.Control name='email' placeholder='Email' />
+                            </div>
+                            <div className='formGrp'>
+                                <Form.Control name='password' placeholder='Password' />
+                            </div>
+                            <div className='formBtn'>
+                                <button type='submit' className='butn butn_success butn_block'>Login</button>
+                            </div>
+                        </Form>
+                        <span>---- Or Sign In With ----</span>
+                        <div className="social-container">
+                        <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button>
+
+                            {/* <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button> */}
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
