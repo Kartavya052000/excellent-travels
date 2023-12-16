@@ -2,7 +2,7 @@
 
 .hero_sec {
     position: relative;
-    padding: 5rem 0 15rem;
+    padding: 5rem 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -32,7 +32,7 @@
   }
   
   .hero_info h2 {
-    font-size: 60px;
+    font-size: 50px;
     font-family: 'Tinos';
     text-transform: capitalize;
     line-height: normal;
@@ -51,13 +51,10 @@
 
   /** Tab Form Section CSS **/
 
-  .tab_form_sec {
-      height: 0;
-  }
-
   .tab_form_sec .tabs_inner {
       position: relative;
-      top: -230px;
+      margin-top: 40px;
+      z-index: 99;
   }
   
   .tab_form_sec .react-tabs__tab-panel .tabForm {
@@ -66,15 +63,12 @@
     border-radius: 20px;
     background-color: #fff;
     margin-top: -20px;
-  }
-
-  .tab_form_sec .react-tabs__tab-panel .tabForm form.inline_Form {
     position: relative;
   }
 
   .tab_form_sec .react-tabs__tab-panel .tabForm form.inline_Form .formBtn {
     position: absolute;
-    top: 98%;
+    top: 94%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -89,17 +83,15 @@
 
   form.inline_Form {
     display: flex;
+    display: -ms-flexbox;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 10px;
   }
 
   .tabForm form.inline_Form {
     flex-wrap: wrap;
-  }
-
-  .tabForm form .formGrp {
-    min-width: 300px;
+    margin-bottom: 30px;
   }
 
   .tab_form_sec ul.react-tabs__tab-list {
@@ -166,8 +158,9 @@
       padding: 0.6rem 1rem;
   }
 
-  .tabForm .rs-dropdown {
+  .tabForm .rs-dropdown, .rs-picker-toggle-wrapper {
     width: 100%;
+    min-width: 300px;
   }
 
   .tabForm .rs-dropdown .rs-dropdown-toggle, .tabForm .rs-dropdown .rs-btn:not(.butn) {
@@ -223,6 +216,10 @@
 
   .tabForm .ant-space, .tabForm .ant-space-item, .tabForm .ant-select {
     width: 100% !important;
+  }
+
+  .tabForm .ant-select, .inline_Form .formGrp .ant-picker {
+    min-width: 300px;
   }
 
   .tabForm .ant-select-selector {
@@ -450,7 +447,7 @@
     }
 
     .hero_info h2 {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .bordSec {
@@ -484,7 +481,7 @@
   @media (max-width: 991.98px) {
 
     .hero_sec {
-        padding: 3rem 0 18rem;
+        padding: 3rem 0;
     }
 
     .hero_info {
@@ -492,7 +489,7 @@
     }
 
     .hero_info h2 {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     .tab_form_sec .react-tabs__tab-panel .tabForm {
@@ -500,11 +497,12 @@
     }
 
     .tab_form_sec .tabs_inner {
-        top: -280px;
+        margin-top: 30px;
     }
 
     form.inline_Form {
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     form.inline_Form .formGrp {
@@ -552,7 +550,7 @@
     }
 
     .hero_info h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .hero_info p {
@@ -607,16 +605,8 @@
 
   @media (max-width: 475.98px) {
 
-    .hero_sec {
-        padding: 3rem 0 6rem;
-    }
-
-    .tab_form_sec {
-        height: unset;
-    }
-
     .tab_form_sec .tabs_inner {
-        top: -50px;
+        margin-top: 25px;
     }
 
     .tab_form_sec ul.react-tabs__tab-list {

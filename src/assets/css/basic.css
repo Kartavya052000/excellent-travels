@@ -242,7 +242,7 @@
     transition: transform 250ms ease-in-out;
   }
   
-  form .hoverCenter:hover:after { 
+  form .hoverCenter:hover:not(:focus):after { 
     transform: scaleX(1);
   }
 
@@ -298,6 +298,30 @@
     border-radius: 0;
     line-height: normal;
     border-bottom-color: #ccc;
+  }
+
+  .inline_Form .formGrp .MuiOutlinedInput-root {
+    height: 40px;
+    min-width: 300px;
+  }
+
+  .inline_Form .formGrp input.MuiOutlinedInput-input {
+    height: auto;
+    line-height: normal;
+    border: none !important;
+  }
+
+  .inline_Form .formGrp input ~ fieldset {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+  }
+
+  .inline_Form .formGrp .ant-picker {
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
   }
 
   .rs-picker-toggle-wrapper {

@@ -159,8 +159,6 @@ const [infantcount,SetInfantCount]=useState(0);
       <div className='formGrp hoverCenter'>
           <label htmlFor='from'>From</label>
           <Autocomplete
-              id="api-autocomplete"
-              style={{ width: 300 }}
               options={options}
               defaultValue={"Vancouver"} // Set the default value here
 
@@ -170,19 +168,17 @@ const [infantcount,SetInfantCount]=useState(0);
                   fetchData(newInputValue)
               }}
               renderInput={(params) => (
-                  <TextField {...params} label="Search Airport" variant="outlined" fullWidth />
+                  <TextField {...params} variant="outlined" fullWidth />
               )}
           />
 
       </div>
-      <div className='formGrp w-auto'>
+      <div className='formGrp mw-auto w-auto w-40'>
           <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
       </div>
       <div className='formGrp hoverCenter'>
           <label htmlFor='destination'>To</label>
           <Autocomplete
-              id="api-autocomplete"
-              style={{ width: 300 }}
               options={options}
               defaultValue={"Vancouver"} // Set the default value here
 
@@ -192,7 +188,7 @@ const [infantcount,SetInfantCount]=useState(0);
                   fetchData(newInputValue)
               }}
               renderInput={(params) => (
-                  <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
+                  <TextField {...params} variant="outlined" fullWidth />
               )}
           />
 
@@ -208,7 +204,7 @@ const [infantcount,SetInfantCount]=useState(0);
 
               />
           </div>
-          <div onClick={ReturnLabel}><label>Return</label></div>
+          {/* <div onClick={ReturnLabel}><label>Return</label></div> */}
       </>
 
       )}
@@ -226,48 +222,49 @@ const [infantcount,SetInfantCount]=useState(0);
           </div>
       )}
 
-      <div className='formGrp hoverCenter'>
+      
         {index ==0 ?
-        (<>  
-        <label htmlFor='travellers'>Travellers</label>
-         <Dropdown title="Travellers">
-            <div className='guest_wrap'>
-                <div className='g_col'>
-                    <label>Adults (12yr +)</label>
-                    <div className='count'>
-                        <button onClick={(e) => decrement(e, "adult")}>-</button>
-                        <span>{adultcount}</span>
-                        <button onClick={(e) => increment(e, "adult")}>+</button>
+        (<>
+        <div className='formGrp hoverCenter'>  
+            <label htmlFor='travellers'>Travellers</label>
+            <Dropdown title="Travellers">
+                <div className='guest_wrap'>
+                    <div className='g_col'>
+                        <label>Adults (12yr +)</label>
+                        <div className='count'>
+                            <button onClick={(e) => decrement(e, "adult")}>-</button>
+                            <span>{adultcount}</span>
+                            <button onClick={(e) => increment(e, "adult")}>+</button>
+                        </div>
+                    </div>
+                    <div className='g_col'>
+                        <label>Children(2y -12y)</label>
+                        <div className='count'>
+                            <button onClick={(e) => decrement(e, "child")}>-</button>
+                            <span>{childcount}</span>
+                            <button onClick={(e) => increment(e, "child")}>+</button>
+                        </div>
+                    </div>
+                    <div className='g_col'>
+                        <label>Infant </label>
+                        <div className='count'>
+                            <button onClick={(e) => decrement(e, "infant")}>-</button>
+                            <span>{infantcount}</span>
+                            <button onClick={(e) => increment(e, "infant")}>+</button>
+                        </div>
                     </div>
                 </div>
-                <div className='g_col'>
-                    <label>Children(2y -12y)</label>
-                    <div className='count'>
-                        <button onClick={(e) => decrement(e, "child")}>-</button>
-                        <span>{childcount}</span>
-                        <button onClick={(e) => increment(e, "child")}>+</button>
-                    </div>
-                </div>
-                <div className='g_col'>
-                    <label>Infant </label>
-                    <div className='count'>
-                        <button onClick={(e) => decrement(e, "infant")}>-</button>
-                        <span>{infantcount}</span>
-                        <button onClick={(e) => increment(e, "infant")}>+</button>
-                    </div>
-                </div>
-            </div>
-            <Button className='butn butn_success butn_rounded'>Accept</Button>
-        </Dropdown> 
+                <Button className='butn butn_success butn_rounded'>Accept</Button>
+            </Dropdown>
+        </div> 
         </>
         ):
         (      null   
         )}
             {(index === cityCount - 1 && index !=0 )&& (
 
-         <button type='submit' className='butn butn_success' onClick={AddCity}>Add another City</button>
+         <button type='submit' className='butn butn_success butn_sm' onClick={AddCity}>Add another City</button>
             )}
-      </div>
      {index ==0 &&(
  <div className='formBtn'>
  <button type='submit' className='butn butn_success' onClick={onSubmit}>Submit</button>

@@ -349,8 +349,7 @@ ul.social_info li a:hover {
 .loginModal .rs-modal-title {
   font-size: 14px;
   color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .loginModal .modal_inner {

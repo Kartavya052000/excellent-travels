@@ -13,8 +13,16 @@
 	margin: 0 0 20px;
 }
 
-.login_sec form input:not([type="submit"]) {
+.login_sec .sign-in-container button, .login_sec .sign-up-container button {
+	min-width: 300px;
+}
+
+.login_sec form input:not([type="submit"]):not(.error) {
 	border: 1px solid #eee !important;
+}
+
+.login_sec form input:not([type="submit"]).error:focus {
+	outline-color: rgba(255, 0, 0, 0.2);
 }
 
 .login_sec p {
@@ -29,11 +37,16 @@
     margin-top: 20px;
 }
 
+.login_sec span.errorTxt {
+    text-align: left;
+    margin: 0;
+    display: block;
+}
+
 .login_sec a {
-	color: #fff;
 	font-size: 14px;
 	text-decoration: none;
-	margin: 15px 0;
+	margin: 0 0 15px;
 }
 
 .form-container form {

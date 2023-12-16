@@ -155,8 +155,6 @@ const Hotel = ({ openLoginModal }) => {
                 <div className='formGrp hoverCenter'>
                     <label htmlFor='destination'>Destination</label>
                     <Autocomplete
-                        id="api-autocomplete"
-                        style={{ width: 300 }}
                         options={options}
                         defaultValue={"Vancouver"} // Set the default value here
                         freeSolo
@@ -166,7 +164,7 @@ const Hotel = ({ openLoginModal }) => {
                             fetchData(newInputValue)
                         }}
                         renderInput={(params) => (
-                            // <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
+                            // <TextField {...params} variant="outlined" fullWidth />
                             <TextField {...params} fullWidth />
                         )}
                     />
@@ -226,7 +224,7 @@ const Hotel = ({ openLoginModal }) => {
                     </Dropdown>
                 </div>
                 <div className='formGrp hoverCenter'>
-                    <label htmlFor='guest_room'> Amenities</label>
+                    <label htmlFor='guest_room'>Amenities</label>
                     <Dropdown
                         title={`Amenities: ${amenities.breakfast ? 'Breakfast ' : ''} ${amenities.pool ? 'Pool ' : ''} ${amenities.wifi ? 'Wifi ' : ''} ${amenities.childFriendly ? 'Child-Friendly ' : ''}`}
                         open={facdropdownOpen}
@@ -238,7 +236,7 @@ const Hotel = ({ openLoginModal }) => {
                         <div className='guest_wrap'>
                             <div className='g_col'>
                                 <label>Breakfast</label>
-                                <div className='count'>
+                                <div className='count check'>
                                     <input
                                         type="checkbox"
                                         name="breakfast"
@@ -248,7 +246,7 @@ const Hotel = ({ openLoginModal }) => {
                             </div>
                             <div className='g_col'>
                                 <label>Pool</label>
-                                <div className='count'>
+                                <div className='count check'>
                                     <input
                                         type="checkbox"
                                         name="pool"
@@ -259,7 +257,7 @@ const Hotel = ({ openLoginModal }) => {
                             </div>
                             <div className='g_col'>
                                 <label>Wifi</label>
-                                <div className='count'>
+                                <div className='count check'>
                                     <input
                                         type="checkbox"
                                         name="wifi"
@@ -270,11 +268,11 @@ const Hotel = ({ openLoginModal }) => {
                             </div>
                             <div className='g_col'>
                                 <label>Pet-Friendly</label>
-                                <div className='count'>
+                                <div className='count check'>
                                     <input
                                         type="checkbox"
                                         name="wifi"
-                                        checked={amenities.count}
+                                        checked={amenities.childFriendly}
                                         onChange={handleCheckboxChange} />
 
                                 </div>

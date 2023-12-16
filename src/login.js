@@ -86,7 +86,7 @@ const Login = () => {
                                     }}
                                     className={emailError ? 'error' : ''}
                                 />
-                                {emailError && <span style={{ color: "red" }}>Email is invalid</span>}
+                                {emailError && <span className='errorTxt' style={{ color: "red" }}>Email is invalid</span>}
                             </div>
                             <div className='formGrp'>
                                 <Form.Control
@@ -105,7 +105,7 @@ const Login = () => {
                                     className={passwordError ? 'error' : ''}
 
                                 />
-                                {passwordError && <span style={{ color: "red" }}>Password is invalid</span>}
+                                {passwordError && <span className='errorTxt' style={{ color: "red" }}>Password is invalid</span>}
 
                             </div>
                             <a href="#">Forgot your password?</a>

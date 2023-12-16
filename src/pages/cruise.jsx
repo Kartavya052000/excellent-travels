@@ -57,11 +57,9 @@ const Cruise = () =>{
         <div className='tabForm'>
         <form className='inline_Form'>
            
-            <div className='formGrp'>
+            <div className='formGrp hoverCenter'>
                 <label htmlFor='destination'>Destination</label>
                 <Autocomplete
-                    id="api-autocomplete"
-                    style={{ width: 300 }}
                     options={options}
                     defaultValue={"Vancouver"} // Set the default value here
                     getOptionLabel={(option) => option}
@@ -70,7 +68,7 @@ const Cruise = () =>{
                         fetchData(newInputValue)
                     }}
                     renderInput={(params) => (
-                        <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
+                        <TextField {...params} variant="outlined" fullWidth />
                     )}
                 />
 

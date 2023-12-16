@@ -49,6 +49,12 @@
     margin: 0 auto;
 }
 
+.count input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+}
+
 .count button {
     background: transparent;
     font-size: 22px;

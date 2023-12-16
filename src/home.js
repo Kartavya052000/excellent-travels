@@ -184,31 +184,31 @@ const Home = () => {
                             <h2 data-aos='fade-up' data-aos-duration='1500'>Find  Next place to visit</h2>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section className='tab_form_sec'>
-                <div className='custom-container'>
-                    <div className='tabs_inner'>
-                        <Tabs>
-                            <TabList>
-                                <Tab><i className='fas fa-hotel'></i> Hotels</Tab>
-                                <Tab><i className='fa fa-car'></i> Car Hire</Tab>
-                                <Tab><i className='fa fa-plane'></i> Flights</Tab>
-                                <Tab><i className='fa fa-ship'></i> Cruise</Tab>
-                            </TabList>
-                            <TabPanel>
-                               <Hotel openLoginModal={handleOpenModal} />
-                            </TabPanel>
-                            <TabPanel>
-                                <CarHire openLoginModal={handleOpenModal}/>
-                            </TabPanel>
-                            <TabPanel>
-                            <Flight openLoginModal={handleOpenModal} />
-                            </TabPanel>
-                            <TabPanel>
-                               <Cruise openLoginModal={handleOpenModal} />
-                            </TabPanel>
-                        </Tabs>
+                    <div className='tab_form_sec'>
+                        <div className='custom-container'>
+                            <div className='tabs_inner'>
+                                <Tabs>
+                                    <TabList>
+                                        <Tab><i className='fas fa-hotel'></i> Hotels</Tab>
+                                        <Tab><i className='fa fa-car'></i> Car Hire</Tab>
+                                        <Tab><i className='fa fa-plane'></i> Flights</Tab>
+                                        <Tab><i className='fa fa-ship'></i> Cruise</Tab>
+                                    </TabList>
+                                    <TabPanel>
+                                        <Hotel openLoginModal={handleOpenModal} />
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <CarHire openLoginModal={handleOpenModal}/>
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <Flight openLoginModal={handleOpenModal} />
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <Cruise openLoginModal={handleOpenModal} />
+                                    </TabPanel>
+                                </Tabs>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -338,7 +338,7 @@ const Home = () => {
             </section>
             <Modal size='xs' className='loginModal' backdrop="static" keyboard={false} overflow={overflow} open={openModal} onClose={handleClose}>
                 <Modal.Header>
-                    <Modal.Title>Login</Modal.Title>
+                    <Modal.Title>Please login to continue</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className='modal_inner'>
