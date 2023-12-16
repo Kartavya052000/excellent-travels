@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from 'react';
-import { Drawer, ButtonToolbar, Button, Placeholder, Nav, Modal, Form } from 'rsuite';
+import React, { useState, useEffect } from 'react';
+import { Drawer, ButtonToolbar, Button, Placeholder, Nav } from 'rsuite';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
@@ -18,18 +18,21 @@ const Header = () => {
     const token = cookies['token'];
     const username = cookies['username'];
     const [firstName, setFirstName] = useState('');
+    const [firstletter, Setfirstletter] = useState('');
 
     useEffect(() => {
         if (username) {
             // Assuming the username is in the format: "firstname lastname"
             const firstName = username.split(' ')[0];
+            const firstLetter = firstName.charAt(0); // Extracts the first letter of the first name
+            Setfirstletter(firstLetter);
             setFirstName(firstName);
         }
     }, [username]);
-    const handleRoute = () =>{
-        if(token){
+    const handleRoute = () => {
+        if (token) {
             navigate("/myprofile")
-        }else{
+        } else {
             navigate("/login")
         }
     }
@@ -56,10 +59,10 @@ const Header = () => {
         }
     };
 
-    const googleAuth = () =>{       
-        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
+    const googleAuth = () => {
+        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`, "_self")
     }
-    
+
     const [openModal, setOpenModal] = React.useState(false);
     const [overflow, setOverflow] = React.useState(true);
     const handleOpen = () => setOpenModal(true);
@@ -102,18 +105,25 @@ const Header = () => {
                                 </a>
                             </li>
                             <li className='login' onClick={handleRoute} >
-                                <Link  title='Login/Signup'>
-                                    <img src={user} />
+                                <Link title='Login/Signup'>
                                     {token ? (
-                                        <span>Hi, {firstName}</span>
+                                        <>
+                                            <div className="circle">
+                                                <div className="letter">{firstletter}</div>
+                                            </div>
+                                            <span>Hi, {firstName}</span>
+                                        </>
                                     ) : (
-                                        <span>Login/Signup</span>
+                                        <>
+                                            <img src={user} />
+                                            <span>Login/Signup</span>
+                                        </>
                                     )}
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Button onClick={handleOpen} className='butn butn_success butn_rounded'>Login</Button>
-                            </li>
+                            </li> */}
                         </ul>
                         <ButtonToolbar>
                             <Button className='hamburger' onClick={() => setOpen(true)}>
@@ -137,9 +147,9 @@ const Header = () => {
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
                                         </li>
-                                        <li className='menu_item linkEffect' onClick={()=> setOpen(false)}>
-                                    <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
-                                </li>
+                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                            <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
+                                        </li>
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
                                         </li>
@@ -156,30 +166,6 @@ const Header = () => {
                 </div>
             </header>
 
-            <Modal size='xs' className='loginModal' backdrop="static" keyboard={false} overflow={overflow} open={openModal} onClose={handleClose}>
-                <Modal.Header>
-                    <Modal.Title>Login</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className='modal_inner'>
-                        <Form>
-                            <div className='formGrp'>
-                                <Form.Control name='email' placeholder='Email' />
-                            </div>
-                            <div className='formGrp'>
-                                <Form.Control name='password' placeholder='Password' />
-                            </div>
-                            <div className='formBtn'>
-                                <button type='submit' className='butn butn_success butn_block'>Login</button>
-                            </div>
-                        </Form>
-                        <span>---- Or Sign In With ----</span>
-                        <div className="social-container">
-                            <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button>
-                        </div>
-                    </div>
-                </Modal.Body>
-            </Modal>
         </>
     )
 }

@@ -11,19 +11,34 @@ import { Button, Dropdown, Input, InputNumber, InputPicker, SelectPicker } from 
 
 const { RangePicker } = DatePicker;
 
-const CarHire = () =>{
+const CarHire = ({ openLoginModal }) => {
+    const today = dayjs();
+
     const [drivedropdownOpen, setdrivDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [options, setOptions] = useState([]);
-    const [inputValue, setInputValue] = useState('');
+    const [pickValue, setPickValue] = useState('');
+    const [dropValue, setDropValue] = useState('');
     const [loading, setLoading] = useState(false);
+    const [drivervalue, SetDriverValue] = useState("")
     const pickupPickerPlaceholder = ['Pick Up ', 'Drop Off'];
+    const [checkinDate, setCheckinDate] = useState(today.add(1, 'day'))
+    const [checkOutDate, setCheckOutDate] = useState(checkinDate.add(2, 'day'))
+    const [selectedDate, setSelectedDate] = useState([]); // State to store selected date range
+    const [cartype, SetcarType] = useState("")
+    const [capacity, SetCap] = useState("")
+    const [driverreq, SetDriverReq] = useState("")
+    const [wheeldrive, SetWheelDrive] = useState("")
     const disabledDate = (current) => {
         // Can not select days before today and today
         return current && current < dayjs().endOf('day');
     };
-    const carType = ['5 seater car', 'SUV', 'premium van', 'Standard pick up extended cab', 'mini commercial van or truck'].map(
-        item => ({ label: item, value: item })
-    );
+  
+    const carType=[
+       { label:"5 seater car",value:"5 seater car"},
+       { label:"SUV",value:"SUV"},
+       { label:"premium van",value:"premium van"},
+       { label:"mini commercial van or truck",value:"mini commercial van or truck"}
+    ]
     const Capacity = ['2-5 passengers', '6 or more passengers'].map(
         item => ({ label: item, value: item })
     );
@@ -33,7 +48,7 @@ const CarHire = () =>{
     const driverRequired = ['Yes', 'No'].map(
         item => ({ label: item, value: item })
     );
-   
+
     const debouncedSearch = _debounce(async (value) => {
         // alert("2")
         setLoading(true);
@@ -56,158 +71,223 @@ const CarHire = () =>{
         }
     }, 500); // Debounce time (milliseconds)
 
-   
+
     const fetchData = async (search) => {
         debouncedSearch(search)
     };
-    return(
+    const handleChange = (value) => {
+        SetDriverValue(value)
+    }
+    const handleDateChange = (dates) => {
+        const formattedDates = dates.map((date) => date.format('YYYY-MM-DD')); // Format dates as YYYY-MM-DD
+        setCheckinDate(formattedDates[0]);
+        setCheckOutDate(formattedDates[1]);
+        console.log(formattedDates)
+        setSelectedDate(dates); // Store selected date range in state
+    };
+    const handleType = (value) => {
+        SetcarType(value)
+    }
+    const handleCapType = (value) => {
+        SetCap(value)
+    }
+    const handleDrivType = (value) => {
+        SetDriverReq(value)
+    }
+    const handleWheelType = (value) => {
+        SetWheelDrive(value)
+    }
+    const onSubmit = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+
+        let carval = {
+            type: "car",
+            bookingDetails: {
+
+                pickuplocation: pickValue,
+                dropOffLocation: dropValue,
+                DriversAge: drivervalue,
+                PickupDateAndTIme: checkinDate,
+                DropOffDateAndTime: checkOutDate,
+                CarType: cartype,
+                Capacity: capacity,
+                DriverRequired: driverreq,
+                WheelDrive: wheeldrive
+            }
+
+        }
+        openLoginModal(carval); // Call the function passed as a prop to open the login modal in the Home component
+
+        return;
+        // alert("stop")
+    }
+    return (
         <div className='tabForm'>
-                                    <form className='inline_Form'>
+            <form className='inline_Form'>
 
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='fromLoc'>Pick up city/airport/or address</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"} // Set the default value here
-                                                freeSolo
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='fromLoc'>Pick up city/airport/or address</label>
+                    <Autocomplete
+                        id="api-autocomplete"
+                        style={{ width: 300 }}
+                        options={options}
+                        defaultValue={"Vancouver"} // Set the default value here
+                        freeSolo
+                        getOptionLabel={(option) => option}
+                        onInputChange={(event, newInputValue) => {
+                            setPickValue(newInputValue);
+                            fetchData(newInputValue)
+                        }}
+                        renderInput={(params) => (
+                            <TextField {...params} fullWidth />
+                        )}
+                    />
 
-                                        </div>
-                                        <div className='formGrp mw-auto w-auto'>
-                                            <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='fromLoc'>Drop Off city/airport/or address</label>
-                                            <Autocomplete
-                                                id="api-autocomplete"
-                                                style={{ width: 300 }}
-                                                options={options}
-                                                defaultValue={"Vancouver"}
-                                                freeSolo
-                                                getOptionLabel={(option) => option}
-                                                onInputChange={(event, newInputValue) => {
-                                                    setInputValue(newInputValue);
-                                                    fetchData(newInputValue)
-                                                }}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} label="Search a repository" variant="outlined" fullWidth />
-                                                )}
-                                            />
+                </div>
+                <div className='formGrp mw-auto w-auto'>
+                    <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='fromLoc'>Drop Off city/airport/or address</label>
+                    <Autocomplete
+                        id="api-autocomplete"
+                        style={{ width: 300 }}
+                        options={options}
+                        defaultValue={"Vancouver"}
+                        freeSolo
+                        getOptionLabel={(option) => option}
+                        onInputChange={(event, newInputValue) => {
+                            setDropValue(newInputValue);
+                            fetchData(newInputValue)
+                        }}
+                        renderInput={(params) => (
+                            <TextField {...params} fullWidth />
+                        )}
+                    />
 
-                                        </div>
+                </div>
 
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='guest_room'>Drivers</label>
-                                            <Dropdown
-                                                title="Drivers"
-                                                open={drivedropdownOpen}
-                                                onToggle={() => setdrivDropdownOpen(!drivedropdownOpen)}
-                                                onOpen={() => setdrivDropdownOpen(true)}
-                                                onClose={() => setdrivDropdownOpen(false)}
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='guest_room'>Driver's Age</label>
+                    <Dropdown
+                        title="Drivers"
+                        open={drivedropdownOpen}
+                        onToggle={() => setdrivDropdownOpen(!drivedropdownOpen)}
+                        onOpen={() => setdrivDropdownOpen(true)}
+                        onClose={() => setdrivDropdownOpen(false)}
 
-                                            >
-                                                <div className='guest_wrap'>
-                                                    <div className='g_col'>
-                                                        <label>young driver under 30</label>
-                                                        <div className='count'>
-                                                            <input type="checkbox" name="young" />
+                    >
+                        <div className='guest_wrap'>
+                            <div className='g_col'>
+                                <label>young driver under 30</label>
+                                <div className='count'>
+                                    <input type="radio"
+                                        name="driverage"
+                                        value="under 30"
+                                        onChange={handleChange} />
 
-                                                        </div>
-                                                    </div>
-                                                    <div className='g_col'>
-                                                        <label>senior over 70 years
-                                                            <span>old may be required to pay an additional fee</span>
-                                                        </label>                                                        
-                                                        <div className='count'>
-                                                            <input type="checkbox" name="old" />
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                {/* <Button className='butn butn_success butn_rounded' onClick={updateGuestsArray}>Apply</Button> */}
-                                            </Dropdown>
-
-
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='checkOut'>Pick up & Drop Off (Time)</label>
-                                            {/* <Space direction="vertical" size={12}> */}
-                                            <RangePicker
-                                                id='checkOut'
-                                                disabledDate={disabledDate}
-                                                placeholder={pickupPickerPlaceholder}
-                                                showTime
-                                            />
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Car Type</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Car Type"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={carType}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Capacity</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Capacity"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={Capacity}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Driver Required ?</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Driver Required"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={driverRequired}
-                                                />
-                                            </Space>
-                                        </div>
-                                        <div className='formGrp hoverCenter'>
-                                            <label htmlFor='adults'>Wheel Drive</label>
-                                            <Space wrap>
-                                                <Select
-                                                    // defaultValue=""
-                                                    placeholder="Wheel Drive"
-                                                    style={{
-                                                        width: 120,
-                                                    }}
-                                                    //   onChange={handleChange}
-                                                    options={drive}
-                                                />
-                                            </Space>
-                                        </div>
-                                    </form>
                                 </div>
+                            </div>
+                            <div className='g_col'>
+                                <label>senior over 70 years
+                                    <span>old may be required to pay an additional fee</span>
+                                </label>
+                                <div className='count'>
+                                    <input type="radio"
+                                        name="driverage"
+                                        value="over 70"
+                                        onChange={handleChange} />
+
+                                </div>
+                            </div>
+
+                        </div>
+                        {/* <Button className='butn butn_success butn_rounded' onClick={updateGuestsArray}>Apply</Button> */}
+                    </Dropdown>
+
+
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='checkOut'>Pick up & Drop Off (Time)</label>
+                    {/* <Space direction="vertical" size={12}> */}
+                    <RangePicker
+                        id='checkOut'
+                        disabledDate={disabledDate}
+                        placeholder={pickupPickerPlaceholder}
+                        showTime
+                        onChange={handleDateChange} // Capture the selected date range
+
+                        defaultValue={[checkinDate, checkOutDate]} // Set default values
+
+                    />
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='adults'>Car Type</label>
+                    <Space wrap>
+                        <Select
+                            // defaultValue=""
+                            placeholder="Car Type"
+                            style={{
+                                width: 120,
+                            }}
+                            //   onChange={handleChange}
+                            options={carType}
+                            value={cartype}
+                            onChange={handleType}
+                        />
+                    </Space>
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='adults'>Capacity</label>
+                    <Space wrap>
+                        <Select
+                            // defaultValue=""
+                            placeholder="Capacity"
+                            style={{
+                                width: 120,
+                            }}
+                            value={capacity}
+                            onChange={handleCapType}
+                            options={Capacity}
+                        />
+                    </Space>
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='adults'>Driver Required ?</label>
+                    <Space wrap>
+                        <Select
+                            // defaultValue=""
+                            placeholder="Driver Required"
+                            style={{
+                                width: 120,
+                            }}
+                            value={driverreq}
+                            onChange={handleDrivType}
+                            options={driverRequired}
+                        />
+                    </Space>
+                </div>
+                <div className='formGrp hoverCenter'>
+                    <label htmlFor='adults'>Wheel Drive</label>
+                    <Space wrap>
+                        <Select
+                            // defaultValue=""
+                            placeholder="Wheel Drive"
+                            style={{
+                                width: 120,
+                            }}
+                            value={wheeldrive}
+                            onChange={handleWheelType}
+                            options={drive}
+                        />
+                    </Space>
+                </div>
+                <div className='formBtn'>
+                    <button type='submit' className='butn butn_success' onClick={onSubmit} >Submit</button>
+                </div>
+            </form>
+        </div>
     )
 }
 export default CarHire;
