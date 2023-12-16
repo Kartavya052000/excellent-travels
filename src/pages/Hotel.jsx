@@ -181,27 +181,27 @@ return(
                 <div className='guest_wrap'>
                     <div className='g_col'>
                         <label>Breakfast</label>
-                        <div className='count'>
+                        <div className='count check'>
                             <input type="checkbox" name="breakfast" />
                         </div>
                     </div>
                     <div className='g_col'>
                         <label>Pool</label>
-                        <div className='count'>
+                        <div className='count check'>
                             <input type="checkbox" name="pool" />
 
                         </div>
                     </div>
                     <div className='g_col'>
                         <label>Wifi</label>
-                        <div className='count'>
+                        <div className='count check'>
                             <input type="checkbox" name="wifi" />
 
                         </div>
                     </div>
                     <div className='g_col'>
                         <label>Pet-Friendly</label>
-                        <div className='count'>
+                        <div className='count check'>
                             <input type="checkbox" name="wifi" />
 
                         </div>

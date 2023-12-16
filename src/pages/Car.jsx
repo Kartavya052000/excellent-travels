@@ -119,7 +119,7 @@ const CarHire = () =>{
                                                 <div className='guest_wrap'>
                                                     <div className='g_col'>
                                                         <label>young driver under 30</label>
-                                                        <div className='count'>
+                                                        <div className='count check'>
                                                             <input type="checkbox" name="young" />
 
                                                         </div>
@@ -128,7 +128,7 @@ const CarHire = () =>{
                                                         <label>senior over 70 years
                                                             <span>old may be required to pay an additional fee</span>
                                                         </label>                                                        
-                                                        <div className='count'>
+                                                        <div className='count check'>
                                                             <input type="checkbox" name="old" />
 
                                                         </div>

@@ -29,15 +29,18 @@
 .count {
     padding: 0;
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 4px 0px;
     border-radius: 4rem;
-    margin: 10px 0;
+    margin: 5px 0;
     min-width: 4rem;
     height: 2rem;
     display: flex;
     display: -ms-flexbox;
     align-items: center;
     justify-content: space-between;
+}
+
+.count:not(.check) {
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 4px 0px;
 }
 
 .count input[type="checkbox"] {

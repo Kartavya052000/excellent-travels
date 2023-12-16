@@ -184,11 +184,9 @@ const Home = () => {
                             </TabPanel>
                             <TabPanel>
                                 <CarHire />
-
-
                             </TabPanel>
                             <TabPanel>
-                            <Flight />
+                                <Flight />
                             </TabPanel>
                             <TabPanel>
                                <Cruise />
