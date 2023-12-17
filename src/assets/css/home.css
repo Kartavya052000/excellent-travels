@@ -89,17 +89,42 @@
   form.inline_Form {
     display: flex;
     display: -ms-flexbox;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
     gap: 10px;
   }
 
   .tabForm form.inline_Form {
     margin-bottom: 30px;
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    gap: 0 !important;
+  }
+
+  .fieldBord {
+    padding: 10px;
+    margin: 0 !important;
+    height: 100px;
+    border-right: 1px solid #e7e7e7;
+  }
+
+  .tabForm .fieldBord * {
+    border: none !important;
   }
 
   .tabForm form label {
     font-weight: 500;
+  }
+
+  .fieldChng {
+    position: relative;
+    height: 90px;
+  }
+
+  .fieldChng .interchnge {
+    position: absolute;
+    top: 40%;
+    left: -25px;
   }
 
   .hoteldest .MuiOutlinedInput-root {
@@ -115,7 +140,15 @@
   }
 
   .flightFrom .MuiOutlinedInput-root, .flightTo .MuiOutlinedInput-root {
-    min-width: 220px;
+    min-width: 280px;
+  }
+
+  .flightFrom.active .MuiOutlinedInput-root, .flightTo.active .MuiOutlinedInput-root {
+    min-width: 240px;
+  }
+
+  .departure .ant-picker {
+    min-width: 200px;
   }
 
   .tabForm .carPickDropTime .ant-picker {
@@ -128,7 +161,16 @@
   }
 
   .tabForm .traveller .rs-dropdown {
-    min-width: 150px;
+    min-width: 220px;
+  }
+
+  .tabForm .addMore {
+    min-width: 250px;
+    height: 100px;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
   }
 
   .cars .rs-picker-toggle-wrapper {
@@ -137,6 +179,10 @@
 
   .tabForm .radioGrp {
     margin-bottom: 20px;
+  }
+
+  .tabForm .radioGrp input[type="radio"] {
+    width: 30px;
   }
 
   .tabForm .radioGrp label span {
@@ -188,10 +234,10 @@
       border-radius: 50%;
       width: 35px;
       height: 35px;
-      border: 1px solid #d9d9d9;
+      box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
       outline: none;
-      background-color: #f2f2f2;
-      color: #666;
+      background-color: #fff;
+      color: #3045fd;
       cursor: pointer;
       transition: all 0.3s ease;
   }
@@ -234,6 +280,8 @@
     min-width: 350px;
     min-height: 120px;
     padding: 15px;
+    left: unset !important;
+    right: -15px;
   }
 
   .tabForm .guest_wrap {
@@ -273,9 +321,7 @@
   }
 
   .tabForm .ant-select-selector {
-    border: none !important;
     border-radius: 0;
-    border-bottom: 1px solid #ccc !important;
   }
 
 

@@ -155,9 +155,8 @@ const [infantcount,SetInfantCount]=useState(0);
                 <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
             </RadioGroup>
             {Array.from({ length: cityCount }).map((_, index) => (
-            <form className='inline_Form'>
-
-                <div className='formGrp hoverCenter flightFrom'>
+            <form className={(index === (cityCount - 1)) ? 'inline_Form' : 'inline_Form addedForm'}>
+                <div className={(showReturn == true) ? 'formGrp hoverCenter flightFrom fieldBord active' : 'formGrp hoverCenter flightFrom fieldBord'}>
                     <label htmlFor='from'>From</label>
                     <Autocomplete
                         options={options}
@@ -174,10 +173,10 @@ const [infantcount,SetInfantCount]=useState(0);
                     />
 
                 </div>
-                <div className='formGrp mw-auto w-auto w-40'>
+                <div className='formGrp mw-auto w-auto w-40 fieldChng'>
                     <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                 </div>
-                <div className='formGrp hoverCenter flightTo'>
+                <div className={(showReturn == true) ? 'formGrp hoverCenter flightTo fieldBord active' : 'formGrp hoverCenter flightTo fieldBord'}>
                     <label htmlFor='destination'>To</label>
                     <Autocomplete
                         options={options}
@@ -195,82 +194,77 @@ const [infantcount,SetInfantCount]=useState(0);
 
                 </div>
                 {showReturn == false && (<>
-                    <div className='formGrp hoverCenter'>
+                    <div className='formGrp hoverCenter fieldBord departure'>
                         <label htmlFor='return'>Departure</label>
                         {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
                         <DatePicker
                             disabledDate={disabledDate}
                             placeholder="Departure"
                             onChange={handleDateChange} // Capture the selected date range
-
                         />
                     </div>
-                    {/* <div onClick={ReturnLabel}><label>Return</label></div> */}
                 </>
 
                 )}
                 {showReturn == true && (
-                    <div className='formGrp hoverCenter'>
+                    <div className='formGrp hoverCenter fieldBord return'>
                         <label htmlFor='return'>Departure and Return</label>
                         {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
                         <RangePicker
                             disabledDate={disabledDate}
                             placeholder={ticketPickerPlaceholder}
                             onChange={handleDatesChange} // Capture the selected date range
-
-
                         />
                     </div>
                 )}
-
-                
-                    {index ==0 ?
-                    (<>
-                    <div className='formGrp hoverCenter traveller'>  
-                        <label htmlFor='travellers'>Travellers</label>
-                        <Dropdown title="Travellers">
-                            <div className='guest_wrap'>
-                                <div className='g_col'>
-                                    <label>Adults (12yr +)</label>
-                                    <div className='count'>
-                                        <button onClick={(e) => decrement(e, "adult")}>-</button>
-                                        <span>{adultcount}</span>
-                                        <button onClick={(e) => increment(e, "adult")}>+</button>
+                    {index ==0 ? (
+                    <>
+                        <div className='formGrp hoverCenter traveller fieldBord'>  
+                            <label htmlFor='travellers'>Travellers</label>
+                            <Dropdown title="Travellers">
+                                <div className='guest_wrap'>
+                                    <div className='g_col'>
+                                        <label>Adults (12yr +)</label>
+                                        <div className='count'>
+                                            <button onClick={(e) => decrement(e, "adult")}>-</button>
+                                            <span>{adultcount}</span>
+                                            <button onClick={(e) => increment(e, "adult")}>+</button>
+                                        </div>
+                                    </div>
+                                    <div className='g_col'>
+                                        <label>Children(2y -12y)</label>
+                                        <div className='count'>
+                                            <button onClick={(e) => decrement(e, "child")}>-</button>
+                                            <span>{childcount}</span>
+                                            <button onClick={(e) => increment(e, "child")}>+</button>
+                                        </div>
+                                    </div>
+                                    <div className='g_col'>
+                                        <label>Infant </label>
+                                        <div className='count'>
+                                            <button onClick={(e) => decrement(e, "infant")}>-</button>
+                                            <span>{infantcount}</span>
+                                            <button onClick={(e) => increment(e, "infant")}>+</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='g_col'>
-                                    <label>Children(2y -12y)</label>
-                                    <div className='count'>
-                                        <button onClick={(e) => decrement(e, "child")}>-</button>
-                                        <span>{childcount}</span>
-                                        <button onClick={(e) => increment(e, "child")}>+</button>
-                                    </div>
-                                </div>
-                                <div className='g_col'>
-                                    <label>Infant </label>
-                                    <div className='count'>
-                                        <button onClick={(e) => decrement(e, "infant")}>-</button>
-                                        <span>{infantcount}</span>
-                                        <button onClick={(e) => increment(e, "infant")}>+</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <Button className='butn butn_success butn_rounded'>Accept</Button>
-                        </Dropdown>
-                    </div> 
+                                <Button className='butn butn_success butn_rounded'>Accept</Button>
+                            </Dropdown>
+                        </div> 
                     </>
-                    ):
-                    (      null   
+                    ): ( null )}
+                    
+                    {(index === cityCount - 1 && index !=0 )&& (
+                        <div className='formGrp fieldBord addMore'>
+                            <button type='submit' className='butn butn_success butn_sm' onClick={AddCity}>Add another City</button>
+                        </div>
                     )}
-                        {(index === cityCount - 1 && index !=0 )&& (
-
-                    <button type='submit' className='butn butn_success butn_sm' onClick={AddCity}>Add another City</button>
-                        )}
-                {index ==0 &&(
-                    <div className='formBtn'>
-                        <button type='submit' className='butn butn_success' onClick={onSubmit}>Submit</button>
-                    </div>
-                        )}
+                
+                    {index ==0 && (
+                        <div className='formBtn'>
+                            <button type='submit' className='butn butn_success' onClick={onSubmit}>Submit</button>
+                        </div>
+                    )}
             </form>
         ))}
     </div>

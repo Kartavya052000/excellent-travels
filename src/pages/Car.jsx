@@ -167,7 +167,7 @@ const CarHire = ({ openLoginModal }) => {
     return (
         <div className='tabForm'>
             <form className='inline_Form'>
-                <div className='formGrp hoverCenter carPickup'>
+                <div className='formGrp hoverCenter carPickup fieldBord'>
                     <label htmlFor='fromLoc'>Pick up city/airport/address</label>
                     <Autocomplete
                         options={options}
@@ -184,10 +184,10 @@ const CarHire = ({ openLoginModal }) => {
                     />
 
                 </div>
-                <div className='formGrp mw-auto w-auto w-40'>
+                <div className='formGrp mw-auto w-auto w-40 fieldChng'>
                     <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                 </div>
-                <div className='formGrp hoverCenter carDrop'>
+                <div className='formGrp hoverCenter carDrop fieldBord'>
                     <label htmlFor='fromLoc'>Drop Off city/airport/address</label>
                     <Autocomplete
                         options={options}
@@ -216,7 +216,7 @@ const CarHire = ({ openLoginModal }) => {
                     </Dropdown>
                 </div> */}
 
-                <div className='formGrp hoverCenter carPickDropTime'>
+                <div className='formGrp hoverCenter carPickDropTime fieldBord'>
                     <label htmlFor='checkOut'>Pick up & Drop Off (Time)</label>
                     <RangePicker
                         id='checkOut'
@@ -257,7 +257,7 @@ const CarHire = ({ openLoginModal }) => {
                         />
                     </Space>
                 </div> */}
-                <div className='formGrp hoverCenter driver'>
+                <div className='formGrp hoverCenter driver fieldBord'>
                     <label htmlFor='driver'>Driver</label>
                     <Dropdown title="Driver">
                         <div className='guest_wrap'>
@@ -284,7 +284,7 @@ const CarHire = ({ openLoginModal }) => {
                         </div>
                     </Dropdown>
                 </div>
-                <div className='formGrp hoverCenter cars'>
+                <div className='formGrp hoverCenter cars fieldBord'>
                 <label htmlFor='cars'>Cars</label>
                     <SelectPicker searchable={false} id="cars" data={carData} groupBy="role" placeholder="Cars" />
                 </div>

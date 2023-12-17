@@ -152,7 +152,7 @@ const Hotel = ({ openLoginModal }) => {
     return (
         <div className='tabForm'>
             <form className='inline_Form' >
-                <div className='formGrp hoverCenter hoteldest'>
+                <div className='formGrp hoverCenter hoteldest fieldBord'>
                     <label htmlFor='destination'>Destination</label>
                     <Autocomplete
                         options={options}
@@ -171,7 +171,7 @@ const Hotel = ({ openLoginModal }) => {
 
                 </div>
 
-                <div className='formGrp hoverCenter hoteldateRange'>
+                <div className='formGrp hoverCenter hoteldateRange fieldBord'>
                     <label htmlFor='checkOut'>Check In & Check Out</label>
                     {/* <Space direction="vertical" size={12}> */}
                     <RangePicker
@@ -183,7 +183,7 @@ const Hotel = ({ openLoginModal }) => {
 
                     />
                 </div>
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter fieldBord'>
                     <label htmlFor='guest_room'>Guests & Rooms</label>
                     <Dropdown
                         title={dropdownTitle}
@@ -221,7 +221,7 @@ const Hotel = ({ openLoginModal }) => {
                         {/* <Button className='butn butn_success butn_rounded' onClick={updateGuestsArray}>Apply</Button> */}
                     </Dropdown>
                 </div>
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter fieldBord'>
                     <label htmlFor='amenities'>Amenities</label>
                     <Dropdown
                         title={`Amenities: ${amenities.breakfast ? 'Breakfast ' : ''} ${amenities.pool ? 'Pool ' : ''} ${amenities.wifi ? 'Wifi ' : ''} ${amenities.childFriendly ? 'Child-Friendly ' : ''}`}
@@ -258,7 +258,7 @@ const Hotel = ({ openLoginModal }) => {
                         {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
                     </Dropdown>
                 </div>
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter fieldBord'>
                     <label htmlFor='adults'>Pricing</label>
                     <Space wrap>
                         <Select
@@ -273,7 +273,7 @@ const Hotel = ({ openLoginModal }) => {
                     </Space>
                     {/* <InputPicker id='adults' data={rooms} appearance="subtle" /> */}
                 </div>
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter fieldBord'>
                     <label htmlFor='children'>Stars</label>
                     <Space wrap>
                         <Select
