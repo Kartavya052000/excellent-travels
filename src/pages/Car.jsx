@@ -123,47 +123,6 @@ const CarHire = ({ openLoginModal }) => {
         // alert("stop")
     }
 
-    const carData = [
-      { 
-        "label": "5 Seater Car", 
-        "value": "5 Seater Car", 
-        "role": "Car Type", 
-      },
-      { 
-        "label": "SUV", 
-        "value": "SUV", 
-        "role": "Car Type", 
-      }, 
-      { 
-        "label": "Premium Van", 
-        "value": "Premium Van", 
-        "role": "Car Type", 
-      }, 
-      { 
-        "label": "Mini Commercial Van or Truck", 
-        "value": "Mini Commercial Van or Truck", 
-        "role": "Car Type", 
-      }, 
-      { 
-        "label": "2-5 Passengers", 
-        "value": "2-5 Passengers", 
-        "role": "Capacity", 
-      }, 
-      { 
-        "label": "6 or more Passengers", 
-        "value": "6 or more Passengers", 
-        "role": "Capacity", 
-      }, 
-      { 
-        "label": "All Wheel Drive", 
-        "value": "All Wheel Drive", 
-        "role": "Wheel Drive", 
-      }, 
-      { 
-        "label": "Two Wheel Drive", 
-        "value": "Two Wheel Drive", 
-        "role": "Wheel Drive", 
-    }]
     return (
         <div className='tabForm'>
             <form className='inline_Form'>
@@ -184,7 +143,7 @@ const CarHire = ({ openLoginModal }) => {
                     />
 
                 </div>
-                <div className='formGrp mw-auto w-auto w-40 fieldChng'>
+                <div className='formGrp fieldChng'>
                     <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                 </div>
                 <div className='formGrp hoverCenter carDrop fieldBord'>
@@ -286,7 +245,42 @@ const CarHire = ({ openLoginModal }) => {
                 </div>
                 <div className='formGrp hoverCenter cars fieldBord'>
                 <label htmlFor='cars'>Cars</label>
-                    <SelectPicker searchable={false} id="cars" data={carData} groupBy="role" placeholder="Cars" />
+                    <Dropdown title="Car Type">
+                        <div className='guest_wrap'>
+                            <div className='g_col'>
+                                <label for='cartype'>Car Type</label>
+                                <div className='count check'>
+                                    <select>
+                                        <option selected>Select</option>
+                                        <option>5 Seater Car</option>
+                                        <option>SUV</option>
+                                        <option>Premium Van</option>
+                                        <option>Mini Commercial Van or Truck</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='g_col'>
+                                <label for='capacity'>Capacity</label>
+                                <div className='count check'>
+                                    <select>
+                                        <option selected>Select</option>
+                                        <option>2-5 Passengers</option>
+                                        <option>6 or more Passengers</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='g_col'>
+                                <label for='wheeldrive'>Wheel Drive</label>
+                                <div className='count check'>
+                                    <select>
+                                        <option selected>Select</option>
+                                        <option>All Wheel Drive</option>
+                                        <option>2 Wheel Drive</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </Dropdown>
                 </div>
                 {/* <div className='formGrp hoverCenter'>
                     <label htmlFor='adults'>Wheel Drive</label>

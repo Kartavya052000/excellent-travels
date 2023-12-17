@@ -57,9 +57,9 @@
 
   .tab_form_sec .tabs_inner {
     position: relative;
-    margin-top: -130px;
+    max-width: 1200px;
+    margin: -130px auto 50px;
     z-index: 99;
-    margin-bottom: 50px;
   }
   
   .tab_form_sec .react-tabs__tab-panel .tabForm {
@@ -73,7 +73,7 @@
 
   .tab_form_sec .react-tabs__tab-panel .tabForm form.inline_Form .formBtn {
     position: absolute;
-    top: 94%;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -101,6 +101,10 @@
     gap: 0 !important;
   }
 
+  .cruiseForm .inline_Form {
+    flex-wrap: wrap;
+  }
+
   .fieldBord {
     padding: 10px;
     margin: 0 !important;
@@ -124,11 +128,39 @@
   .fieldChng .interchnge {
     position: absolute;
     top: 40%;
-    left: -25px;
+    left: -35px;
   }
 
   .hoteldest .MuiOutlinedInput-root {
     width: 200px;
+  }
+
+  .destin .MuiOutlinedInput-root {
+    width: 300px;
+  }
+
+  .departMonth input.rs-input {
+    width: 300px;
+  }
+
+  .cruiseline .rs-picker-toggle-wrapper {
+    width: 200px;
+  }
+
+  .duration, .cabin, .traveller, .addMore, .cars, .stars {
+    border: none;
+  }
+
+  .tabForm .shuttle .ant-select {
+    min-width: 200px !important;
+  }
+
+  .beverage .rs-dropdown, .amenity .rs-dropdown {
+    min-width: 200px;
+  }
+
+  .cabin .rs-dropdown {
+    min-width: 200px;
   }
 
   .hoteldateRange .ant-picker {
@@ -179,10 +211,6 @@
 
   .tabForm .radioGrp {
     margin-bottom: 20px;
-  }
-
-  .tabForm .radioGrp input[type="radio"] {
-    width: 30px;
   }
 
   .tabForm .radioGrp label span {
@@ -274,14 +302,13 @@
   .tabForm .rs-dropdown-open .rs-dropdown-menu {
     display: flex;
     display: -ms-flexbox;
-    justify-content: center;
-    align-items: flex-end;
     flex-direction: column;
     min-width: 350px;
-    min-height: 120px;
+    height: 200px;
     padding: 15px;
     left: unset !important;
     right: -15px;
+    overflow-y: auto;
   }
 
   .tabForm .guest_wrap {
@@ -310,6 +337,10 @@
     display: block;
     font-weight: 300;
     font-size: 12px;
+  }
+
+  .tabForm .cars .guest_wrap .g_col select {
+    width: 120px;
   }
 
   .tabForm .MuiFormControl-root .MuiOutlinedInput-root {
@@ -536,6 +567,12 @@
     
   }
 
+  @media (max-width: 1235px) {
+    .fieldChng .interchnge {
+      left: -25px;
+    }
+  }
+
   @media (max-width: 1199.98px) {
 
     .hero_info > span {
@@ -572,12 +609,46 @@
         width: 70px;
         top: -40px;
     }
+
+    .tab_form_sec {
+      padding: 0 1rem;
+    }
+
+    .tabForm form.inline_Form {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .tabForm .formGrp .MuiOutlinedInput-root,
+    .tabForm .formGrp .ant-picker,
+    .tabForm .formGrp .rs-dropdown,
+    .tabForm .formGrp .ant-select-selector,
+    .tabForm .formGrp .rs-picker-toggle-wrapper,
+    .tabForm .formGrp input.rs-input {
+      width: 280px !important;
+    }
+
+    .duration {
+      border-right: 1px solid #e7e7e7;
+    }
+
+    .guestRoom, .carPickDropTime, .departure, .return, .cruiseline, .beverage {
+      border: none;
+    }
+
+    .fieldChng {
+      width: 15px;
+    }
+
+    .fieldChng .interchnge {
+      left: -20px;
+    }
   }
 
   @media (max-width: 991.98px) {
 
     .hero_sec {
-        padding: 3rem 0;
+        padding: 3rem 0 10rem;
     }
 
     .hero_info {
@@ -594,11 +665,41 @@
 
     form.inline_Form {
         flex-wrap: wrap;
-        justify-content: center;
     }
 
-    form.inline_Form .formGrp {
-        flex: 0 0 30%;
+    .tabForm form.inline_Form {
+      margin-bottom: 20px;
+    }
+
+    .tabForm form.inline_Form .formGrp:not(.fieldChng) {
+        width: 32%;
+    }
+
+    .tabForm .formGrp .MuiOutlinedInput-root,
+    .tabForm .formGrp .ant-picker,
+    .tabForm .formGrp .rs-dropdown,
+    .tabForm .formGrp .ant-select-selector,
+    .tabForm .formGrp .rs-picker-toggle-wrapper,
+    .tabForm .formGrp input.rs-input {
+        width: 210px !important;
+    }
+
+    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng) {
+      width: 48% !important;
+    }
+
+    .tabForm.flightForm .formGrp .ant-picker,
+    .tabForm.flightForm .formGrp .rs-dropdown,
+    .tabForm.flightForm .formGrp .MuiOutlinedInput-root {
+      width: 98% !important;
+    }
+
+    .departure, .return {
+      border-right: 1px solid #e7e7e7;
+    }
+
+    .flightTo {
+      border: none;
     }
 
     .serv_wrap {
@@ -650,9 +751,55 @@
         margin: 15px 0 20px;
     }
 
+    .tab_form_sec .tabs_inner {
+        max-width: 600px;
+    }
+
     .tab_form_sec ul.react-tabs__tab-list li {
         padding: 5px 10px 10px;
         font-size: 13px;
+    }
+
+    .tabForm form.inline_Form .formGrp:not(.fieldChng),
+    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng) {
+      width: 100% !important;
+    }
+
+    .tabForm .formGrp .MuiOutlinedInput-root,
+    .tabForm .formGrp .ant-picker,
+    .tabForm .formGrp .rs-dropdown,
+    .tabForm .formGrp .ant-select-selector,
+    .tabForm .formGrp .rs-picker-toggle-wrapper,
+    .tabForm .formGrp input.rs-input,
+    .tabForm.flightForm .formGrp .ant-picker,
+    .tabForm.flightForm .formGrp .rs-dropdown,
+    .tabForm.flightForm .formGrp .MuiOutlinedInput-root {
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+
+    .fieldBord {
+      border: none;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .stars, .traveller, .addMore {
+      border: none;
+    }
+
+    .fieldChng {
+      height: unset;
+      width: 100%;
+    }
+
+    .fieldChng .interchnge {
+      left: 48%;
+      top: -18px;
+    }
+
+    .tabForm .rs-dropdown-open .rs-dropdown-menu {
+        min-width: 100%;
+        right: 5px;
     }
 
     .explore_sec {
@@ -680,8 +827,45 @@
 
   @media (max-width: 575.98px) {
 
+    .rs-drawer-wrapper .rs-drawer-body {
+      padding: 30px;
+    }
+
+    .navigationWrapper ul li.menu_item a {
+      font-size: 14px;
+    }
+
+    .navigationWrapper ul li.linkEffect a span {
+      padding: 5px;
+    }
+
     .hero_info {
         max-width: 100%;
+    }
+
+    .tab_form_sec {
+      padding: 0 0.5rem;
+    }
+
+    .tab_form_sec .react-tabs__tab-panel .tabForm {
+        padding: 30px 10px 10px;
+    }
+
+    .tab_form_sec .tabs_inner {
+      max-width: 100%;
+      margin: -130px auto 30px;
+    }
+
+    .tabForm .radioGrp label span {
+      font-size: 12px !important;
+    }
+
+    .tabForm .radioGrp label span svg:nth-child(1) {
+      transform: scale(0.6);
+    }
+
+    .tabForm .radioGrp label span.Mui-checked svg:nth-child(2) {
+      transform: scale(0.6);
     }
 
     .tab_form_sec ul.react-tabs__tab-list {
@@ -697,10 +881,15 @@
 
   @media (max-width: 475.98px) {
 
+    .rs-drawer-wrapper .rs-drawer-right {
+      width: 320px !important;
+    }
+
     .tab_form_sec ul.react-tabs__tab-list {
         gap: 10px;
         margin-left: 15px;
         padding: 10px 0 0;
+        width: 92%;
     }
 
     .tab_form_sec ul.react-tabs__tab-list li i {
@@ -709,8 +898,16 @@
         text-align: center;
     }
 
-    form.inline_Form .formGrp {
-        flex: 0 0 90%;
+    .fieldChng .interchnge {
+      left: 45%;
+    }
+
+    .tabForm .radioGrp {
+        margin-bottom: 10px;
+    }
+
+    .tabForm .radioGrp label {
+        margin-right: 5px;
     }
 
     .about_sec {
@@ -721,5 +918,12 @@
     .faq_sec:before {
         width: 60px;
         height: 60px;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .tab_form_sec ul.react-tabs__tab-list {
+        gap: 5px;
+        margin-left: 10px;
     }
   }

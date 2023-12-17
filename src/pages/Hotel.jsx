@@ -38,7 +38,7 @@ const Hotel = ({ openLoginModal }) => {
     const hotelPickerPlaceholder = ['Check In ', 'Check out'];
     const [selectedDate, setSelectedDate] = useState([]); // State to store selected date range
 
-    const dropdownTitle = `${roomcount} ROOM | ${adultcount} ADULT | ${childcount} CHILD`;
+    const dropdownTitle = `${roomcount} Room | ${adultcount} Adult | ${childcount} Child`;
 
     const pricing = [
         { label: 'CA0 - CA300', value: 'CA0 - CA300' },
@@ -183,7 +183,7 @@ const Hotel = ({ openLoginModal }) => {
 
                     />
                 </div>
-                <div className='formGrp hoverCenter fieldBord'>
+                <div className='formGrp hoverCenter fieldBord guestRoom'>
                     <label htmlFor='guest_room'>Guests & Rooms</label>
                     <Dropdown
                         title={dropdownTitle}
@@ -273,7 +273,7 @@ const Hotel = ({ openLoginModal }) => {
                     </Space>
                     {/* <InputPicker id='adults' data={rooms} appearance="subtle" /> */}
                 </div>
-                <div className='formGrp hoverCenter fieldBord'>
+                <div className='formGrp hoverCenter fieldBord stars'>
                     <label htmlFor='children'>Stars</label>
                     <Space wrap>
                         <Select

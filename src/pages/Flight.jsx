@@ -142,7 +142,7 @@ const [infantcount,SetInfantCount]=useState(0);
         // alert("stop")
     }
     return(
-        <div className='tabForm'>
+        <div className='tabForm flightForm'>
             <RadioGroup
                 name="radioList"
                 value={wayval}
@@ -155,7 +155,7 @@ const [infantcount,SetInfantCount]=useState(0);
                 <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
             </RadioGroup>
             {Array.from({ length: cityCount }).map((_, index) => (
-            <form className={(index === (cityCount - 1)) ? 'inline_Form' : 'inline_Form addedForm'}>
+            <form className='inline_Form'>
                 <div className={(showReturn == true) ? 'formGrp hoverCenter flightFrom fieldBord active' : 'formGrp hoverCenter flightFrom fieldBord'}>
                     <label htmlFor='from'>From</label>
                     <Autocomplete
@@ -173,7 +173,7 @@ const [infantcount,SetInfantCount]=useState(0);
                     />
 
                 </div>
-                <div className='formGrp mw-auto w-auto w-40 fieldChng'>
+                <div className='formGrp fieldChng'>
                     <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
                 </div>
                 <div className={(showReturn == true) ? 'formGrp hoverCenter flightTo fieldBord active' : 'formGrp hoverCenter flightTo fieldBord'}>

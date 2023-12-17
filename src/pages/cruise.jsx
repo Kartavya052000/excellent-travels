@@ -92,10 +92,9 @@ const Cruise = () =>{
     }, 500); 
 
     return(
-        <div className='tabForm'>
+        <div className='tabForm cruiseForm'>
         <form className='inline_Form'>
-           
-            <div className='formGrp hoverCenter'>
+            <div className='formGrp hoverCenter destin fieldBord'>
                 <label htmlFor='destination'>Destination</label>
                 <Autocomplete
                     options={options}
@@ -111,216 +110,214 @@ const Cruise = () =>{
                 />
 
             </div>
-            <div className='formGrp hoverCenter'>
+            <div className='formGrp hoverCenter departMonth fieldBord'>
                 <label htmlFor='departure'>Departure</label>
                 <Input id='departure' placeholder='Departure Month' />
             </div>
-            <div className='formGrp hoverCenter'>
+            <div className='formGrp hoverCenter cruiseline fieldBord'>
                 <label htmlFor='cruiseLine'>Cruise Line</label>
                 <SelectPicker id='cruiseLine' data={cruiseLine} appearance='subtle' />
             </div>
-            <div className='formGrp hoverCenter'>
+            <div className='formGrp hoverCenter duration fieldBord'>
                 <label htmlFor='duration'>Duration</label>
                 <Input id='duration' placeholder='Duration' />
             </div>
-            <div className='formGrp hoverCenter'>
+            <div className='formGrp hoverCenter shuttle fieldBord'>
                 <label htmlFor='cruiseLine'>Shuttle Service or Taxi</label>
                 <Select
-                            placeholder="Shuttle Service or Taxi"
-                            style={{
-                                width: 120,
-                            }}
-                            // value={shuttle}
-                            options={shuttle}
-                        />            </div>
-            <div className='formGrp hoverCenter'>
-                    <label htmlFor='amenities'>Beverage Packages</label>
-                    <Dropdown
-                         title="Beverage Packages"
-                        open={facdropdownOpen}
-                        onToggle={() => setFacDropdownOpen(!facdropdownOpen)}
-                        onOpen={() => setFacDropdownOpen(true)}
-                        onClose={() => setFacDropdownOpen(false)}>
-                        <div className='guest_wrap'>
-                            <div className='g_col'>
-                                <label>Tea</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>Coffee</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="coffee" checked={Bevragepackage.coffee} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>bottledWater</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>nonalcoholicBottle</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>juices</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>beer</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>wines</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>soda</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>cocktail</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
-                                </div>
+                    placeholder="Shuttle Service or Taxi"
+                    // value={shuttle}
+                    options={shuttle}
+                />
+            </div>
+            <div className='formGrp hoverCenter beverage fieldBord'>
+                <label htmlFor='amenities'>Beverage Packages</label>
+                <Dropdown
+                    title="Beverage Packages"
+                    open={facdropdownOpen}
+                    onToggle={() => setFacDropdownOpen(!facdropdownOpen)}
+                    onOpen={() => setFacDropdownOpen(true)}
+                    onClose={() => setFacDropdownOpen(false)}>
+                    <div className='guest_wrap'>
+                        <div className='g_col'>
+                            <label>Tea</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
                             </div>
                         </div>
-                        {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
-                    </Dropdown>
-                </div>
-                <div className='formGrp hoverCenter'>
-                    <label htmlFor='amenities'>Amenities</label>
-                    <Dropdown
-                         title="Beverage Packages"
-                        open={amendownOpen}
-                        onToggle={() => setAmenDropdownOpen(!amendownOpen)}
-                        onOpen={() => setAmenDropdownOpen(true)}
-                        onClose={() => setAmenDropdownOpen(false)}
+                        <div className='g_col'>
+                            <label>Coffee</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="coffee" checked={Bevragepackage.coffee} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>bottledWater</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>nonalcoholicBottle</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>juices</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>beer</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>wines</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>soda</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>cocktail</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                    </div>
+                    {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
+                </Dropdown>
+            </div>
+            <div className='formGrp hoverCenter amenity fieldBord'>
+                <label htmlFor='amenities'>Amenities</label>
+                <Dropdown
+                        title="Beverage Packages"
+                    open={amendownOpen}
+                    onToggle={() => setAmenDropdownOpen(!amendownOpen)}
+                    onOpen={() => setAmenDropdownOpen(true)}
+                    onClose={() => setAmenDropdownOpen(false)}
+                    
+                    >
                         
-                        >
-                            
-                        <div className='guest_wrap'>
-                            <div className='g_col'>
-                                <label>Tea</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>Coffee</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="coffee" checked={Bevragepackage.coffee} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>bottledWater</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>nonalcoholicBottle</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>juices</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>beer</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>wines</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>soda</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
-                                </div>
-                            </div>
-                            <div className='g_col'>
-                                <label>cocktail</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
-                                </div>
+                    <div className='guest_wrap'>
+                        <div className='g_col'>
+                            <label>Tea</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
                             </div>
                         </div>
-                        {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
-                    </Dropdown>
-                </div>
-                <div className='formGrp hoverCenter'>
-                    <label htmlFor='cabinType'>Cabin Type</label>
-                    <Dropdown
-                         title="CabinType"
-                        open={cabindropdownOpen}
-                        onToggle={() => setCabinDropdownOpen(!cabindropdownOpen)}
-                        onOpen={() => setCabinDropdownOpen(true)}
-                        onClose={() => setCabinDropdownOpen(false)}>
-                        <div className='guest_wrap'>
-                            <div className='g_col'>
-                                <label>Windows</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="Windows" checked={cabindropdownOpen.windows} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        <div className='g_col'>
+                            <label>Coffee</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="coffee" checked={Bevragepackage.coffee} onChange={handleCheckboxChange} />
                             </div>
-                            <div className='g_col'>
-                                <label>Non Window</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="nonWindow" checked={cabindropdownOpen.nonWindows} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>bottledWater</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
                             </div>
-                            <div className='g_col'>
-                                <label>Mid Ship </label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="midShipCabin" checked={cabindropdownOpen.midShipCabin} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>nonalcoholicBottle</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
                             </div>
-                            <div className='g_col'>
-                                <label>Family Rooms</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="familyroom" checked={cabindropdownOpen.familyRooms} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>juices</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
                             </div>
-                            <div className='g_col'>
-                                <label>Balcony</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="balcony" checked={cabindropdownOpen.balcony} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>beer</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
                             </div>
-                            <div className='g_col'>
-                                <label>Scenic View Cabins</label>
-                                <div className='count check'>
-                                    <input type="checkbox" name="wiscenicViewCabinsfi" checked={cabindropdownOpen.scenicViewCabins} onChange={handleCabinCheckboxChange} />
-                                </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>wines</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
                             </div>
-                         
+                        </div>
+                        <div className='g_col'>
+                            <label>soda</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>cocktail</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
+                            </div>
+                        </div>
+                    </div>
+                    {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
+                </Dropdown>
+            </div>
+            <div className='formGrp hoverCenter cabin fieldBord'>
+                <label htmlFor='cabinType'>Cabin Type</label>
+                <Dropdown
+                        title="CabinType"
+                    open={cabindropdownOpen}
+                    onToggle={() => setCabinDropdownOpen(!cabindropdownOpen)}
+                    onOpen={() => setCabinDropdownOpen(true)}
+                    onClose={() => setCabinDropdownOpen(false)}>
+                    <div className='guest_wrap'>
+                        <div className='g_col'>
+                            <label>Windows</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="Windows" checked={cabindropdownOpen.windows} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>Non Window</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="nonWindow" checked={cabindropdownOpen.nonWindows} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>Mid Ship </label>
+                            <div className='count check'>
+                                <input type="checkbox" name="midShipCabin" checked={cabindropdownOpen.midShipCabin} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>Family Rooms</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="familyroom" checked={cabindropdownOpen.familyRooms} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>Balcony</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="balcony" checked={cabindropdownOpen.balcony} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
+                        <div className='g_col'>
+                            <label>Scenic View Cabins</label>
+                            <div className='count check'>
+                                <input type="checkbox" name="wiscenicViewCabinsfi" checked={cabindropdownOpen.scenicViewCabins} onChange={handleCabinCheckboxChange} />
+                            </div>
+                        </div>
                         
-                        </div>
-                        {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
-                    </Dropdown>
-                </div>
+                    
+                    </div>
+                    {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
+                </Dropdown>
+            </div>
             <div className='formBtn'>
                 <button type='submit' className='butn butn_success' onClick={onSearch} >Search</button>
             </div>

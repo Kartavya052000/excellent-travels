@@ -237,10 +237,10 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='explore_sec'>
+            <section className='explore_sec' data-aos='fade-up' data-aos-duration='1500'>
                 <div className='custom-container'>
                     <div className='custom_row'>
-                        <div className='cont_Col' data-aos='fade-right' data-aos-duration='1500'>
+                        <div className='cont_Col'>
                             <div className='sec_ttl'>
                                 <h6><span></span> Explore</h6>
                                 <h2>Explore all corners of the world with us</h2>
@@ -269,7 +269,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='imgCol' data-aos='fade-left' data-aos-duration='1500'>
+                        <div className='imgCol'>
                             <img src={explore} alt='Explore' />
                         </div>
                     </div>
