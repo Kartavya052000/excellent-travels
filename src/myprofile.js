@@ -24,6 +24,10 @@ const MyProfile = () => {
                         <Form.ControlLabel>Phone</Form.ControlLabel>
                         <Form.Control name='phone' placeholder='Phone' />
                     </div>
+                    <div className='formGrp'>
+                        <Form.ControlLabel>Message</Form.ControlLabel>
+                        <textarea name='msg' className="rs-input" placeholder='Message'></textarea>
+                    </div>
 
                     <div className='formBtn'>
                         <button type='submit' className='butn butn_success'>Update</button>

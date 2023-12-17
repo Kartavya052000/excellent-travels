@@ -4,6 +4,8 @@ import './assets/css/login.css';
 import googleSvg from './assets/images/google.svg';
 import AOS from "aos"; // Import AOS library
 import axios from "axios";
+import { Input } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 const Login = () => {
     useEffect(() => {
         AOS.init({ once: true }); // Initialize AOS on component mount
@@ -61,7 +63,11 @@ const Login = () => {
                                 <Form.Control name='email' placeholder='Email' />
                             </div>
                             <div className='formGrp'>
-                                <Form.Control name='password' placeholder='Password' />
+                                <Input.Password
+                                    name='password'
+                                    placeholder="Password"
+                                    iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                />
                             </div>
                             <button type="button" className='butn butn_success butn_sm'>Sign Up</button>
                         </Form>
@@ -82,14 +88,18 @@ const Login = () => {
                                             return;
                                         }
                                         setEmailError(false);
-
                                     }}
                                     className={emailError ? 'error' : ''}
                                 />
                                 {emailError && <span className='errorTxt' style={{ color: "red" }}>Email is invalid</span>}
                             </div>
                             <div className='formGrp'>
-                                <Form.Control
+                                <Input.Password
+                                    name='password'
+                                    placeholder="Password"
+                                    iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                />
+                                {/* <Form.Control
                                     name='password'
                                     type="password"
                                     placeholder='Password'
@@ -102,25 +112,19 @@ const Login = () => {
                                         }
                                         setPasswordError(false)
                                     }}
-                                    className={passwordError ? 'error' : ''}
-
-                                />
+                                    className={passwordError ? 'error' : ''} /> */}
                                 {passwordError && <span className='errorTxt' style={{ color: "red" }}>Password is invalid</span>}
-
                             </div>
                             <a href="#">Forgot your password?</a>
                             <button
                                 type='button'
                                 className='butn butn_success butn_sm'
                                 onClick={handleLogin} // Corrected onClick event
-                            >
-                                Log In
-                            </button>
+                            >Log In</button>
                             <span>OR</span>
                             <div className="social-container">
                                 {/* <a href="#" className="social fb"><i className="fab fa-facebook-f"></i></a> */}
                                 <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /> Sign in with Google</button>
-
                                 {/* <a className="social google" onClick={googleAuth}><i className="fab fa-google-plus-g"></i></a> */}
                                 {/* <a href="#" className="social linkedin"><i className="fab fa-linkedin-in"></i></a> */}
                             </div>

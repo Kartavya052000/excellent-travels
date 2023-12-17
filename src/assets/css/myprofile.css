@@ -13,3 +13,40 @@
 .myprofile_sec form.rs-form .formGrp, .myprofile_sec form.rs-form .rs-form-control-wrapper>.rs-input {
     width: 100%;
 }
+
+.myprofile_sec form.rs-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+
+
+
+
+/** Responsive CSS starts here **/
+
+@media (max-width: 991.98px) {
+    .myprofile_sec form.rs-form {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .myprofile_sec {
+        padding: 2rem 0;
+    }
+
+    .myprofile_sec form.rs-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .myprofile_sec {
+        padding: 1rem 0;
+    }
+
+    .myprofile_sec form.rs-form {
+        padding: 1rem;
+    }
+}

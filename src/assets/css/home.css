@@ -601,6 +601,10 @@
         padding: 0.9rem;
     }
 
+    .testi_slider {
+      left: -15px;
+    }
+
     .testiCont p {
         font-size: 13px;
     }
@@ -812,6 +816,10 @@
 
     .testimonial_sec {
         padding: 2rem 0;
+    }
+
+    .testi_slider {
+      left: -10px;
     }
 
     .faq_sec {

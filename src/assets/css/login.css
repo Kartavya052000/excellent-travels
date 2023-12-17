@@ -233,6 +233,29 @@ button.ghost {
 	margin-top: 2px;
   }
   
+  	.login_sec span.ant-input-password {
+		margin: 0 0 10px;
+		min-width: 300px;
+		border-radius: 0;
+		border: 1px solid #eee;
+	}
+
+	.login_sec span.ant-input-password input.ant-input {
+		border: none !important;
+		border-radius: 0;
+		font-size: 14px;
+		color: #575757;
+		margin: 0;
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.login_sec span.ant-input-suffix, .login_sec span.ant-input-password-icon {
+		font-size: 14px;
+		margin: 0;
+	}
+
+
 /* ------ to show error----- */
 
 .error {
@@ -350,8 +373,11 @@ button.ghost {
 		padding: 0 20px;
 	}
 
-	.form-container .rs-form-control-wrapper>.rs-input, .form-container .formGrp {
+	.form-container .rs-form-control-wrapper>.rs-input,
+	.form-container .formGrp,
+	.login_sec span.ant-input-password {
 		width: 100%;
+		min-width: 100%;
 	}
 
 	.social-container button {
