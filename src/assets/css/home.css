@@ -2,7 +2,7 @@
 
 .hero_sec {
     position: relative;
-    padding: 5rem 0;
+    padding: 5rem 0 10rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -51,15 +51,20 @@
 
   /** Tab Form Section CSS **/
 
+  .tab_form_sec {
+    padding: 0 2rem;
+  }
+
   .tab_form_sec .tabs_inner {
-      position: relative;
-      margin-top: 40px;
-      z-index: 99;
+    position: relative;
+    margin-top: -130px;
+    z-index: 99;
+    margin-bottom: 50px;
   }
   
   .tab_form_sec .react-tabs__tab-panel .tabForm {
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5);
-    padding: 40px 20px 15px;
+    padding: 60px 20px 15px;
     border-radius: 20px;
     background-color: #fff;
     margin-top: -20px;
@@ -90,9 +95,55 @@
   }
 
   .tabForm form.inline_Form {
-    flex-wrap: wrap;
     margin-bottom: 30px;
   }
+
+  .tabForm form label {
+    font-weight: 500;
+  }
+
+  .hoteldest .MuiOutlinedInput-root {
+    width: 200px;
+  }
+
+  .hoteldateRange .ant-picker {
+    width: 230px;
+  }
+
+  .carPickup .MuiOutlinedInput-root, .carDrop .MuiOutlinedInput-root {
+    width: 190px;
+  }
+
+  .flightFrom .MuiOutlinedInput-root, .flightTo .MuiOutlinedInput-root {
+    min-width: 220px;
+  }
+
+  .tabForm .carPickDropTime .ant-picker {
+    width: 330px;
+    height: 30px;
+  }
+
+  .tabForm .driver .rs-dropdown {
+    width: 130px;
+  }
+
+  .tabForm .traveller .rs-dropdown {
+    min-width: 150px;
+  }
+
+  .cars .rs-picker-toggle-wrapper {
+    width: 120px;
+  }
+
+  .tabForm .radioGrp {
+    margin-bottom: 20px;
+  }
+
+  .tabForm .radioGrp label span {
+    font-size: 14px !important;
+  }
+
+  /* .tabForm  */
 
   .tab_form_sec ul.react-tabs__tab-list {
       box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5);
@@ -160,7 +211,6 @@
 
   .tabForm .rs-dropdown, .rs-picker-toggle-wrapper {
     width: 100%;
-    min-width: 300px;
   }
 
   .tabForm .rs-dropdown .rs-dropdown-toggle, .tabForm .rs-dropdown .rs-btn:not(.butn) {
@@ -171,6 +221,10 @@
     width: 100%;
   }
 
+  .tabForm .rs-dropdown .rs-btn:not(.butn) {
+    padding-right: 28px;
+  }
+
   .tabForm .rs-dropdown-open .rs-dropdown-menu {
     display: flex;
     display: -ms-flexbox;
@@ -179,7 +233,7 @@
     flex-direction: column;
     min-width: 350px;
     min-height: 120px;
-    padding: 15px
+    padding: 15px;
   }
 
   .tabForm .guest_wrap {
@@ -216,10 +270,6 @@
 
   .tabForm .ant-space, .tabForm .ant-space-item, .tabForm .ant-select {
     width: 100% !important;
-  }
-
-  .tabForm .ant-select, .inline_Form .formGrp .ant-picker {
-    min-width: 300px;
   }
 
   .tabForm .ant-select-selector {
@@ -493,11 +543,7 @@
     }
 
     .tab_form_sec .react-tabs__tab-panel .tabForm {
-        padding: 40px 15px 15px;
-    }
-
-    .tab_form_sec .tabs_inner {
-        margin-top: 30px;
+        padding: 50px 15px 15px;
     }
 
     form.inline_Form {
@@ -604,10 +650,6 @@
   }
 
   @media (max-width: 475.98px) {
-
-    .tab_form_sec .tabs_inner {
-        margin-top: 25px;
-    }
 
     .tab_form_sec ul.react-tabs__tab-list {
         gap: 10px;

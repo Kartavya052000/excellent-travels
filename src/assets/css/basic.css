@@ -300,11 +300,6 @@
     border-bottom-color: #ccc;
   }
 
-  .inline_Form .formGrp .MuiOutlinedInput-root {
-    height: 40px;
-    min-width: 300px;
-  }
-
   .inline_Form .formGrp input.MuiOutlinedInput-input {
     height: auto;
     line-height: normal;
@@ -322,6 +317,7 @@
     border: none;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
+    padding: 4px;
   }
 
   .rs-picker-toggle-wrapper {

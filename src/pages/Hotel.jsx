@@ -152,7 +152,7 @@ const Hotel = ({ openLoginModal }) => {
     return (
         <div className='tabForm'>
             <form className='inline_Form' >
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter hoteldest'>
                     <label htmlFor='destination'>Destination</label>
                     <Autocomplete
                         options={options}
@@ -171,7 +171,7 @@ const Hotel = ({ openLoginModal }) => {
 
                 </div>
 
-                <div className='formGrp hoverCenter'>
+                <div className='formGrp hoverCenter hoteldateRange'>
                     <label htmlFor='checkOut'>Check In & Check Out</label>
                     {/* <Space direction="vertical" size={12}> */}
                     <RangePicker
@@ -190,15 +190,13 @@ const Hotel = ({ openLoginModal }) => {
                         open={dropdownOpen}
                         onToggle={() => setDropdownOpen(!dropdownOpen)}
                         onOpen={() => setDropdownOpen(true)}
-                        onClose={() => setDropdownOpen(false)}
-
-                    >
+                        onClose={() => setDropdownOpen(false)}>
                         <div className='guest_wrap'>
                             <div className='g_col'>
                                 <label>Rooms</label>
                                 <div className='count'>
                                     <button onClick={(e) => decrement(e, "room")}>-</button>
-                                    <span>{roomcount}</span>
+                                        <span>{roomcount}</span>
                                     <button onClick={(e) => increment(e, "room")}>+</button>
                                 </div>
                             </div>
@@ -206,7 +204,7 @@ const Hotel = ({ openLoginModal }) => {
                                 <label>Adults</label>
                                 <div className='count'>
                                     <button onClick={(e) => decrement(e, "adult")}>-</button>
-                                    <span>{adultcount}</span>
+                                        <span>{adultcount}</span>
                                     <button onClick={(e) => increment(e, "adult")}>+</button>
                                 </div>
                             </div>
@@ -214,7 +212,7 @@ const Hotel = ({ openLoginModal }) => {
                                 <label>Children</label>
                                 <div className='count'>
                                     <button onClick={(e) => decrement(e, "child")}>-</button>
-                                    <span>{childcount}</span>
+                                        <span>{childcount}</span>
                                     <button onClick={(e) => increment(e, "child")}>+</button>
                                 </div>
                             </div>
@@ -224,57 +222,36 @@ const Hotel = ({ openLoginModal }) => {
                     </Dropdown>
                 </div>
                 <div className='formGrp hoverCenter'>
-                    <label htmlFor='guest_room'>Amenities</label>
+                    <label htmlFor='amenities'>Amenities</label>
                     <Dropdown
                         title={`Amenities: ${amenities.breakfast ? 'Breakfast ' : ''} ${amenities.pool ? 'Pool ' : ''} ${amenities.wifi ? 'Wifi ' : ''} ${amenities.childFriendly ? 'Child-Friendly ' : ''}`}
                         open={facdropdownOpen}
                         onToggle={() => setFacDropdownOpen(!facdropdownOpen)}
                         onOpen={() => setFacDropdownOpen(true)}
-                        onClose={() => setFacDropdownOpen(false)}
-
-                    >
+                        onClose={() => setFacDropdownOpen(false)}>
                         <div className='guest_wrap'>
                             <div className='g_col'>
                                 <label>Breakfast</label>
                                 <div className='count check'>
-                                    <input
-                                        type="checkbox"
-                                        name="breakfast"
-                                        checked={amenities.breakfast}
-                                        onChange={handleCheckboxChange} />
+                                    <input type="checkbox" name="breakfast" checked={amenities.breakfast} onChange={handleCheckboxChange} />
                                 </div>
                             </div>
                             <div className='g_col'>
                                 <label>Pool</label>
                                 <div className='count check'>
-                                    <input
-                                        type="checkbox"
-                                        name="pool"
-                                        checked={amenities.pool}
-                                        onChange={handleCheckboxChange} />
-
+                                    <input type="checkbox" name="pool" checked={amenities.pool} onChange={handleCheckboxChange} />
                                 </div>
                             </div>
                             <div className='g_col'>
                                 <label>Wifi</label>
                                 <div className='count check'>
-                                    <input
-                                        type="checkbox"
-                                        name="wifi"
-                                        checked={amenities.wifi}
-                                        onChange={handleCheckboxChange} />
-
+                                    <input type="checkbox" name="wifi" checked={amenities.wifi} onChange={handleCheckboxChange} />
                                 </div>
                             </div>
                             <div className='g_col'>
                                 <label>Pet-Friendly</label>
                                 <div className='count check'>
-                                    <input
-                                        type="checkbox"
-                                        name="wifi"
-                                        checked={amenities.childFriendly}
-                                        onChange={handleCheckboxChange} />
-
+                                    <input type="checkbox" name="wifi" checked={amenities.childFriendly} onChange={handleCheckboxChange} />
                                 </div>
                             </div>
                         </div>

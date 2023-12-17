@@ -143,137 +143,136 @@ const [infantcount,SetInfantCount]=useState(0);
     }
     return(
         <div className='tabForm'>
-        <RadioGroup
-            name="radioList"
-            value={wayval}
-            onChange={handleChange}
-            row
-        >
-            <FormControlLabel value="oneWay" control={<Radio />} label="One Way" />
-            <FormControlLabel value="roundTrip" control={<Radio />} label="Round Trip" />
-            <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
-        </RadioGroup>
-        {Array.from({ length: cityCount }).map((_, index) => (
-      <form className='inline_Form'>
+            <RadioGroup
+                name="radioList"
+                value={wayval}
+                onChange={handleChange}
+                row
+                className="radioGrp">
 
-      <div className='formGrp hoverCenter'>
-          <label htmlFor='from'>From</label>
-          <Autocomplete
-              options={options}
-              defaultValue={"Vancouver"} // Set the default value here
+                <FormControlLabel value="oneWay" control={<Radio />} label="One Way" />
+                <FormControlLabel value="roundTrip" control={<Radio />} label="Round Trip" />
+                <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
+            </RadioGroup>
+            {Array.from({ length: cityCount }).map((_, index) => (
+            <form className='inline_Form'>
 
-              getOptionLabel={(option) => option}
-              onInputChange={(event, newInputValue) => {
-                  setFromValue(newInputValue);
-                  fetchData(newInputValue)
-              }}
-              renderInput={(params) => (
-                  <TextField {...params} variant="outlined" fullWidth />
-              )}
-          />
+                <div className='formGrp hoverCenter flightFrom'>
+                    <label htmlFor='from'>From</label>
+                    <Autocomplete
+                        options={options}
+                        defaultValue={"Vancouver"} // Set the default value here
 
-      </div>
-      <div className='formGrp mw-auto w-auto w-40'>
-          <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
-      </div>
-      <div className='formGrp hoverCenter'>
-          <label htmlFor='destination'>To</label>
-          <Autocomplete
-              options={options}
-              defaultValue={"Vancouver"} // Set the default value here
+                        getOptionLabel={(option) => option}
+                        onInputChange={(event, newInputValue) => {
+                            setFromValue(newInputValue);
+                            fetchData(newInputValue)
+                        }}
+                        renderInput={(params) => (
+                            <TextField {...params} variant="outlined" fullWidth />
+                        )}
+                    />
 
-              getOptionLabel={(option) => option}
-              onInputChange={(event, newInputValue) => {
-                  setTomValue(newInputValue);
-                  fetchData(newInputValue)
-              }}
-              renderInput={(params) => (
-                  <TextField {...params} variant="outlined" fullWidth />
-              )}
-          />
-
-      </div>
-      {showReturn == false && (<>
-          <div className='formGrp hoverCenter'>
-              <label htmlFor='return'>Departure</label>
-              {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
-              <DatePicker
-                  disabledDate={disabledDate}
-                  placeholder="Departure"
-                  onChange={handleDateChange} // Capture the selected date range
-
-              />
-          </div>
-          {/* <div onClick={ReturnLabel}><label>Return</label></div> */}
-      </>
-
-      )}
-      {showReturn == true && (
-          <div className='formGrp hoverCenter'>
-              <label htmlFor='return'>Departure and Return</label>
-              {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
-              <RangePicker
-                  disabledDate={disabledDate}
-                  placeholder={ticketPickerPlaceholder}
-                  onChange={handleDatesChange} // Capture the selected date range
-
-
-              />
-          </div>
-      )}
-
-      
-        {index ==0 ?
-        (<>
-        <div className='formGrp hoverCenter'>  
-            <label htmlFor='travellers'>Travellers</label>
-            <Dropdown title="Travellers">
-                <div className='guest_wrap'>
-                    <div className='g_col'>
-                        <label>Adults (12yr +)</label>
-                        <div className='count'>
-                            <button onClick={(e) => decrement(e, "adult")}>-</button>
-                            <span>{adultcount}</span>
-                            <button onClick={(e) => increment(e, "adult")}>+</button>
-                        </div>
-                    </div>
-                    <div className='g_col'>
-                        <label>Children(2y -12y)</label>
-                        <div className='count'>
-                            <button onClick={(e) => decrement(e, "child")}>-</button>
-                            <span>{childcount}</span>
-                            <button onClick={(e) => increment(e, "child")}>+</button>
-                        </div>
-                    </div>
-                    <div className='g_col'>
-                        <label>Infant </label>
-                        <div className='count'>
-                            <button onClick={(e) => decrement(e, "infant")}>-</button>
-                            <span>{infantcount}</span>
-                            <button onClick={(e) => increment(e, "infant")}>+</button>
-                        </div>
-                    </div>
                 </div>
-                <Button className='butn butn_success butn_rounded'>Accept</Button>
-            </Dropdown>
-        </div> 
-        </>
-        ):
-        (      null   
-        )}
-            {(index === cityCount - 1 && index !=0 )&& (
+                <div className='formGrp mw-auto w-auto w-40'>
+                    <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
+                </div>
+                <div className='formGrp hoverCenter flightTo'>
+                    <label htmlFor='destination'>To</label>
+                    <Autocomplete
+                        options={options}
+                        defaultValue={"Vancouver"} // Set the default value here
 
-         <button type='submit' className='butn butn_success butn_sm' onClick={AddCity}>Add another City</button>
-            )}
-     {index ==0 &&(
- <div className='formBtn'>
- <button type='submit' className='butn butn_success' onClick={onSubmit}>Submit</button>
-</div>
-     )}
-  </form>
-    ))}
-      
+                        getOptionLabel={(option) => option}
+                        onInputChange={(event, newInputValue) => {
+                            setTomValue(newInputValue);
+                            fetchData(newInputValue)
+                        }}
+                        renderInput={(params) => (
+                            <TextField {...params} variant="outlined" fullWidth />
+                        )}
+                    />
 
+                </div>
+                {showReturn == false && (<>
+                    <div className='formGrp hoverCenter'>
+                        <label htmlFor='return'>Departure</label>
+                        {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
+                        <DatePicker
+                            disabledDate={disabledDate}
+                            placeholder="Departure"
+                            onChange={handleDateChange} // Capture the selected date range
+
+                        />
+                    </div>
+                    {/* <div onClick={ReturnLabel}><label>Return</label></div> */}
+                </>
+
+                )}
+                {showReturn == true && (
+                    <div className='formGrp hoverCenter'>
+                        <label htmlFor='return'>Departure and Return</label>
+                        {/* <DatePicker id='return' format='MM/dd/yyyy' appearance='subtle' /> */}
+                        <RangePicker
+                            disabledDate={disabledDate}
+                            placeholder={ticketPickerPlaceholder}
+                            onChange={handleDatesChange} // Capture the selected date range
+
+
+                        />
+                    </div>
+                )}
+
+                
+                    {index ==0 ?
+                    (<>
+                    <div className='formGrp hoverCenter traveller'>  
+                        <label htmlFor='travellers'>Travellers</label>
+                        <Dropdown title="Travellers">
+                            <div className='guest_wrap'>
+                                <div className='g_col'>
+                                    <label>Adults (12yr +)</label>
+                                    <div className='count'>
+                                        <button onClick={(e) => decrement(e, "adult")}>-</button>
+                                        <span>{adultcount}</span>
+                                        <button onClick={(e) => increment(e, "adult")}>+</button>
+                                    </div>
+                                </div>
+                                <div className='g_col'>
+                                    <label>Children(2y -12y)</label>
+                                    <div className='count'>
+                                        <button onClick={(e) => decrement(e, "child")}>-</button>
+                                        <span>{childcount}</span>
+                                        <button onClick={(e) => increment(e, "child")}>+</button>
+                                    </div>
+                                </div>
+                                <div className='g_col'>
+                                    <label>Infant </label>
+                                    <div className='count'>
+                                        <button onClick={(e) => decrement(e, "infant")}>-</button>
+                                        <span>{infantcount}</span>
+                                        <button onClick={(e) => increment(e, "infant")}>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <Button className='butn butn_success butn_rounded'>Accept</Button>
+                        </Dropdown>
+                    </div> 
+                    </>
+                    ):
+                    (      null   
+                    )}
+                        {(index === cityCount - 1 && index !=0 )&& (
+
+                    <button type='submit' className='butn butn_success butn_sm' onClick={AddCity}>Add another City</button>
+                        )}
+                {index ==0 &&(
+                    <div className='formBtn'>
+                        <button type='submit' className='butn butn_success' onClick={onSubmit}>Submit</button>
+                    </div>
+                        )}
+            </form>
+        ))}
     </div>
     )
 }
