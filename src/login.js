@@ -115,7 +115,7 @@ const Login = () => {
                                     className={passwordError ? 'error' : ''} /> */}
                                 {passwordError && <span className='errorTxt' style={{ color: "red" }}>Password is invalid</span>}
                             </div>
-                            <a href="#">Forgot your password?</a>
+                            <a href="/forgot-password">Forgot your password?</a>
                             <button
                                 type='button'
                                 className='butn butn_success butn_sm'

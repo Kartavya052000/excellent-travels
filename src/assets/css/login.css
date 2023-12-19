@@ -262,8 +262,31 @@ button.ghost {
 	border: 1px solid red !important;
   }
 
-
-
+  .forget_sec .forinput {
+	border: 1px solid #ccc !important;
+	margin-bottom: 50px;
+  }
+  
+  .forget_sec form {
+	padding: 50px;
+	display: flex;
+	justify-content: revert;
+	align-items: center;
+	flex-direction: column;
+  }
+  
+  .forget_sec form .inputContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 30px;
+  }
+  
+  .forget_sec form label {
+	position: relative;
+    left: -11%;
+  }
+  
 
 
 /** Responsive CSS starts here **/
