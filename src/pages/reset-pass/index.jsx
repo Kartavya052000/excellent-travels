@@ -7,32 +7,27 @@ import '../../assets/css/login.css';
 const ResetPass = () => {
   return (
     <>
-
-    <InnerHeader value='Reset -Password' />
-    <section className='forget_sec'>
-
-        <div className='formGrp'>
-            <Form>
-            <Input.Password
-                                    name='password'
-                                    placeholder="Password"
-                                    iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                />
-                                       <Input.Password
-                                    name='password'
-                                    placeholder="Password"
-                                    iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                />
-                <button
-                    type='button'
-                    className='butn butn_success butn_sm'
-                >Submit</button>
-            </Form>
-        </div>
-    </section>
-
-
-</>
+        <InnerHeader value='Reset -Password' />
+        <section className='lostPass_sec'>
+            <div className='formGrp'>
+                <Form>
+                    <Input.Password
+                        name='password'
+                        placeholder="Password"
+                        iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
+                    
+                    <Input.Password
+                        name='password'
+                        placeholder="Password"
+                        iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
+                    
+                    <button type='button' className='butn butn_success butn_sm'>Submit</button>
+                </Form>
+            </div>
+        </section>
+    </>
   )
 }
 

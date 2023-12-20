@@ -4,12 +4,12 @@
 
 .contact_inner {
     padding: 2rem;
-    background-color: #f1f1f1;
+    background: url(../images/faqBg.png) #f1f1f1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     display: -ms-flexbox;
-    padding-left: 4rem;
-    border-left: 10px solid #3045fd;
-    border-radius: 15px 0 0 15px;
 }
 
 .map_sec, .map_sec iframe {
@@ -109,12 +109,6 @@
         padding: 3rem 0;
     }
 
-    .contact_inner {
-        padding-left: 2.5rem;
-        border-left: 6px solid #3045fd;
-        border-radius: 10px 0 0 10px;
-    }
-
     .map_sec iframe {
         height: 350px;
     }
@@ -147,8 +141,7 @@
     }
 
     .contact_inner {
-        padding: 1rem !important;
-        border-left: 4px solid #3045fd;
+        padding: 1rem;
     }
 
     .map_sec iframe {

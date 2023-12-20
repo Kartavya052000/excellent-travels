@@ -3,6 +3,9 @@ import './assets/css/mysubmissions.css';
 import InnerHeader from "./components/innerHeader/innerHeader";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import hotel from './assets/images/hotel.png';
+import waiter from './assets/images/waiter.png';
+import car from './assets/images/carhire_ic.png';
 
 const MySubmissions = () => {
     return(
@@ -20,35 +23,150 @@ const MySubmissions = () => {
                     </TabList>
 
                     <TabPanel>
-                        <div className='bookCard'>
-                            <div className='card_head'>
-                                <div className='icon'>
-                                    <i className='fa fa-building'></i>
+                        <div className="wrapper">
+                            <div className="overviewInfo">
+                                <div className="actions">
+                                    <div className="backbutton">
+                                        {/* empty */}
+                                    </div>
+                                    <div className="cartbutton neurobutton">
+                                        <i className='fa fa-heart'></i>
+                                    </div>
                                 </div>
-                                <h4 className='name'>Hotel Name</h4>
+
+                                <div className="productinfo">
+                                    <div className="grouptext">
+                                        <h3>DESTINATION</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>CHECK IN & OUT</h3>
+                                        <p>DEC 20, 2023 - DEC 25, 2023</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>GUESTS/ROOMS</h3>
+                                        <p>1 ROOM | 1 ADULT | 0 CHILD</p>
+                                    </div>
+                                </div>
+                                <div className="productImage">
+                                    <img src={waiter} alt="" />
+                                    <img src={hotel} alt="" />
+                                </div>
                             </div>
-                            <div className='card_body'>
-                                <ul>
-                                    <li><span>Check-In</span> <small>08 Dec 23</small></li>
-                                    <li><span>Check-Out</span> <small>10 Dec 23</small></li>
-                                    <li className='room_dets'>
-                                        <div className='room'><i className='fa fa-door-open'></i> 1 Room(s), 2 Night(s)</div>
-                                        <div className='person'><i className='fa fa-users'></i> PersonName + 1</div>
-                                    </li> 
-                                </ul>
+                            <div className="productSpecifications">
+                                <div className="productFeatures">
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-wifi'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Amenities</strong></p>
+                                            <p>Breakfast | Pool | Wi-Fi | Pet-Friendly</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-dollar'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Pricing</strong></p>
+                                            <p>CA 300</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-star'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Stars</strong></p>
+                                            <p>5 Star</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        
+                        <div className="wrapper">
+                            <div className="overviewInfo">
+                                <div className="actions">
+                                    <div className="backbutton">
+                                        {/* empty */}
+                                    </div>
+                                    <div className="cartbutton neurobutton">
+                                        <i className='fa fa-heart'></i>
+                                    </div>
+                                </div>
+
+                                <div className="productinfo">
+                                    <div className="grouptext">
+                                        <h3>PICKUP</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>DROP-OFF</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>PICKUP & DROP-OFF</h3>
+                                        <p>2023-12-20 & 2023-12-22</p>
+                                    </div>
+                                </div>
+                                <div className="productImage">
+                                    {/* <img src={waiter} alt="" /> */}
+                                    <span></span>
+                                    <img src={car} alt="" />
+                                </div>
+                            </div>
+                            <div className="productSpecifications">
+                                <div className="productFeatures">
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fas fa-steering-wheel'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Driver</strong></p>
+                                            <p>Yes, young under 30</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Car Type</strong></p>
+                                            <p>XUV</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Capacity</strong></p>
+                                            <p>2 passengers</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Wheel Drive</strong></p>
+                                            <p>All Wheel Drive</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </TabPanel>
                 </Tabs>
 
                 <div className='submissionCard'>
-                    <svg class="success-svg" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+                    <svg className="success-svg" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
                         <g fill="none" fill-rule="evenodd" stroke="#177EE6">
-                            <circle class="success-circle" cx="40" cy="40" r="39" stroke-width="2"/>
-                            <polyline class="success-checkmark" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" points="24.5 41.5 34.5 51.5 55.5 30.5"/>
+                            <circle className="success-circle" cx="40" cy="40" r="39" stroke-width="2"/>
+                            <polyline className="success-checkmark" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" points="24.5 41.5 34.5 51.5 55.5 30.5"/>
                         </g>
                     </svg>
                     <p>Your submission is confirmed. You’ll get more update from Xcellent Travels.</p>
