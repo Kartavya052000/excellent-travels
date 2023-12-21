@@ -210,59 +210,12 @@ const Cruise = () =>{
                         
                     <div className='guest_wrap'>
                         <div className='g_col'>
-                            <label>Tea</label>
+                            <label>Wifi</label>
                             <div className='count check'>
                                 <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
                             </div>
                         </div>
-                        <div className='g_col'>
-                            <label>Coffee</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="coffee" checked={Bevragepackage.coffee} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>bottledWater</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>nonalcoholicBottle</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>juices</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>beer</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>wines</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>soda</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
-                        <div className='g_col'>
-                            <label>cocktail</label>
-                            <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
-                            </div>
-                        </div>
+                        
                     </div>
                     {/* <Button className='butn butn_success butn_rounded' onClick={updateFaility}>Apply</Button> */}
                 </Dropdown>

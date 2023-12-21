@@ -7,7 +7,8 @@ import _debounce from 'lodash/debounce';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import {  Dropdown } from "rsuite";
-
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const { RangePicker } = DatePicker;
 
 const Hotel = ({ openLoginModal }) => {

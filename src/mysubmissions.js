@@ -307,16 +307,7 @@ const MySubmissions = () => {
                     </TabPanel>
                 </Tabs>
 
-                <div className='submissionCard'>
-                    <svg className="success-svg" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-                        <g fill="none" fill-rule="evenodd" stroke="#177EE6">
-                            <circle className="success-circle" cx="40" cy="40" r="39" stroke-width="2"/>
-                            <polyline className="success-checkmark" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" points="24.5 41.5 34.5 51.5 55.5 30.5"/>
-                        </g>
-                    </svg>
-                    <p>Your submission is confirmed. You’ll get more update from Xcellent Travels.</p>
-                    <Link to='/' className='butn butn_success butn_sm butn_rounded'>Back to home</Link>
-                </div>
+             
             </div>
         </section> 
         </>

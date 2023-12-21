@@ -13,6 +13,7 @@ import MySubmissions from "./mysubmissions";
 import BookingConfirmation from "./bookingConfirmation";
 import ForgotPass from "./pages/forgot-pass";
 import ResetPass from "./pages/reset-pass";
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -34,6 +35,8 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
+      <ToastContainer />
+
     </div>
   );
 }
