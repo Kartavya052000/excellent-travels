@@ -6,6 +6,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import hotel from './assets/images/hotel.png';
 import waiter from './assets/images/waiter.png';
 import car from './assets/images/carhire_ic.png';
+import flight from './assets/images/flight_ic.png';
+import cruise from './assets/images/cruise_ic.png';
 
 const MySubmissions = () => {
     return(
@@ -87,7 +89,7 @@ const MySubmissions = () => {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className="wrapper">
+                        <div className="wrapper car">
                             <div className="overviewInfo">
                                 <div className="actions">
                                     <div className="backbutton">
@@ -122,7 +124,150 @@ const MySubmissions = () => {
                                 <div className="productFeatures">
                                     <div className="feature">
                                         <div className="featureIcon">
-                                            <i className='fas fa-steering-wheel'></i>
+                                            <i className='fas fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Driver</strong></p>
+                                            <p>Yes, young under 30</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Car Type</strong></p>
+                                            <p>XUV</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Capacity</strong></p>
+                                            <p>2 passengers</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Wheel Drive</strong></p>
+                                            <p>All Wheel Drive</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className="wrapper flight">
+                            <div className="overviewInfo">
+                                <div className="actions">
+                                    <div className="backbutton">
+                                        {/* empty */}
+                                    </div>
+                                    <div className="cartbutton neurobutton">
+                                        <i className='fa fa-heart'></i>
+                                    </div>
+                                </div>
+
+                                <div className="productinfo">
+                                    <div className="grouptext">
+                                        <h3>FROM</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>TO</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>DEPARTURE</h3>
+                                        <p>2023-12-21</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>TRAVELLERS</h3>
+                                        <p>2 Adult | 1 Children | 1 Infant</p>
+                                    </div>
+                                </div>
+                                <div className="productImage">
+                                    {/* <img src={waiter} alt="" /> */}
+                                    <span></span>
+                                    <img src={flight} alt="" />
+                                </div>
+                            </div>
+                            <div className="productSpecifications">
+                                <div className="productFeatures">
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fas fa-car'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Amenities</strong></p>
+                                            <p>Breakfast | Pool | WiFi</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-dollar'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Price</strong></p>
+                                            <p>CA 300</p>
+                                        </div>
+                                    </div>
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fa fa-star'></i>
+                                        </div>
+                                        <div className="featureText">
+                                            <p><strong>Star</strong></p>
+                                            <p>4 Star</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className="wrapper cruise">
+                            <div className="overviewInfo">
+                                <div className="actions">
+                                    <div className="backbutton">
+                                        {/* empty */}
+                                    </div>
+                                    <div className="cartbutton neurobutton">
+                                        <i className='fa fa-heart'></i>
+                                    </div>
+                                </div>
+
+                                <div className="productinfo">
+                                    <div className="grouptext">
+                                        <h3>PICKUP</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>DROP-OFF</h3>
+                                        <p>VANCOUVER</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>PICKUP & DROP-OFF</h3>
+                                        <p>2023-12-20 & 2023-12-22</p>
+                                    </div>
+                                </div>
+                                <div className="productImage">
+                                    {/* <img src={waiter} alt="" /> */}
+                                    <span></span>
+                                    <img src={cruise} alt="" />
+                                </div>
+                            </div>
+                            <div className="productSpecifications">
+                                <div className="productFeatures">
+                                    <div className="feature">
+                                        <div className="featureIcon">
+                                            <i className='fas fa-car'></i>
                                         </div>
                                         <div className="featureText">
                                             <p><strong>Driver</strong></p>

@@ -203,6 +203,13 @@
   position: relative;
   z-index: 1;
 }
+
+.car .productImage img, .flight .productImage img, .cruise .productImage img {
+  width: 150px;
+  position: absolute;
+  right: 0;
+}
+
 .grouptext h3 {
   letter-spacing: 2px;
   font-size: 13px;
@@ -303,5 +310,38 @@
 
   .mysubmissions ul.react-tabs__tab-list {
     margin-bottom: 20px;
+  }
+
+  .submissionCard {
+      width: 95%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .car .productImage img, .flight .productImage img, .cruise .productImage img {
+    width: 90px;
+  }
+
+  .mysubmissions ul.react-tabs__tab-list {
+    padding: 0.3rem;
+    justify-content: space-between;
+  }
+
+  .mysubmissions ul.react-tabs__tab-list li {
+      padding: 8px;
+      display: flex;
+      display: -ms-flexbox;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .mysubmissions .react-tabs .react-tabs__tab-panel--selected {
+    padding: 0;
+  }
+}
+
+@media (max-width: 475.98px) {
+  .car .productImage img, .flight .productImage img, .cruise .productImage img {
+    width: 60px;
   }
 }
