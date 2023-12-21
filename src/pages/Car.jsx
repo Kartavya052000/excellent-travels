@@ -75,8 +75,9 @@ const CarHire = ({ openLoginModal }) => {
     const fetchData = async (search) => {
         debouncedSearch(search)
     };
-    const handleChange = (value) => {
-        SetDriverValue(value)
+    const handleChange = (e) => {
+        // console.log(e.target.value)
+        SetDriverValue(e.target.value)
     }
     const handleDateChange = (dates) => {
         const formattedDates = dates.map((date) => date.format('YYYY-MM-DD')); // Format dates as YYYY-MM-DD
@@ -94,12 +95,11 @@ const CarHire = ({ openLoginModal }) => {
     const handleDrivType = (value) => {
         SetDriverReq(value)
     }
-    const handleWheelType = (value) => {
-        SetWheelDrive(value)
+    const handleWheelType = (e) => {
+        SetWheelDrive(e.target.value)
     }
     const onSubmit = async (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
-
 
         let carval = {
             type: "car",
@@ -112,17 +112,24 @@ const CarHire = ({ openLoginModal }) => {
                 DropOffDateAndTime: checkOutDate,
                 CarType: cartype,
                 Capacity: capacity,
-                DriverRequired: driverreq,
+                // DriverRequired: driverreq,
                 WheelDrive: wheeldrive
             }
 
         }
+console.log(carval);
+
         openLoginModal(carval); // Call the function passed as a prop to open the login modal in the Home component
 
         return;
-        // alert("stop")
     }
+const handlePricingChange =(e) =>{
+    SetcarType(e.target.value)
+}
 
+const handleCapacity = (e) =>[
+    SetCap(e.target.value)
+]
     return (
         <div className='tabForm'>
             <form className='inline_Form'>
@@ -164,16 +171,7 @@ const CarHire = ({ openLoginModal }) => {
 
                 </div>
 
-                {/* <div className='formGrp hoverCenter'>
-                    <label htmlFor='guest_room'>Driver's Age</label>
-                    <Dropdown
-                        title="Drivers"
-                        open={drivedropdownOpen}
-                        onToggle={() => setdrivDropdownOpen(!drivedropdownOpen)}
-                        onOpen={() => setdrivDropdownOpen(true)}
-                        onClose={() => setdrivDropdownOpen(false)}>
-                    </Dropdown>
-                </div> */}
+               
 
                 <div className='formGrp hoverCenter carPickDropTime fieldBord'>
                     <label htmlFor='checkOut'>Pick up & Drop Off (Time)</label>
@@ -186,36 +184,7 @@ const CarHire = ({ openLoginModal }) => {
                         defaultValue={[checkinDate, checkOutDate]} // Set default values
                     />
                 </div>
-                {/* <div className='formGrp hoverCenter'>
-                    <label htmlFor='adults'>Car Type</label>
-                    <Space wrap>
-                        <Select
-                            placeholder="Car Type"
-                            style={{
-                                width: 120,
-                            }}
-                            //   onChange={handleChange}
-                            options={carType}
-                            value={cartype}
-                            onChange={handleType}
-                        />
-                    </Space>
-                </div> */}
-                {/* <div className='formGrp hoverCenter'>
-                    <label htmlFor='adults'>Capacity</label>
-                    <Space wrap>
-                        <Select
-                            // defaultValue=""
-                            placeholder="Capacity"
-                            style={{
-                                width: 120,
-                            }}
-                            value={capacity}
-                            onChange={handleCapType}
-                            options={Capacity}
-                        />
-                    </Space>
-                </div> */}
+             
                 <div className='formGrp hoverCenter driver fieldBord'>
                     <label htmlFor='driver'>Driver</label>
                     <Dropdown title="Driver">
@@ -236,8 +205,12 @@ const CarHire = ({ openLoginModal }) => {
                             </div>
                             <div className='g_col'>
                                 <label>Driver's Required</label>
+                                <span>If you need a driver for the car</span>
+
                                 <div className='count check'>
-                                    <input type="checkbox" name="driverReq" id="driverReq" />
+                                <input type="radio" name="driverage" id="driverReq" value="driver required" onChange={handleChange} />
+
+                                    {/* <input type="checkbox" name="driverReq" id="driverReq" /> */}
                                 </div>
                             </div>
                         </div>
@@ -250,19 +223,20 @@ const CarHire = ({ openLoginModal }) => {
                             <div className='g_col'>
                                 <label for='cartype'>Car Type</label>
                                 <div className='count check'>
-                                    <select>
+                                    <select onChange={handlePricingChange}>
                                         <option selected>Select</option>
                                         <option>5 Seater Car</option>
                                         <option>SUV</option>
                                         <option>Premium Van</option>
                                         <option>Mini Commercial Van or Truck</option>
                                     </select>
+                              
                                 </div>
                             </div>
                             <div className='g_col'>
                                 <label for='capacity'>Capacity</label>
                                 <div className='count check'>
-                                    <select>
+                                    <select onChange={handleCapacity}>
                                         <option selected>Select</option>
                                         <option>2-5 Passengers</option>
                                         <option>6 or more Passengers</option>
@@ -272,7 +246,7 @@ const CarHire = ({ openLoginModal }) => {
                             <div className='g_col'>
                                 <label for='wheeldrive'>Wheel Drive</label>
                                 <div className='count check'>
-                                    <select>
+                                    <select onChange={handleWheelType}>
                                         <option selected>Select</option>
                                         <option>All Wheel Drive</option>
                                         <option>2 Wheel Drive</option>

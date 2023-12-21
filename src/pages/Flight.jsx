@@ -133,7 +133,7 @@ const [infantcount,SetInfantCount]=useState(0);
             }
 
         }
-        if (wayval === "multiCity") {
+        if (wayval === "multiCity" || wayval =='roundTrip') {
             hotelval.bookingDetails.Returnvalue = Returnvalue;
           }
         openLoginModal(hotelval); // Call the function passed as a prop to open the login modal in the Home component
