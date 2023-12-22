@@ -71,6 +71,7 @@ const Login = () => {
             const { success, message,token } = response.data;
             if (success) {
               setCookie("token", token, { path: "/" });
+              setCookie('username', response.data.user.username   , { path: '/', secure: true });
         
               handleSuccess(message);
               setTimeout(() => {

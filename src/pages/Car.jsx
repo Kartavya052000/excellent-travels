@@ -204,8 +204,10 @@ const handleCapacity = (e) =>[
                                 </div>
                             </div>
                             <div className='g_col'>
-                                <label>Driver's Required</label>
+                                <label>Driver's Required
                                 <span>If you need a driver for the car</span>
+
+                                </label>
 
                                 <div className='count check'>
                                 <input type="radio" name="driverage" id="driverReq" value="driver required" onChange={handleChange} />

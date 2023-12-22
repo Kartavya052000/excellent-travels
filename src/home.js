@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Slider from "react-slick";
 import AOS from 'aos';
@@ -12,7 +12,7 @@ import client2 from './assets/images/client2.png';
 import client3 from './assets/images/client3.png';
 import quesIc from './assets/images/quesIc.jpg';
 import AccordionItem from "./components/ui/accordion";
-import { Form,Modal } from "rsuite";
+import { Form, Modal } from "rsuite";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -24,6 +24,10 @@ import Cruise from "./pages/cruise";
 import googleSvg from './assets/images/google.svg';
 import { useCookies } from 'react-cookie';
 import Swal from 'sweetalert2';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input } from "antd";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -34,6 +38,20 @@ const Home = () => {
     const [open, setOpen] = React.useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
     const token = cookies['token'];
+   
+
+    const [email, SetEmail] = useState("")
+    const [password, SetPassword] = useState("")
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const handleError = (err) =>
+    toast.error(err, {
+      position: "top-left",
+    });
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+    });
     const getUser = async () => {
         try {
             const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
@@ -109,7 +127,7 @@ const Home = () => {
         }
     ]
 
-    const [active, setActive] = useState(null);
+    const [active, setActive] = useState(0);
 
     const handleToggle = (index) => {
         if (active === index) {
@@ -118,8 +136,8 @@ const Home = () => {
             setActive(index);
         }
     }
-    const googleAuth = () =>{       
-        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`,"_self")
+    const googleAuth = () => {
+        window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`, "_self")
     }
     useEffect(() => {
         AOS.init({ once: true });
@@ -133,12 +151,12 @@ const Home = () => {
         restDelta: 0.001
     });
     const handleOpenModal = async (value) => {
-        if(!token){
+        if (!token) {
             setOpenModal(true);
-        }else{
+        } else {
             try {
                 const url = `${process.env.REACT_APP_BACKEND_URL}/booking`;
-                const { data } = await axios.post(url,value,{
+                const { data } = await axios.post(url, value, {
                     headers: {
                         'Authorization': ` ${token}`, // Correct the token format
                     },
@@ -151,6 +169,105 @@ const Home = () => {
             }
         }
     };
+
+    const tabRefs = {
+        hotels: useRef(null),
+        carHire: useRef(null),
+        flights: useRef(null),
+        cruise: useRef(null)
+    };
+
+    const tabsSectionRef = useRef(null);
+
+    const scrollToRef = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+    const handleServiceCardClick = (index) => {
+        scrollToRef(tabsSectionRef);
+        setActive(index);
+        setText(texts[index])
+        switch (index) {
+            case 0:
+                scrollToRef(tabRefs.hotels);
+                setActive(0)
+                break;
+            case 1:
+                scrollToRef(tabRefs.carHire);
+                setActive(1)
+
+                break;
+            case 2:
+                scrollToRef(tabRefs.flights);
+                setActive(2)
+
+                break;
+            case 3:
+                scrollToRef(tabRefs.cruise);
+                setActive(3)
+
+                break;
+            default:
+                break;
+        }
+    };
+    const handleTabSelection = (index) => {
+        setActive(index);
+        setText(texts[index])
+
+    };
+
+
+    const texts = ['a hotel with us', 'a car with us', 'Flight with us', 'a cruise with us'];
+    const [text, setText] = useState(texts[0])
+
+    const handleLogin = async () => {
+        if (email === "") {
+            setEmailError(true);
+        }
+        if (password === "") {
+            setPasswordError(true);
+        }
+      
+        if (email === "" || password === "" ) {
+            return;
+        }
+        let formData = {
+            email: email,
+            password: password,
+            provider:"local"
+        }
+        try {
+            // Make your API call here using Axios or any other library
+            const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/auth/login', formData);
+            // Handle response or perform actions after successful login
+            // console.log('SignUp successful!', response.data);
+            const { success, message,token } = response.data;
+            if (success) {
+              setCookie("token", token, { path: "/" });
+              setCookie('username', response.data.user.username   , { path: '/', secure: true });
+        
+              handleSuccess(message);
+              setTimeout(() => {
+                handleClose()
+                // navigate("/");
+              }, 1000);
+            } else {
+              handleError(message);
+            }
+
+        } catch (error) {
+            handleError(error.message);
+
+            // Handle error or display error message to the user
+            // console.error('Signup failed!', error);
+        }
+    };
+
     // useEffect(() => {
     //     const showSweetAlert = async () => {
     //       const { value } = await Swal.fire({
@@ -163,12 +280,12 @@ const Home = () => {
     //         },
     //         timer: 2500, // Adjust the timer as needed
     //       });
-    
+
     //       if (value) {
     //         // Handle any action after the alert is closed
     //       }
     //     };
-    
+
     //     showSweetAlert();
     //   }, []);
     return (
@@ -180,33 +297,35 @@ const Home = () => {
                 <div className='custom-container'>
                     <div className='hero_inner'>
                         <div className='hero_info'>
-                            <span data-aos='fade-up' data-aos-duration='1500'>Book With Us</span>
-                            <h2 data-aos='fade-up' data-aos-duration='1500'>Find  Next place to visit</h2>
+                            {/* <span   data-aos='fade-up' data-aos-duration='1500'>Book With Us</span> */}
+                            {/* <h2 data-aos='fade-up' data-aos-duration='1500'>Find  Next place to visit</h2> */}
+                            <h2 key={text} data-aos='fade-up' data-aos-duration='1500'>Book {text}</h2>
+
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className='tab_form_sec'>
+            <section className='tab_form_sec' ref={tabsSectionRef} id='tabsSection'>
                 <div className='tabs_inner'>
-                    <Tabs>
+                    <Tabs onSelect={handleTabSelection} selectedIndex={active}>
                         <TabList>
-                            <Tab><i className='fas fa-hotel'></i> Hotels</Tab>
-                            <Tab><i className='fa fa-car'></i> Car Hire</Tab>
-                            <Tab><i className='fa fa-plane'></i> Flights</Tab>
-                            <Tab><i className='fa fa-ship'></i> Cruise</Tab>
+                            <Tab>Hotels</Tab>
+                            <Tab>Car Hire</Tab>
+                            <Tab>Flights</Tab>
+                            <Tab>Cruise</Tab>
                         </TabList>
-                        <TabPanel>
+                        <TabPanel ref={tabRefs.hotels}>
                             <Hotel openLoginModal={handleOpenModal} />
                         </TabPanel>
-                        <TabPanel>
-                            <CarHire openLoginModal={handleOpenModal}/>
+                        <TabPanel ref={tabRefs.carHire}>
+                            <CarHire openLoginModal={handleOpenModal} />
                         </TabPanel>
-                        <TabPanel>
+                        <TabPanel ref={tabRefs.flights}>
                             <Flight openLoginModal={handleOpenModal} />
                         </TabPanel>
-                        <TabPanel>
-                            <Cruise openLoginModal={handleOpenModal} />
+                        <TabPanel ref={tabRefs.cruise}>
+                            <Cruise  openLoginModal={handleOpenModal}/>
                         </TabPanel>
                     </Tabs>
                 </div>
@@ -251,21 +370,21 @@ const Home = () => {
                                 – we're also your go-to for crafting unforgettable events.
                             </p>
                             <div className='serv_wrap'>
-                                <div className='serv_card'>
-                                    <i className='fa fa-plane'></i>
-                                    <span>Flight</span>
-                                </div>
-                                <div className='serv_card'>
-                                    <i className='fas fa-hotel'></i>
+                                <div className='serv_card' onClick={() => handleServiceCardClick(0)}>
+                                <i className='fas fa-hotel'></i>
                                     <span>Hotel</span>
                                 </div>
-                                <div className='serv_card'>
+                                <div className='serv_card' onClick={() => handleServiceCardClick(1)}>
                                     <i className='fas fa-car'></i>
                                     <span>Cars</span>
                                 </div>
-                                <div className='serv_card'>
+                                <div className='serv_card ' onClick={() => handleServiceCardClick(2)}>
+                                    <i className='fa fa-plane'></i>
+                                    <span>Flight</span>
+                                </div>
+                                <div className='serv_card' onClick={() => handleServiceCardClick(3)}>
                                     <i className='fa fa-calendar-xmark'></i>
-                                    <span>Events</span>
+                                    <span>Cruise</span>
                                 </div>
                             </div>
                         </div>
@@ -344,18 +463,51 @@ const Home = () => {
                         <Form>
                             {/* <h1>Login to Continue</h1> */}
                             <div className='formGrp'>
-                                <Form.Control name='email' placeholder='Email' />
+                            <Form.Control
+                                    name='email'
+                                    type="email"
+                                    placeholder='Email'
+                                    value={email}
+                                    onChange={(value) => {
+                                        SetEmail(value);
+                                        if (value == '') {
+                                            setEmailError(true)
+                                            return;
+                                        }
+                                        setEmailError(false);
+                                    }}
+                                    className={emailError ? 'error' : ''}
+                                />
+                                {emailError && <span className='errorTxt' style={{ color: "red" }}>Email is invalid</span>}
                             </div>
                             <div className='formGrp'>
-                                <Form.Control name='password' placeholder='Password' />
-                            </div>
+                            <Input.Password
+                                    name='password'
+                                    placeholder="Password"
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => {
+                                        console.log(e.target.value)
+                                        SetPassword(e.target.value);
+                                        if (e.target.value == '') {
+                                            setPasswordError(true)
+                                            return;
+                                        }
+                                        setPasswordError(false)
+                                    }}
+                                    className={passwordError ? 'error' : ''}
+                                    iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                />
+
+                                {passwordError && <span className='errorTxt' style={{ color: "red" }}>Password is invalid</span>}
+                                           </div>
                             <div className='formBtn'>
-                                <button type='submit' className='butn butn_success butn_block'>Login</button>
+                                <button type='submit' className='butn butn_success butn_block' onClick={handleLogin}>Login</button>
                             </div>
                         </Form>
                         <span>---- Or Sign In With ----</span>
                         <div className="social-container">
-                        <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button>
+                            <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button>
 
                             {/* <button type="button" className="social" onClick={googleAuth}><img src={googleSvg} /></button> */}
                         </div>

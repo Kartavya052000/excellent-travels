@@ -272,7 +272,7 @@ const Cruise = () =>{
                 </Dropdown>
             </div>
             <div className='formBtn'>
-                <button type='submit' className='butn butn_success' onClick={onSearch} >Search</button>
+                <button type='submit' className='butn butn_success' onClick={onSearch} >Submit</button>
             </div>
         </form>
     </div>
