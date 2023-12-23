@@ -333,6 +333,9 @@ ul.social_info li a:hover {
     padding: 10px 0;
 }
 
+.tabForm .fieldBord .fieldErr {
+  border-bottom: 1px solid rgba(255,0,0,0.6) !important;
+}
 
 
 

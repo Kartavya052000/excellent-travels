@@ -131,7 +131,7 @@ const handleCapacity = (e) =>[
     SetCap(e.target.value)
 ]
     return (
-        <div className='tabForm'>
+        <div className='tabForm carForm'>
             <form className='inline_Form'>
                 <div className='formGrp hoverCenter carPickup fieldBord'>
                     <label htmlFor='fromLoc'>Pick up city/airport/address</label>

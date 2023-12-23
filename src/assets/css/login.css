@@ -297,6 +297,17 @@ button.ghost {
 		height: 45px;
 		line-height: 45px;
 	}
+
+	.login_sec .PhoneInput {
+		border: 1px solid #eee !important;
+		padding: 0 5px;
+	}
+
+	.login_sec .PhoneInput input[type='tel'].PhoneInputInput {
+		border: none !important;
+		margin: 0;
+		width: 250px;
+	}
   
 
 
@@ -402,6 +413,10 @@ button.ghost {
 }
 
 @media (max-width: 575.98px) {
+
+	.login_sec span.ant-input-password input.ant-input::-webkit-input-placeholder {
+		font-size: 12px;
+	}
 
 	.lostPass_sec form {
 		margin: 1rem auto;

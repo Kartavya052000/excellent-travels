@@ -351,6 +351,10 @@
     width: 100% !important;
   }
 
+  .tabForm .departMonth .ant-space, .tabForm .departMonth .ant-space-item, .tabForm .departMonth .ant-select {
+    width: 240px !important;
+  }
+
   .tabForm .ant-select-selector {
     border-radius: 0;
   }
@@ -632,15 +636,25 @@
       width: 280px !important;
     }
 
+    .tabForm .formGrp.carDrop .MuiOutlinedInput-root, .tabForm .formGrp.carPickup .MuiOutlinedInput-root {
+      width: 240px !important;
+    }
+
     .tabForm .carPickDropTime .ant-picker {
       width: 330px !important;
+    }
+
+    .tabForm .departMonth .ant-space,
+    .tabForm .departMonth .ant-space-item,
+    .tabForm .departMonth .ant-select {
+      width: 100% !important;
     }
 
     .duration {
       border-right: 1px solid #e7e7e7;
     }
 
-    .carDrop, .guestRoom, .departure, .return, .cruiseline, .beverage {
+    .carPickDropTime, .guestRoom, .departure, .return, .cruiseline, .beverage {
       border: none;
     }
 
@@ -692,7 +706,11 @@
         width: 210px !important;
     }
 
-    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng) {
+    .tabForm .carPickDropTime .ant-picker {
+      width: 325px !important;
+    }
+
+    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng), .tabForm.carForm form.inline_Form .formGrp:not(.fieldChng) {
       width: 48% !important;
     }
 
@@ -702,11 +720,11 @@
       width: 98% !important;
     }
 
-    .departure, .return {
+    .departure, .return, .carPickDropTime {
       border-right: 1px solid #e7e7e7;
     }
 
-    .flightTo {
+    .flightTo, .carDrop, .driver {
       border: none;
     }
 
@@ -769,7 +787,8 @@
     }
 
     .tabForm form.inline_Form .formGrp:not(.fieldChng),
-    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng) {
+    .tabForm.flightForm form.inline_Form .formGrp:not(.fieldChng),
+    .tabForm.carForm form.inline_Form .formGrp:not(.fieldChng) {
       width: 100% !important;
     }
 

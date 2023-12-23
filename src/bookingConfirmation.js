@@ -7,8 +7,7 @@ const BookingConfirmation = () => {
     return(
         <>
         <InnerHeader value='Booking-Submission' />
-        
-        <section className='mysubmissions'>
+        <section className='mybookings'>
             <div className='custom-container'>
                 
 

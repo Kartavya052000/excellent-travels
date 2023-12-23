@@ -222,7 +222,7 @@ const Home = () => {
     };
 
 
-    const texts = ['a hotel with us', 'a car with us', 'Flight with us', 'a cruise with us'];
+    const texts = ['a hotel with us', 'a car with us', 'flight with us', 'a cruise with us'];
     const [text, setText] = useState(texts[0])
 
     const handleLogin = async () => {
@@ -310,10 +310,10 @@ const Home = () => {
                 <div className='tabs_inner'>
                     <Tabs onSelect={handleTabSelection} selectedIndex={active}>
                         <TabList>
-                            <Tab>Hotels</Tab>
-                            <Tab>Car Hire</Tab>
-                            <Tab>Flights</Tab>
-                            <Tab>Cruise</Tab>
+                            <Tab><i className='fa fa-hotel'></i> Hotels</Tab>
+                            <Tab><i className='fa fa-car'></i> Car Hire</Tab>
+                            <Tab><i className='fa fa-plane'></i> Flights</Tab>
+                            <Tab><i className='fa fa-ship'></i> Cruise</Tab>
                         </TabList>
                         <TabPanel ref={tabRefs.hotels}>
                             <Hotel openLoginModal={handleOpenModal} />

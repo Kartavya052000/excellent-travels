@@ -181,7 +181,6 @@ const Hotel = ({ openLoginModal }) => {
                         placeholder={hotelPickerPlaceholder}
                         onChange={handleDateChange} // Capture the selected date range
                         defaultValue={[checkinDate, checkOutDate]} // Set default values
-
                     />
                 </div>
                 <div className='formGrp hoverCenter fieldBord guestRoom'>

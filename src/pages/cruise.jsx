@@ -165,9 +165,6 @@ const handleShuttle =(value) =>{
                 <Space wrap>
                         <Select
                             value={departMonth}
-                            style={{
-                                width: 120,
-                            }}
                             onChange={handleDepartChange}
                             options={Months}
                             placeholder="Departure Month"
