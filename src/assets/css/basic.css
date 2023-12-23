@@ -336,6 +336,10 @@
     height: 100% !important;
   }
 
+  .rs-picker-select-menu {
+    z-index: 99 !important;
+  }
+
 
 /** Form CSS ends here **/
 

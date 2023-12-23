@@ -28,7 +28,8 @@
     justify-content: center;
     flex: 0 0 100%;
     padding: 0 15px;
-    margin: -200px 0 50px;
+    /* margin: -200px 0 50px; */
+    margin: 0 0 50px;
 }
 
 .form_Col {
@@ -95,7 +96,7 @@
 @media (max-width: 991.98px) {
     
     .card_col {
-        margin: -150px 0 25px;
+        /* margin: -150px 0 25px; */
     }
     
     .contact_card {
@@ -114,7 +115,7 @@
     }
 
     .card_col {
-        margin: -100px 0 25px;
+        /* margin: -100px 0 25px; */
     }
     
     .contact_card {

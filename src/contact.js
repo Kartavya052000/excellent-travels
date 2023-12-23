@@ -21,9 +21,9 @@ const Contact = () => {
                 transition={{ type: "spring", bounce: 0.25 }}
             />
 
-            <section className='map_sec'>
+            {/* <section className='map_sec'>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43071690.85219364!2d-135.785643961446!3d48.784040243040344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2sCanada!5e0!3m2!1sen!2sin!4v1701174135388!5m2!1sen!2sin" width="500" height="250" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-            </section>
+            </section> */}
             
             <section className='contact_sec'>
                 <div className='custom-container'>

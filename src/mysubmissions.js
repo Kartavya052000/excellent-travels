@@ -111,7 +111,7 @@ const MySubmissions = () => {
                                     </div>
                                     <div className="grouptext">
                                         <h3>PICKUP & DROP-OFF</h3>
-                                        <p>2023-12-20 & 2023-12-22</p>
+                                        <p>2023-12-20 08:15 AM & 2023-12-22 06:00 PM</p>
                                     </div>
                                 </div>
                                 <div className="productImage">
@@ -245,16 +245,20 @@ const MySubmissions = () => {
 
                                 <div className="productinfo">
                                     <div className="grouptext">
-                                        <h3>PICKUP</h3>
+                                        <h3>DESTINATION</h3>
                                         <p>VANCOUVER</p>
                                     </div>
                                     <div className="grouptext">
-                                        <h3>DROP-OFF</h3>
+                                        <h3>DEPARTURE</h3>
                                         <p>VANCOUVER</p>
                                     </div>
                                     <div className="grouptext">
-                                        <h3>PICKUP & DROP-OFF</h3>
-                                        <p>2023-12-20 & 2023-12-22</p>
+                                        <h3>CRUISE LINE</h3>
+                                        <p>CUNARD</p>
+                                    </div>
+                                    <div className="grouptext">
+                                        <h3>DURATION</h3>
+                                        <p>1 MONTH</p>
                                     </div>
                                 </div>
                                 <div className="productImage">
@@ -267,38 +271,38 @@ const MySubmissions = () => {
                                 <div className="productFeatures">
                                     <div className="feature">
                                         <div className="featureIcon">
-                                            <i className='fas fa-car'></i>
+                                            <i className='fas fa-ship'></i>
                                         </div>
                                         <div className="featureText">
-                                            <p><strong>Driver</strong></p>
-                                            <p>Yes, young under 30</p>
+                                            <p><strong>Shuttle Service or Taxi</strong></p>
+                                            <p>Yes</p>
                                         </div>
                                     </div>
                                     <div className="feature">
                                         <div className="featureIcon">
-                                            <i className='fa fa-car'></i>
+                                            <i className='fa fa-coffee'></i>
                                         </div>
                                         <div className="featureText">
-                                            <p><strong>Car Type</strong></p>
-                                            <p>XUV</p>
+                                            <p><strong>Beverages</strong></p>
+                                            <p>Coffee</p>
                                         </div>
                                     </div>
                                     <div className="feature">
                                         <div className="featureIcon">
-                                            <i className='fa fa-car'></i>
+                                            <i className='fa fa-wifi'></i>
                                         </div>
                                         <div className="featureText">
-                                            <p><strong>Capacity</strong></p>
-                                            <p>2 passengers</p>
+                                            <p><strong>Amenities</strong></p>
+                                            <p>Pool | WiFi</p>
                                         </div>
                                     </div>
                                     <div className="feature">
                                         <div className="featureIcon">
-                                            <i className='fa fa-car'></i>
+                                            <i className='fa fa-ship'></i>
                                         </div>
                                         <div className="featureText">
-                                            <p><strong>Wheel Drive</strong></p>
-                                            <p>All Wheel Drive</p>
+                                            <p><strong>Cabin</strong></p>
+                                            <p>Window | Midship</p>
                                         </div>
                                     </div>
                                 </div>

@@ -279,6 +279,24 @@ ul.breadcrumb li a {
     font-size: 14px;
 }
 
+ul.cont_info {
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px 0;
+  gap: 10px;
+}
+
+ul.cont_info li a, ul.cont_info li a i {
+  color: #fff;
+}
+
+ul.cont_info li a i {
+  margin-right: 20px;
+}
+
 ul.social_info {
     display: flex;
     display: -ms-flexbox;

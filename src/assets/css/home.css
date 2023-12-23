@@ -632,11 +632,15 @@
       width: 280px !important;
     }
 
+    .tabForm .carPickDropTime .ant-picker {
+      width: 330px !important;
+    }
+
     .duration {
       border-right: 1px solid #e7e7e7;
     }
 
-    .guestRoom, .carPickDropTime, .departure, .return, .cruiseline, .beverage {
+    .carDrop, .guestRoom, .departure, .return, .cruiseline, .beverage {
       border: none;
     }
 

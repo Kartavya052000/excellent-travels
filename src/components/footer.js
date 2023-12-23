@@ -14,6 +14,10 @@ const Footer = () => {
                     </a>
                 </div>
                 <p>Discover excellence with Xcellent Travels – your one-stop destination for seamless travel experiences. Elevate your journey with our expert services, including hassle-free flight and hotel bookings, luxurious cruise control.</p>
+                <ul className='cont_info'>
+                  <li><a href='tel:6046796293' title='6046796293'><i className='fa fa-phone'></i> 604 679 6293</a></li>
+                  <li><a href='mailto:xcellenttourstravels@gmail.com' title='xcellenttourstravels@gmail.com'><i className='fa fa-envelope'></i> xcellenttourstravels@gmail.com</a></li>
+                </ul>
                 <ul className='social_info'>
                     <li>
                         <a href='#'><i className='fa fa-twitter'></i></a>
