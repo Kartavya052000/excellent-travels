@@ -16,7 +16,7 @@ import { formatPhoneNumberIntl } from 'react-phone-number-input'
 
 
 const Login = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
     const token = cookies['token'];
     useEffect(() => {
@@ -44,13 +44,13 @@ const Login = () => {
         window.open(`${process.env.REACT_APP_BACKEND_URL}/auth/google/callback`, "_self")
     }
     const handleError = (err) =>
-    toast.error(err, {
-      position: "top-left",
-    });
-  const handleSuccess = (msg) =>
-    toast.success(msg, {
-      position: "top-right",
-    });
+        toast.error(err, {
+            position: "top-left",
+        });
+    const handleSuccess = (msg) =>
+        toast.success(msg, {
+            position: "top-right",
+        });
 
     const handleLogin = async () => {
         if (email === "") {
@@ -59,31 +59,31 @@ const Login = () => {
         if (password === "") {
             setPasswordError(true);
         }
-      
-        if (email === "" || password === "" ) {
+
+        if (email === "" || password === "") {
             return;
         }
         let formData = {
             email: email,
             password: password,
-            provider:"local"
+            provider: "local"
         }
         try {
             // Make your API call here using Axios or any other library
             const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/auth/login', formData);
             // Handle response or perform actions after successful login
             // console.log('SignUp successful!', response.data);
-            const { success, message,token } = response.data;
+            const { success, message, token } = response.data;
             if (success) {
-              setCookie("token", token, { path: "/" });
-              setCookie('username', response.data.user.username   , { path: '/', secure: true });
-        
-              handleSuccess(message);
-              setTimeout(() => {
-                navigate("/");
-              }, 1000);
+                setCookie("token", token, { path: "/" });
+                setCookie('username', response.data.user.username, { path: '/', secure: true });
+
+                handleSuccess(message);
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
             } else {
-              handleError(message);
+                handleError(message);
             }
 
         } catch (error) {
@@ -111,7 +111,7 @@ const Login = () => {
             username: username,
             email: email,
             password: password,
-            provider:"local"
+            provider: "local"
 
         }
         try {
@@ -120,18 +120,18 @@ const Login = () => {
             // Handle response or perform actions after successful login
             // console.log('Login successful!', response.data);
             setCookie('token', response.data.token, { path: '/', secure: true });
-            setCookie('username', response.data.user.username   , { path: '/', secure: true });
+            setCookie('username', response.data.user.username, { path: '/', secure: true });
 
-            const { success, message,token } = response.data;
+            const { success, message, token } = response.data;
             if (success) {
-              setCookie("token", token, { path: "/" });
-        
-              handleSuccess(message);
-              setTimeout(() => {
-                navigate("/");
-              }, 1000);
+                setCookie("token", token, { path: "/" });
+
+                handleSuccess(message);
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
             } else {
-              handleError(message);
+                handleError(message);
             }
         } catch (error) {
             // Handle error or display error message to the user
@@ -164,7 +164,7 @@ const Login = () => {
                                     className={usernameError ? 'error' : ''}
 
                                 />
-                                {usernameError && <span className='errorTxt' style={{ color: "red" }}>Username is invalid</span>}                            
+                                {usernameError && <span className='errorTxt' style={{ color: "red" }}>Username is invalid</span>}
 
                             </div>
                             <div className='formGrp'>
@@ -184,12 +184,12 @@ const Login = () => {
                                     className={emailError ? 'error' : ''}
                                 />
                                 {emailError && <span className='errorTxt' style={{ color: "red" }}>Email is invalid</span>}                            </div>
-                          <div className="formGrp">
-                          <PhoneInput
-      placeholder="Enter phone number"
-      value={phonevalue}
-      onChange={setPhoneValue}/>
-                          </div>
+                            <div className="formGrp">
+                                <PhoneInput
+                                    placeholder="Enter phone number"
+                                    value={phonevalue}
+                                    onChange={setPhoneValue} />
+                            </div>
                             <div className='formGrp'>
                                 <Input.Password
                                     name='password'
