@@ -13,10 +13,14 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 const { RangePicker } = DatePicker;
 
-const Cruise = () =>{
+const Cruise = ({openLoginModal}) =>{
     const navigate = useNavigate();
 
-    const cruiseLine = ['Azamara', 'Carnival Cruise Line', 'Celebrity Cruises', 'Cunard', 'Disney Cruise Line'].map(
+    // const cruiseLine = ['Azamara', 'Carnival Cruise Line', 'Celebrity Cruises', 'Cunard', 'Disney Cruise Line'].map(
+    //     item => ({ label: item, value: item })
+    // );
+    const Months = ["January","February","March","April","May","June","July",
+    "August","September","October","November","December"].map(
         item => ({ label: item, value: item })
     );
     const shuttle = ['Yes', 'No'].map(
@@ -26,6 +30,10 @@ const Cruise = () =>{
     const [options, setOptions] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
+    const[departMonth,setDepartMonth]=useState("")
+    const[cruiseLine,setCruiseLine]=useState("")
+    const[duration,setDuration]=useState("")
+    const[shuttleval,setShuttleVal]=useState("")
     const [facdropdownOpen, setFacDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [amendownOpen, setAmenDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [cabindropdownOpen, setCabinDropdownOpen] = useState(false); // State to manage dropdown visibility
@@ -40,6 +48,9 @@ const Cruise = () =>{
         soda:false,
         cocktail:false
     });
+    const [amenities,setAmenities]=useState({
+        wifi:false
+    })
     const [CabinType, setCabinType] = useState({
         windows: false,
         nonWindows: false,
@@ -56,6 +67,13 @@ const Cruise = () =>{
             [name]: checked,
         }));
     };
+    const handleamenCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        setAmenities((prevAmenities) => ({
+            ...prevAmenities,
+            [name]: checked,
+        }));
+    };
     const handleCabinCheckboxChange = (event) => {
         const { name, checked } = event.target;
         setCabinType((prevAmenities) => ({
@@ -66,8 +84,26 @@ const Cruise = () =>{
     const fetchData = async (search) => {
         debouncedSearch(search)
     };
-    const onSearch = () => {
-        navigate('/booking-confirmation`')
+    const onSubmit = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+        let cruiseval = {
+            type: "cruise",
+            bookingDetails: {
+
+                Destination: inputValue,
+                DepartureMonth: departMonth,
+                CruiseLine: cruiseLine,
+                Duration: duration,
+                ShuttleService: shuttleval,
+                BevPackage: Bevragepackage,
+                amenities: amenities,
+                cabinType: CabinType
+            }
+
+        }
+        openLoginModal(cruiseval); // Call the function passed as a prop to open the login modal in the Home component
+        return;
     }
     const debouncedSearch = _debounce(async (value) => {
         // alert("2")
@@ -90,6 +126,18 @@ const Cruise = () =>{
 
         }
     }, 500); 
+const handleDepartChange = (value) =>{
+    setDepartMonth(value)
+}
+const handleCruiseChange =(value) =>{
+    setCruiseLine(value)
+}
+const handleDurChange =(value) =>{
+    setDuration(value)
+}
+const handleShuttle =(value) =>{
+    setShuttleVal(value)
+}
 
     return(
         <div className='tabForm cruiseForm'>
@@ -111,23 +159,38 @@ const Cruise = () =>{
 
             </div>
             <div className='formGrp hoverCenter departMonth fieldBord'>
-                <label htmlFor='departure'>Departure</label>
-                <Input id='departure' placeholder='Departure Month' />
+                <label htmlFor='departure'>Departure Month</label>
+                {/* <Input id='departure' placeholder='Departure Month' /> */}
+                {/* <SelectPicker id='departure' data={Months} appearance='subtle' placeholder="Departure Month" /> */}
+                <Space wrap>
+                        <Select
+                            value={departMonth}
+                            style={{
+                                width: 120,
+                            }}
+                            onChange={handleDepartChange}
+                            options={Months}
+                            placeholder="Departure Month"
+                        />
+                    </Space>
             </div>
             <div className='formGrp hoverCenter cruiseline fieldBord'>
                 <label htmlFor='cruiseLine'>Cruise Line</label>
-                <SelectPicker id='cruiseLine' data={cruiseLine} appearance='subtle' />
+                <Input id='cruiseLine' placeholder='Cruise Line' value={cruiseLine} onChange={handleCruiseChange} />
+
+                {/* <SelectPicker id='cruiseLine' data={cruiseLine} appearance='subtle' /> */}
             </div>
             <div className='formGrp hoverCenter duration fieldBord'>
-                <label htmlFor='duration'>Duration</label>
-                <Input id='duration' placeholder='Duration' />
+                <label htmlFor='duration'>Duration (in days)</label>
+                <Input id='duration' placeholder='Duration' value={duration} onChange={handleDurChange} />
             </div>
             <div className='formGrp hoverCenter shuttle fieldBord'>
                 <label htmlFor='cruiseLine'>Shuttle Service or Taxi</label>
                 <Select
                     placeholder="Shuttle Service or Taxi"
-                    // value={shuttle}
+                    value={shuttleval}
                     options={shuttle}
+                    onChange={handleShuttle}
                 />
             </div>
             <div className='formGrp hoverCenter beverage fieldBord'>
@@ -142,7 +205,7 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>Tea</label>
                             <div className='count check'>
-                                <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
@@ -154,43 +217,43 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>bottledWater</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="bottledWater" checked={Bevragepackage.bottledWater} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>nonalcoholicBottle</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="nonalcoholicBottle" checked={Bevragepackage.nonalcoholicBottle} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>juices</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="juices" checked={Bevragepackage.juices} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>beer</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="beer" checked={Bevragepackage.beer} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>wines</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="wines" checked={Bevragepackage.wines} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>soda</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="soda" checked={Bevragepackage.soda} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>cocktail</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wifi" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="cocktail" checked={Bevragepackage.cocktail} onChange={handleCheckboxChange} />
                             </div>
                         </div>
                     </div>
@@ -212,7 +275,7 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>Wifi</label>
                             <div className='count check'>
-                                <input type="checkbox" name="Tea" checked={Bevragepackage.tea} onChange={handleCheckboxChange} />
+                                <input type="checkbox" name="wifi" checked={amenities.wifi} onChange={handleamenCheckboxChange} />
                             </div>
                         </div>
                         
@@ -232,13 +295,13 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>Windows</label>
                             <div className='count check'>
-                                <input type="checkbox" name="Windows" checked={cabindropdownOpen.windows} onChange={handleCabinCheckboxChange} />
+                                <input type="checkbox" name="windows" checked={cabindropdownOpen.windows} onChange={handleCabinCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
                             <label>Non Window</label>
                             <div className='count check'>
-                                <input type="checkbox" name="nonWindow" checked={cabindropdownOpen.nonWindows} onChange={handleCabinCheckboxChange} />
+                                <input type="checkbox" name="nonWindows" checked={cabindropdownOpen.nonWindows} onChange={handleCabinCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
@@ -250,7 +313,7 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>Family Rooms</label>
                             <div className='count check'>
-                                <input type="checkbox" name="familyroom" checked={cabindropdownOpen.familyRooms} onChange={handleCabinCheckboxChange} />
+                                <input type="checkbox" name="familyRooms" checked={cabindropdownOpen.familyRooms} onChange={handleCabinCheckboxChange} />
                             </div>
                         </div>
                         <div className='g_col'>
@@ -262,7 +325,7 @@ const Cruise = () =>{
                         <div className='g_col'>
                             <label>Scenic View Cabins</label>
                             <div className='count check'>
-                                <input type="checkbox" name="wiscenicViewCabinsfi" checked={cabindropdownOpen.scenicViewCabins} onChange={handleCabinCheckboxChange} />
+                                <input type="checkbox" name="scenicViewCabins" checked={cabindropdownOpen.scenicViewCabins} onChange={handleCabinCheckboxChange} />
                             </div>
                         </div>
                         
@@ -272,7 +335,7 @@ const Cruise = () =>{
                 </Dropdown>
             </div>
             <div className='formBtn'>
-                <button type='submit' className='butn butn_success' onClick={onSearch} >Submit</button>
+                <button type='submit' className='butn butn_success' onClick={onSubmit} >Submit</button>
             </div>
         </form>
     </div>
