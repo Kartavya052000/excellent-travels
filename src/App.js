@@ -29,7 +29,7 @@ const App = () => {
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/forgot-password' element={<ForgotPass />} />
-          <Route exact path='/reset-password' element={<ResetPass />} />
+          <Route exact path='/reset-password/:token' element={<ResetPass />} />
           <Route exact path='/booking-confirmation' element={<BookingConfirmation />} />
           
         </Routes>
