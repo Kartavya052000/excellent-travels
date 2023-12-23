@@ -10,6 +10,10 @@ import { Input } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import { formatPhoneNumberIntl } from 'react-phone-number-input'
+
 
 const Login = () => {
     const navigate=useNavigate()
@@ -20,6 +24,7 @@ const Login = () => {
     }, []);
     const [isLogSignup, setLogSignup] = useState(false);
     const [email, SetEmail] = useState("")
+    const [phonevalue, setPhoneValue] = useState("")
     const [username, SetUsername] = useState("")
     const [password, SetPassword] = useState("")
     const [emailError, setEmailError] = useState(false);
@@ -89,6 +94,7 @@ const Login = () => {
         }
     };
     const handleSignin = async () => {
+        console.log(formatPhoneNumberIntl(phonevalue))
         if (email === "") {
             setEmailError(true);
         }
@@ -178,6 +184,12 @@ const Login = () => {
                                     className={emailError ? 'error' : ''}
                                 />
                                 {emailError && <span className='errorTxt' style={{ color: "red" }}>Email is invalid</span>}                            </div>
+                          <div className="formGrp">
+                          <PhoneInput
+      placeholder="Enter phone number"
+      value={phonevalue}
+      onChange={setPhoneValue}/>
+                          </div>
                             <div className='formGrp'>
                                 <Input.Password
                                     name='password'
