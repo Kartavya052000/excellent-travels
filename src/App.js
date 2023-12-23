@@ -13,6 +13,7 @@ import MySubmissions from "./mysubmissions";
 import BookingConfirmation from "./bookingConfirmation";
 import ForgotPass from "./pages/forgot-pass";
 import ResetPass from "./pages/reset-pass";
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -28,12 +29,14 @@ const App = () => {
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/forgot-password' element={<ForgotPass />} />
-          <Route exact path='/reset-password' element={<ResetPass />} />
+          <Route exact path='/reset-password/:token' element={<ResetPass />} />
           <Route exact path='/booking-confirmation' element={<BookingConfirmation />} />
           
         </Routes>
         <Footer />
       </Router>
+      <ToastContainer />
+
     </div>
   );
 }

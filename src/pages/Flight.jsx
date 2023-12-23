@@ -133,7 +133,7 @@ const [infantcount,SetInfantCount]=useState(0);
             }
 
         }
-        if (wayval === "multiCity") {
+        if (wayval === "multiCity" || wayval =='roundTrip') {
             hotelval.bookingDetails.Returnvalue = Returnvalue;
           }
         openLoginModal(hotelval); // Call the function passed as a prop to open the login modal in the Home component
@@ -152,7 +152,7 @@ const [infantcount,SetInfantCount]=useState(0);
 
                 <FormControlLabel value="oneWay" control={<Radio />} label="One Way" />
                 <FormControlLabel value="roundTrip" control={<Radio />} label="Round Trip" />
-                <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" />
+                {/* <FormControlLabel value="multiCity" control={<Radio />} label="Multi-city" /> */}
             </RadioGroup>
             {Array.from({ length: cityCount }).map((_, index) => (
             <form className='inline_Form'>

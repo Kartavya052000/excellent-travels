@@ -47,6 +47,8 @@ const Header = () => {
             if (response.status === 200) {
                 // Clear the token from cookies and any other cleanup
                 removeCookie('token');
+                removeCookie('username');
+
                 // Redirect or perform any other action after successful logout
                 // For example, you can redirect the user to the home page
                 navigate("/")
