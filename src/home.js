@@ -310,22 +310,22 @@ const Home = () => {
                 <div className='tabs_inner'>
                     <Tabs onSelect={handleTabSelection} selectedIndex={active}>
                         <TabList>
-                            <Tab><i className='fa fa-hotel'></i> Hotels</Tab>
-                            <Tab><i className='fa fa-car'></i> Car Hire</Tab>
                             <Tab><i className='fa fa-plane'></i> Flights</Tab>
                             <Tab><i className='fa fa-ship'></i> Cruise</Tab>
+                            <Tab><i className='fa fa-hotel'></i> Hotels</Tab>
+                            <Tab><i className='fa fa-car'></i> Car Hire</Tab>
                         </TabList>
-                        <TabPanel ref={tabRefs.hotels}>
-                            <Hotel openLoginModal={handleOpenModal} />
-                        </TabPanel>
-                        <TabPanel ref={tabRefs.carHire}>
-                            <CarHire openLoginModal={handleOpenModal} />
-                        </TabPanel>
                         <TabPanel ref={tabRefs.flights}>
                             <Flight openLoginModal={handleOpenModal} />
                         </TabPanel>
                         <TabPanel ref={tabRefs.cruise}>
                             <Cruise  openLoginModal={handleOpenModal}/>
+                        </TabPanel>
+                        <TabPanel ref={tabRefs.hotels}>
+                            <Hotel openLoginModal={handleOpenModal} />
+                        </TabPanel>
+                        <TabPanel ref={tabRefs.carHire}>
+                            <CarHire openLoginModal={handleOpenModal} />
                         </TabPanel>
                     </Tabs>
                 </div>

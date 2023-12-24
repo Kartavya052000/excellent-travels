@@ -313,8 +313,7 @@ const MySubmissions = () => {
 
                         </TabPanel>
                         <TabPanel>
-                        {booking?.length > 0 ? (
-                                booking.map((booking, index) => (
+                       
                             <div className="wrapper cruise">
                                 <div className="overviewInfo">
                                     <div className="actions">
@@ -387,10 +386,7 @@ const MySubmissions = () => {
                                     </div>
                                 </div>
                             </div>
-                                ))
-                               ) : (
-                                   <p>No Car bookings </p>
-                               )}
+                            
                         </TabPanel>
                     </Tabs>
 
