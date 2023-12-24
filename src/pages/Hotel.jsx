@@ -39,7 +39,7 @@ const Hotel = ({ openLoginModal }) => {
     const hotelPickerPlaceholder = ['Check In ', 'Check out'];
     const [selectedDate, setSelectedDate] = useState([]); // State to store selected date range
 
-    const dropdownTitle = `${roomcount} Room | ${adultcount} Adult | ${childcount} Child`;
+    const dropdownTitle = `${roomcount}, ${adultcount}, ${childcount}`;
 
     const pricing = [
         { label: 'CA0 - CA300', value: 'CA0 - CA300' },

@@ -167,6 +167,10 @@
     width: 230px;
   }
 
+  .hoteldateRange .ant-picker-range-separator {
+    padding-left: 0;
+  }
+
   .carPickup .MuiOutlinedInput-root, .carDrop .MuiOutlinedInput-root {
     width: 190px;
   }
@@ -554,6 +558,23 @@
     width: 300px; /* Adjust as needed */
     padding: 20px;
   }
+
+  .rs-modal-body .ant-input-password {
+    height: 40px;
+    line-height: normal;
+    border: none;
+    border-bottom: 1px solid #cecece;
+    border-radius: 0;
+  }
+
+  .rs-modal-body .ant-input-password input {
+    height: 100%;
+  }
+
+  .rs-modal-body .ant-input-password input::-webkit-input-placeholder {
+    color: #888;
+    font-size: 13px;
+  }
   
 
 
@@ -568,7 +589,9 @@
   /** Responsive CSS starts here **/
 
   @media (max-width: 1399.98px) {
-    
+    .tab_form_sec {
+      padding: 0 1rem;
+    }
   }
 
   @media (max-width: 1235px) {
