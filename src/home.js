@@ -23,11 +23,12 @@ import Flight from "./pages/Flight";
 import Cruise from "./pages/cruise";
 import googleSvg from './assets/images/google.svg';
 import { useCookies } from 'react-cookie';
-import Swal from 'sweetalert2';
+import logo from './assets/images/logowhite.png';
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from "antd";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -514,6 +515,8 @@ const Home = () => {
                     </div>
                 </Modal.Body>
             </Modal>
+
+            <FloatingWhatsApp phoneNumber="1234567890" accountName="Excellent Travels" avatar={logo} />
         </>
     )
 }

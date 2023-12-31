@@ -332,6 +332,10 @@
     min-width: auto !important;
   }
 
+  .ml_auto {
+    margin-left: auto !important;
+  }
+
   .h-100 {
     height: 100% !important;
   }

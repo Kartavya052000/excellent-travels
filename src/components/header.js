@@ -77,6 +77,7 @@ const Header = () => {
                     <div className='custom-container'>
                         <div className='innerHeaderWrap'>
                             <span>Welcome to xcellent tour & travel</span>
+                            <span className='ml_auto'>GST #/HST # 707118741RT0001</span>
                         </div>
                     </div>
                 </div>

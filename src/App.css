@@ -411,6 +411,12 @@ ul.social_info li a:hover {
   font-size: 20px; /* Adjust the font size of the letter */
 }
 
+.licence img {
+  width: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
 
 
 
@@ -554,4 +560,15 @@ ul.social_info li a:hover {
       margin: 0 auto 15px;
   }
 
+}
+
+@media (max-width: 475.98px) {
+  .innerHeaderWrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .innerHeaderWrap span {
+    margin: 0 !important;
+  }
 }

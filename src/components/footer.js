@@ -1,5 +1,6 @@
 import React from 'react';
 import logoWhite from '../assets/images/logowhite.png';
+import licence from '../assets/images/licence.png';
 
 const Footer = () => {
 
@@ -29,6 +30,9 @@ const Footer = () => {
                         <a href='#'><i className='fa fa-instagram'></i></a>
                     </li>
                 </ul>
+                <div className='licence'>
+                  <img src={licence} />
+                </div>
             </div>
         </div>
       </section>
