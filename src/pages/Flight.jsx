@@ -168,7 +168,11 @@ const [infantcount,SetInfantCount]=useState(0);
                             fetchData(newInputValue)
                         }}
                         renderInput={(params) => (
-                            <TextField {...params} variant="outlined" fullWidth />
+                            <TextField {...params} 
+                            variant="outlined" 
+                            fullWidth 
+                            style={{ fontWeight: 800 }}
+                            />
                         )}
                     />
 

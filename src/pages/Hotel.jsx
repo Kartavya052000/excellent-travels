@@ -157,6 +157,7 @@ const Hotel = ({ openLoginModal }) => {
                     <label htmlFor='destination'>Destination</label>
                     <Autocomplete
                         options={options}
+                        className="fieldErr"
                         defaultValue={"Vancouver"} // Set the default value here
                         freeSolo
                         getOptionLabel={(option) => option}

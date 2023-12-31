@@ -178,7 +178,10 @@
   .flightFrom .MuiOutlinedInput-root, .flightTo .MuiOutlinedInput-root {
     min-width: 280px;
   }
-
+/* .flightFrom .MuiInputBase-input{
+  font-weight: 800;
+  font-size:1.5rem
+} */
   .flightFrom.active .MuiOutlinedInput-root, .flightTo.active .MuiOutlinedInput-root {
     min-width: 240px;
   }
