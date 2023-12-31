@@ -38,9 +38,12 @@ const Hotel = ({ openLoginModal }) => {
 
     const hotelPickerPlaceholder = ['Check In ', 'Check out'];
     const [selectedDate, setSelectedDate] = useState([]); // State to store selected date range
-
-    const dropdownTitle = `${roomcount}, ${adultcount}, ${childcount}`;
-
+    const [desterror, setDestError] = useState(false)
+    
+    // const dropdownTitle = `${roomcount}, ${adultcount}, ${childcount}`;
+    let dropdownTitle = `${roomcount} Room`;
+    dropdownTitle += adultcount > 0 ? ` ${adultcount} Adult` : '';
+    dropdownTitle += childcount > 0 ? ` ${childcount} Children` : '';
     const pricing = [
         { label: 'CA0 - CA300', value: 'CA0 - CA300' },
         { label: 'CA300 - CA600', value: 'CA300 - CA600' },
@@ -67,9 +70,9 @@ const Hotel = ({ openLoginModal }) => {
     const decrement = (e, val) => {
         e.preventDefault()
 
-        if (val === "room" && roomcount > 0) {
+        if (val === "room" && roomcount > 1) {
             setRoomCount(roomcount - 1);
-        } else if (val === "adult" && adultcount > 0) {
+        } else if (val === "adult" && adultcount > 1) {
             setAdultCount(adultcount - 1);
         } else if (val === "child" && childcount > 0) {
             setChildCount(childcount - 1);
@@ -125,7 +128,10 @@ const Hotel = ({ openLoginModal }) => {
     };
     const onSubmit = async (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
-
+        if (inputValue == "") {
+            setDestError(true);
+            return
+        }
 
         let hotelval = {
             type: "hotel",
@@ -157,17 +163,24 @@ const Hotel = ({ openLoginModal }) => {
                     <label htmlFor='destination'>Destination</label>
                     <Autocomplete
                         options={options}
-                        className="fieldErr"
+                        // className="fieldErr"
                         defaultValue={"Vancouver"} // Set the default value here
                         freeSolo
                         getOptionLabel={(option) => option}
                         onInputChange={(event, newInputValue) => {
                             setInputValue(newInputValue);
                             fetchData(newInputValue)
+                            if(inputValue !=""){
+                                setDestError(false)
+                            }
                         }}
                         renderInput={(params) => (
                             // <TextField {...params} variant="outlined" fullWidth />
-                            <TextField {...params} fullWidth />
+                            <TextField 
+                            {...params} 
+                            fullWidth
+                            className={desterror ?'fieldErr':''}
+                            />
                         )}
                     />
 

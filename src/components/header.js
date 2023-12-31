@@ -143,15 +143,19 @@ const Header = () => {
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/about"><span data-hover="About">About</span></Link>
                                         </li>
-                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                        {/* <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/founderprofile"><span data-hover="Founder Profile">Founder Profile</span></Link>
-                                        </li>
-                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
-                                            <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
-                                        </li>
-                                        <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
-                                            <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
-                                        </li>
+                                        </li> */}
+                                        {token && (
+                                            <>
+                                                <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                                    <Link to="/myprofile"><span data-hover="My Profile">My Profile</span></Link>
+                                                </li>
+                                                <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
+                                                    <Link to="/mysubmissions"><span data-hover="My Submissions">My Submissions</span></Link>
+                                                </li>
+                                            </>
+                                        )}
                                         <li className='menu_item linkEffect' onClick={() => setOpen(false)}>
                                             <Link to="/contact"><span data-hover="Contact">Contact</span></Link>
                                         </li>

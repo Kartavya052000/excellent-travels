@@ -38,8 +38,6 @@ const Home = () => {
     const [open, setOpen] = React.useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
     const token = cookies['token'];
-   
-
     const [email, SetEmail] = useState("")
     const [password, SetPassword] = useState("")
     const [emailError, setEmailError] = useState(false);
@@ -52,19 +50,19 @@ const Home = () => {
     toast.success(msg, {
       position: "top-right",
     });
-    const getUser = async () => {
-        try {
-            const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
-            const { data } = await axios.get(url, { withCredentials: true });
-            console.log(data, "RES")
-            // setUser(data.user._json);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    // const getUser = async () => {
+    //     try {
+    //         const url = `${process.env.REACT_APP_BACKEND_URL}/auth/login/success`;
+    //         const { data } = await axios.get(url, { withCredentials: true });
+    //         console.log(data, "RES")
+    //         // setUser(data.user._json);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     useEffect(() => {
-        getUser();
+        // getUser();
     }, []);
     var sliderSetts = {
         dots: false,
@@ -316,7 +314,7 @@ const Home = () => {
                             <Tab><i className='fa fa-car'></i> Car Hire</Tab>
                         </TabList>
                         <TabPanel ref={tabRefs.flights}>
-                            <Flight openLoginModal={handleOpenModal} />
+                            <Flight openLoginModal={handleOpenModal} tojk />
                         </TabPanel>
                         <TabPanel ref={tabRefs.cruise}>
                             <Cruise  openLoginModal={handleOpenModal}/>

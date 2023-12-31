@@ -6,7 +6,9 @@ import { useCookies } from 'react-cookie';
 import axios from "axios";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import { formatPhoneNumberIntl } from 'react-phone-number-input'
 const MyProfile = () => {
 
     const [cookies] = useCookies(['token']);
@@ -109,6 +111,24 @@ const MyProfile = () => {
                                 onChange={handleEmailChange}
                             />
                         </div>
+                        {/* <div className="formGrp">
+                        <PhoneInput
+                                    placeholder="Enter phone number"
+                                    // value={phonevalue}
+                                    // onChange={setPhoneValue}
+                                    // onChange={(value) => {
+                                    //     setPhoneValue(value);
+                                    //     if (value == '') {
+                                    //         setPhoneError(true)
+                                    //         return;
+                                    //     }
+                                    //     setPhoneError(false);
+                                    // }}
+                                    // defaultCountry={countryCode} // Set the country code dynamically here
+                                    // className={phoneerror ? 'error' : ''}
+
+                                />
+                        </div> */}
                         <div className='formBtn'>
                             <button type='submit' className='butn butn_success'>Update</button>
                         </div>

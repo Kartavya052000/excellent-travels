@@ -25,10 +25,13 @@ const Login = () => {
     const [isLogSignup, setLogSignup] = useState(false);
     const [email, SetEmail] = useState("")
     const [phonevalue, setPhoneValue] = useState("")
+    const [countryCode, setCountryCode] = useState('CA'); // Set default country code here
+
     const [username, SetUsername] = useState("")
     const [password, SetPassword] = useState("")
     const [emailError, setEmailError] = useState(false);
     const [usernameError, setUserNameError] = useState(false);
+    const [phoneerror, setPhoneError] = useState(false)
     const [passwordError, setPasswordError] = useState(false);
     const logSignupClick = event => {
         setLogSignup(current => !current);
@@ -104,13 +107,17 @@ const Login = () => {
         if (username == "") {
             setUserNameError(true)
         }
-        if (email === "" || password === "" || username === "") {
+        if (phonevalue == "") {
+            setPhoneError(true)
+        }
+        if (email === "" || password === "" || username === "" || phonevalue =="") {
             return;
         }
         let formData = {
             username: username,
             email: email,
             password: password,
+            phoneNumber: formatPhoneNumberIntl(phonevalue),
             provider: "local"
 
         }
@@ -118,7 +125,6 @@ const Login = () => {
             // Make your API call here using Axios or any other library
             const response = await axios.post(process.env.REACT_APP_BACKEND_URL + '/auth/signup', formData);
             // Handle response or perform actions after successful login
-            // console.log('Login successful!', response.data);
             setCookie('token', response.data.token, { path: '/', secure: true });
             setCookie('username', response.data.user.username, { path: '/', secure: true });
 
@@ -188,7 +194,21 @@ const Login = () => {
                                 <PhoneInput
                                     placeholder="Enter phone number"
                                     value={phonevalue}
-                                    onChange={setPhoneValue} />
+                                    // onChange={setPhoneValue}
+                                    onChange={(value) => {
+                                        setPhoneValue(value);
+                                        if (value == '') {
+                                            setPhoneError(true)
+                                            return;
+                                        }
+                                        setPhoneError(false);
+                                    }}
+                                    defaultCountry={countryCode} // Set the country code dynamically here
+                                    className={phoneerror ? 'error' : ''}
+
+                                />
+                                {phoneerror && <span className='errorTxt' style={{ color: "red" }}>Phone Number is Required</span>}                           
+
                             </div>
                             <div className='formGrp'>
                                 <Input.Password

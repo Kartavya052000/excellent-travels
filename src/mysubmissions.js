@@ -28,7 +28,7 @@ const MySubmissions = () => {
 
     const BookingsApi = async (index) => {
 
-        const tabNames = ['hotel', 'car', 'flight', 'Cruise'];
+        const tabNames = ['hotel', 'car', 'flight', 'cruise'];
 
         const response = await axios.get(process.env.REACT_APP_BACKEND_URL + '/user-bookings/' + tabNames[index], {
             headers: {
@@ -39,7 +39,7 @@ const MySubmissions = () => {
 
         try {
             console.log(response.data.bookings
-                )
+            )
             setBooking(response.data.bookings)
         }
         catch (error) {
@@ -54,16 +54,16 @@ const MySubmissions = () => {
     const formatDateRange = (startDateString, endDateString) => {
         const startDate = new Date(startDateString);
         const endDate = new Date(endDateString);
-    
+
         const formattedStartDate = `${startDate.toLocaleDateString()} ${startDate.toLocaleTimeString([], { timeStyle: 'short' })}`;
         const formattedEndDate = `${endDate.toLocaleDateString()} ${endDate.toLocaleTimeString([], { timeStyle: 'short' })}`;
-    
+
         return `${formattedStartDate} - ${formattedEndDate}`;
     };
-    
+
     // Inside your component's JSX
     <p>{formatDateRange(booking.bookingDetails?.PickupDateAndTIme, booking.bookingDetails?.DropOffDateAndTime)}</p>
-    
+
     return (
         <>
             <InnerHeader value='Submissions' />
@@ -155,86 +155,86 @@ const MySubmissions = () => {
 
                         </TabPanel>
                         <TabPanel>
-                        {booking?.length > 0 ? (
+                            {booking?.length > 0 ? (
                                 booking.map((booking, index) => (
-                            <div className="wrapper car">
-                                <div className="overviewInfo">
-                                    <div className="actions">
-                                        <div className="backbutton">
-                                            {/* empty */}
-                                        </div>
-                                        <div className="cartbutton neurobutton">
-                                            <i className='fa fa-heart'></i>
-                                        </div>
-                                    </div>
+                                    <div className="wrapper car">
+                                        <div className="overviewInfo">
+                                            <div className="actions">
+                                                <div className="backbutton">
+                                                    {/* empty */}
+                                                </div>
+                                                <div className="cartbutton neurobutton">
+                                                    <i className='fa fa-heart'></i>
+                                                </div>
+                                            </div>
 
-                                    <div className="productinfo">
-                                        <div className="grouptext">
-                                            <h3>PICKUP</h3>
-                                            <p>{booking.bookingDetails?.pickuplocation}</p>
-                                        </div>
-                                        <div className="grouptext">
-                                            <h3>DROP-OFF</h3>
-                                            <p>{booking.bookingDetails?.dropOffLocation}</p>
-                                        </div>
-                                        <div className="grouptext">
-                                            <h3>PICKUP & DROP-OFF</h3>
-                                            
-                                            <p>{formatDateRange(booking.bookingDetails?.PickupDateAndTIme, booking.bookingDetails?.DropOffDateAndTime)}</p>
-                                        </div>
-                                    </div>
-                                    <div className="productImage">
-                                        {/* <img src={waiter} alt="" /> */}
-                                        <span></span>
-                                        <img src={car} alt="" />
-                                    </div>
-                                </div>
-                                <div className="productSpecifications">
-                                    <div className="productFeatures">
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fas fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Driver</strong></p>
-                                                <p>{booking.bookingDetails?.DriversAge}</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Car Type</strong></p>
-                                                <p>{booking.bookingDetails?.carType}</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Capacity</strong></p>
-                                                <p>{booking.bookingDetails?.Capacity}</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Wheel Drive</strong></p>
-                                                <p>{booking.bookingDetails?.WheelDrive}</p>
+                                            <div className="productinfo">
+                                                <div className="grouptext">
+                                                    <h3>PICKUP</h3>
+                                                    <p>{booking.bookingDetails?.pickuplocation}</p>
+                                                </div>
+                                                <div className="grouptext">
+                                                    <h3>DROP-OFF</h3>
+                                                    <p>{booking.bookingDetails?.dropOffLocation}</p>
+                                                </div>
+                                                <div className="grouptext">
+                                                    <h3>PICKUP & DROP-OFF</h3>
 
+                                                    <p>{formatDateRange(booking.bookingDetails?.PickupDateAndTIme, booking.bookingDetails?.DropOffDateAndTime)}</p>
+                                                </div>
+                                            </div>
+                                            <div className="productImage">
+                                                {/* <img src={waiter} alt="" /> */}
+                                                <span></span>
+                                                <img src={car} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className="productSpecifications">
+                                            <div className="productFeatures">
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fas fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Driver</strong></p>
+                                                        <p>{booking.bookingDetails?.DriversAge}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Car Type</strong></p>
+                                                        <p>{booking.bookingDetails?.carType}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Capacity</strong></p>
+                                                        <p>{booking.bookingDetails?.Capacity}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Wheel Drive</strong></p>
+                                                        <p>{booking.bookingDetails?.WheelDrive}</p>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                                 ))
-                                 ) : (
-                                     <p>No Car bookings </p>
-                                 )}
+                                ))
+                            ) : (
+                                <p>No Car bookings </p>
+                            )}
                         </TabPanel>
                         <TabPanel>
                             {booking?.length > 0 ? (
@@ -313,80 +313,110 @@ const MySubmissions = () => {
 
                         </TabPanel>
                         <TabPanel>
-                       
-                            <div className="wrapper cruise">
-                                <div className="overviewInfo">
-                                    <div className="actions">
-                                        <div className="backbutton">
-                                            {/* empty */}
-                                        </div>
-                                        <div className="cartbutton neurobutton">
-                                            <i className='fa fa-heart'></i>
-                                        </div>
-                                    </div>
+                            {booking?.length > 0 ? (
+                                booking.map((booking, index) => (
+                                    <div className="wrapper cruise">
+                                        <div className="overviewInfo">
+                                            <div className="actions">
+                                                <div className="backbutton">
+                                                    {/* empty */}
+                                                </div>
+                                                <div className="cartbutton neurobutton">
+                                                    <i className='fa fa-heart'></i>
+                                                </div>
+                                            </div>
 
-                                    <div className="productinfo">
-                                        <div className="grouptext">
-                                            <h3>DESTINATION</h3>
-                                            <p>VANCOUVER</p>
+                                            <div className="productinfo">
+                                                <div className="grouptext">
+                                                    <h3>DESTINATION</h3>
+                                                    <p>{booking?.bookingDetails?.Destination}</p>
+                                                </div>
+                                                <div className="grouptext">
+                                                    <h3>DEPARTURE MONTH</h3>
+                                                    <p>{booking?.bookingDetails?.DepartureMonth}</p>
+                                                </div>
+                                                <div className="grouptext">
+                                                    <h3>NUMBER OF DAYS</h3>
+                                                    <p>{booking?.bookingDetails?.Duration}</p>
+                                                </div>
+                                            </div>
+                                            <div className="productImage">
+                                                {/* <img src={waiter} alt="" /> */}
+                                                <span></span>
+                                                <img src={cruise} alt="" />
+                                            </div>
                                         </div>
-                                        <div className="grouptext">
-                                            <h3>DROP-OFF</h3>
-                                            <p>VANCOUVER</p>
-                                        </div>
-                                        <div className="grouptext">
-                                            <h3>PICKUP & DROP-OFF</h3>
-                                            <p>2023-12-20 & 2023-12-22</p>
+                                        <div className="productSpecifications">
+                                            <div className="productFeatures">
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fas fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Cruise Line</strong></p>
+                                                        <p>{booking?.bookingDetails?.CruiseLine}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Shuttle Service</strong></p>
+                                                        <p>{booking?.bookingDetails?.ShuttleService}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Amenities</strong></p>
+                                                        <p>{booking.bookingDetails?.amenities?.wifi ? "Wi-Fi" : "No Amenities"}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Cabin Type</strong></p>
+                                                        <p>
+                                                            {booking.bookingDetails?.cabinType?.balcony ? "Balcony " : null}
+                                                            {booking.bookingDetails?.cabinType?.familyRooms ? "Family Rooms " : null}
+                                                            {booking.bookingDetails?.cabinType?.midShipCabin ? "Mid-Ship " : null}
+                                                            {booking.bookingDetails?.cabinType?.nonWindows ? "Non-Window " : null}
+                                                            {booking.bookingDetails?.cabinType?.windows ? "Window " : null}
+                                                            {booking.bookingDetails?.cabinType?.scenicViewCabins ? "Scenic View " : null}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="feature">
+                                                    <div className="featureIcon">
+                                                        <i className='fa fa-car'></i>
+                                                    </div>
+                                                    <div className="featureText">
+                                                        <p><strong>Beverage Package</strong></p>
+                                                        <p>
+                                                        {booking.bookingDetails?.BevPackage?.beer ? "Beer " : null}
+                                                        {booking.bookingDetails?.BevPackage?.bottledWater ? "Bottle Water " : null}
+                                                        {booking.bookingDetails?.BevPackage?.cocktail ? "CockTail " : null}
+                                                        {booking.bookingDetails?.BevPackage?.coffee ? "Coffee " : null}
+                                                        {booking.bookingDetails?.BevPackage?.juices ? "Juices" : null}
+                                                            {booking.bookingDetails?.BevPackage?.nonalcoholicBottle ? "Non-Alcoholic " : null}
+                                                            {booking.bookingDetails?.BevPackage?.soda ? "Soda " : null}
+                                                            {booking.bookingDetails?.BevPackage?.tea ? "Tea" : null}
+                                                            {booking.bookingDetails?.BevPackage?.wines ? "Wine" : null}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="productImage">
-                                        {/* <img src={waiter} alt="" /> */}
-                                        <span></span>
-                                        <img src={cruise} alt="" />
-                                    </div>
-                                </div>
-                                <div className="productSpecifications">
-                                    <div className="productFeatures">
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fas fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Driver</strong></p>
-                                                <p>Yes, young under 30</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Car Type</strong></p>
-                                                <p>XUV</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Capacity</strong></p>
-                                                <p>2 passengers</p>
-                                            </div>
-                                        </div>
-                                        <div className="feature">
-                                            <div className="featureIcon">
-                                                <i className='fa fa-car'></i>
-                                            </div>
-                                            <div className="featureText">
-                                                <p><strong>Wheel Drive</strong></p>
-                                                <p>All Wheel Drive</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                                ))
+                            ) : (
+                                <p>No Cruise bookings </p>
+                            )}
                         </TabPanel>
                     </Tabs>
 
