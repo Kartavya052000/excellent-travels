@@ -24,6 +24,7 @@ const CarHire = ({ openLoginModal }) => {
     const [checkinDate, setCheckinDate] = useState(today.add(1, 'day'))
     const [checkOutDate, setCheckOutDate] = useState(checkinDate.add(2, 'day'))
     const [selectedDate, setSelectedDate] = useState([]); // State to store selected date range
+    
     const [cartype, SetcarType] = useState("")
     const [capacity, SetCap] = useState("")
     const [driverreq, SetDriverReq] = useState("")
