@@ -221,7 +221,7 @@ const Home = () => {
     };
 
 
-    const texts = ['a hotel with us', 'a car with us', 'flight with us', 'a cruise with us'];
+    const texts = ['flight with us','a cruise with us','a hotel with us','a car with us'];
     const [text, setText] = useState(texts[0])
 
     const handleLogin = async () => {
@@ -267,7 +267,7 @@ const Home = () => {
         }
     };
 
-    // useEffect(() => {
+  
     //     const showSweetAlert = async () => {
     //       const { value } = await Swal.fire({
     //         title: 'Success!',
@@ -437,7 +437,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='faq_sec'>
+            {/* <section className='faq_sec'>
                 <div className='custom-container'>
                     <div className='sec_ttl textCenter'>
                         <h6><span></span> FAQ <span></span></h6>
@@ -452,7 +452,7 @@ const Home = () => {
                         }
                     </div>
                 </div>
-            </section>
+            </section> */}
             <Modal size='xs' className='loginModal' backdrop="static" keyboard={false} overflow={overflow} open={openModal} onClose={handleClose}>
                 <Modal.Header>
                     <Modal.Title>Please login to continue</Modal.Title>
@@ -514,7 +514,7 @@ const Home = () => {
                 </Modal.Body>
             </Modal>
 
-            <FloatingWhatsApp phoneNumber="1234567890" accountName="Excellent Travels" avatar={logo} />
+            <FloatingWhatsApp phoneNumber="16046796293" accountName="Excellent Travels" avatar={logo} />
         </>
     )
 }

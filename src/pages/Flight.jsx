@@ -16,8 +16,8 @@ const Flight = ({ openLoginModal }) => {
     const [options, setOptions] = useState([]);
     const [wayval, Setwayval] = useState("oneWay")
     const [loading, setLoading] = useState(false);
-    const [fromvalue, setFromValue] = useState('');
-    const [tovalue, setTomValue] = useState('');
+    const [fromvalue, setFromValue] = useState('Vancouver');
+    const [tovalue, setTomValue] = useState('Seattle');
     const [Departvalue, setDepartValue] = useState('');
     const [Returnvalue, setReturnalue] = useState('');
     const [cityCount, setCityCount] = useState(1); // State to manage the count of cities for Multi-city
@@ -180,6 +180,11 @@ const Flight = ({ openLoginModal }) => {
         return;
         // alert("stop")
     }
+    const swapAutocompleteValues = () => {
+        const temp = fromvalue;
+        setFromValue(tovalue);
+        setTomValue(temp);
+    };
     return (
         <div className='tabForm flightForm'>
             <RadioGroup
@@ -199,8 +204,7 @@ const Flight = ({ openLoginModal }) => {
                         <label htmlFor='from'>From</label>
                         <Autocomplete
                             options={options}
-                            defaultValue={"Vancouver"} // Set the default value here
-
+                             value={fromvalue}
                             getOptionLabel={(option) => option}
                             onInputChange={(event, newInputValue) => {
                                 setFromValue(newInputValue);
@@ -223,15 +227,19 @@ const Flight = ({ openLoginModal }) => {
 
                     </div>
                     <div className='formGrp fieldChng'>
-                        <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
+                        <button 
+                        type='button' 
+                        className='interchnge'
+                        onClick={swapAutocompleteValues} // Call function to swap values
+
+                        ><i className='fa fa-arrow-right-arrow-left'></i></button>
                     </div>
                     <div className={(showReturn == true) ? 'formGrp hoverCenter flightTo fieldBord active' : 'formGrp hoverCenter flightTo fieldBord'}>
                         <label htmlFor='destination'>To</label>
                         <Autocomplete
                             options={options}
-                            defaultValue={"Vancouver"} // Set the default value here
+                            value={tovalue}
                             className={flightErrors.to ? 'fieldErr' : ''}
-
                             getOptionLabel={(option) => option}
                             onInputChange={(event, newInputValue) => {
                                 setTomValue(newInputValue);

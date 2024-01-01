@@ -34,7 +34,7 @@ const Cruise = ({ openLoginModal }) => {
     const [departMonth, setDepartMonth] = useState("")
     const [cruiseLine, setCruiseLine] = useState("")
     const [duration, setDuration] = useState("")
-    const [shuttleval, setShuttleVal] = useState("")
+    const [shuttleval, setShuttleVal] = useState("Yes")
     const [facdropdownOpen, setFacDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [amendownOpen, setAmenDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [cabindropdownOpen, setCabinDropdownOpen] = useState(false); // State to manage dropdown visibility

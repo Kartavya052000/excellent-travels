@@ -16,8 +16,8 @@ const CarHire = ({ openLoginModal }) => {
 
     const [drivedropdownOpen, setdrivDropdownOpen] = useState(false); // State to manage dropdown visibility
     const [options, setOptions] = useState([]);
-    const [pickValue, setPickValue] = useState('');
-    const [dropValue, setDropValue] = useState('');
+    const [pickValue, setPickValue] = useState('Vancouver');
+    const [dropValue, setDropValue] = useState('Seattle');
     const [loading, setLoading] = useState(false);
     const [drivervalue, SetDriverValue] = useState("")
     const pickupPickerPlaceholder = ['Pick Up', 'Drop Off'];
@@ -127,9 +127,15 @@ const handlePricingChange =(e) =>{
     SetcarType(e.target.value)
 }
 
-const handleCapacity = (e) =>[
+const handleCapacity = (e) =>{
     SetCap(e.target.value)
-]
+}
+const interchangeValues = () => {
+    // Swap the values between pickValue and dropValue
+    const temp = pickValue;
+    setPickValue(dropValue);
+    setDropValue(temp);
+};
     return (
         <div className='tabForm carForm'>
             <form className='inline_Form'>
@@ -137,7 +143,7 @@ const handleCapacity = (e) =>[
                     <label htmlFor='fromLoc'>Pick up city/airport/address</label>
                     <Autocomplete
                         options={options}
-                        defaultValue={"Vancouver"} // Set the default value here
+                        value={pickValue}
                         freeSolo
                         getOptionLabel={(option) => option}
                         onInputChange={(event, newInputValue) => {
@@ -151,13 +157,17 @@ const handleCapacity = (e) =>[
 
                 </div>
                 <div className='formGrp fieldChng'>
-                    <button type='button' className='interchnge'><i className='fa fa-arrow-right-arrow-left'></i></button>
+                    <button
+                     type='button' 
+                    className='interchnge'
+                    onClick={interchangeValues}
+                    ><i className='fa fa-arrow-right-arrow-left'></i></button>
                 </div>
                 <div className='formGrp hoverCenter carDrop fieldBord'>
                     <label htmlFor='fromLoc'>Drop Off city/airport/address</label>
                     <Autocomplete
                         options={options}
-                        defaultValue={"Vancouver"}
+                        value={dropValue}
                         freeSolo
                         getOptionLabel={(option) => option}
                         onInputChange={(event, newInputValue) => {
