@@ -14,6 +14,7 @@ const About = () => {
     return (
         <>
             <InnerHeader value='About' />
+            
             <section className='aboutus_sec' data-aos='fade-up' data-aos-duration='1200'>
                 <div className='custom-container'>
                     <div className='custom_row'>
