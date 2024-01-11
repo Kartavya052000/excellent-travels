@@ -76,7 +76,7 @@ const Header = () => {
                 <div className='innerHeader'>
                     <div className='custom-container'>
                         <div className='innerHeaderWrap'>
-                            <span>Welcome to xcellent tour & travel</span>
+                            <span>Welcome to xcellent Tours & Travels</span>
                             <span className='ml_auto'>GST #/HST # 707118741RT0001</span>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ const Header = () => {
                                     </div>
                                 </a>
                             </li>
-                            <li className='login' onClick={handleRoute} >
+                            <li className={token ? 'login logged' : 'login'} onClick={handleRoute}>
                                 <Link title='Login/Signup'>
                                     {token ? (
                                         <>
