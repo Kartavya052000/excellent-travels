@@ -117,9 +117,9 @@ const Contact = () => {
                                     <i className='fa fa-fax'></i>
                                     <span>604 591 7778</span>
                                 </a>
-                                <a href='mailto:xcellenttourstravels@gmail.com'>
+                                <a href='mailto:info@xcellenttoursandtravels.com'>
                                     <i className='fa fa-envelope'></i>
-                                    <span>xcellenttourstravels@gmail.com</span>
+                                    <span>info@xcellenttoursandtravels.com</span>
                                 </a>
                             </div>
                         </div>
